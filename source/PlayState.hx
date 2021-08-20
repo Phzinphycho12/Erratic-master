@@ -809,7 +809,7 @@ class PlayState extends MusicBeatState
 			erraticRageBar.createFilledBar(FlxColor.BLACK, FlxColor.RED);
 			add(erraticRageBar);
 
-			var ragePercent = new FlxText(erraticRageBG.x + (erraticRageBG.width / 2) - (SONG.song.length * 5), erraticRageBG.y, 0, " ", 16);
+			var ragePercent = new FlxText(erraticRageBG.x + (erraticRageBG.width / 2) - (SONG.song.length * 5), erraticRageBG.y + 10, 0, "R A G E", 50);
 			ragePercent.angle = -90;
 			ragePercent.setFormat(Paths.font("vcr.ttf"), 16, 0xFFDC143C, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			ragePercent.scrollFactor.set();
@@ -3672,11 +3672,20 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'vencit')
 			switch (curStep)
 			{
+				case 567:
+					FlxG.camera.flash(FlxColor.RED, 0.5);
+				case 1088:
+					FlxG.camera.flash(FlxColor.RED, 0.5);
+				case 1344:
+					FlxG.camera.flash(FlxColor.RED, 0.5);
+				case 2240:
+					FlxG.camera.flash(FlxColor.RED, 0.5);
 				case 2825:
 					remove(dad);
 					dad = new Character(0, 350, 'erraticspeaks');
 					add(dad);
 				case 2880:
+					FlxG.camera.flash(FlxColor.RED, 0.5);
 					remove(dad);
 					dad = new Character(0, 350, 'erraticpissed');
 					add(dad);
@@ -3710,7 +3719,26 @@ class PlayState extends MusicBeatState
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
 		}
-
+		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 144 && curBeat <= 272 && healthBar.percent > 2)
+		{
+			health -= 0.01;
+		}
+		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 272 && curBeat <= 336 && healthBar.percent > 2)
+		{
+			health -= 0.02;
+		}
+		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 336 && curBeat <= 560 && healthBar.percent > 2)
+		{
+			health -= 0.03;
+		}
+		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 560 && curBeat <= 720 && healthBar.percent > 2)
+		{
+			health -= 0.04;
+		}
+		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 720 && curBeat <= 984 && healthBar.percent > 2)
+		{
+			health -= 0.05;
+		}
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
