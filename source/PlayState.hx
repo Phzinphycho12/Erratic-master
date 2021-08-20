@@ -92,6 +92,8 @@ class PlayState extends MusicBeatState
 
 	public static var songPosBG:FlxSprite;
 	public static var songPosBar:FlxBar;
+	public static var erraticRageBG:FlxSprite;
+	public static var erraticRageBar:FlxBar;
 
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
@@ -159,6 +161,7 @@ class PlayState extends MusicBeatState
 	private var healthBarBG:FlxSprite;
 	private var healthBar:FlxBar;
 	private var songPositionBar:Float = 0;
+	private var theRageBar:Float = 0;
 
 	private var generatedMusic:Bool = false;
 	private var startingSong:Bool = false;
@@ -183,6 +186,7 @@ class PlayState extends MusicBeatState
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:FlxSprite;
 	var songName:FlxText;
+	var ragePercent:FlxText;
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
@@ -790,6 +794,28 @@ class PlayState extends MusicBeatState
 			add(songName);
 			songName.cameras = [camHUD];
 		}
+		if (SONG.song.toLowerCase() == 'vencit')
+		{
+			erraticRageBG = new FlxSprite(-275, 10).loadGraphic(Paths.image('healthBar'));
+			erraticRageBG.angle = -90;
+			erraticRageBG.screenCenter(Y);
+			erraticRageBG.scrollFactor.set();
+			add(erraticRageBG);
+
+			erraticRageBar = new FlxBar(erraticRageBG.x + 4, erraticRageBG.y + 4, LEFT_TO_RIGHT, Std.int(erraticRageBG.width - 8),
+				Std.int(erraticRageBG.height - 8), this, 'theRageBar', 0, 90000);
+			erraticRageBar.angle = -90;
+			erraticRageBar.scrollFactor.set();
+			erraticRageBar.createFilledBar(FlxColor.BLACK, FlxColor.RED);
+			add(erraticRageBar);
+
+			var ragePercent = new FlxText(erraticRageBG.x + (erraticRageBG.width / 2) - (SONG.song.length * 5), erraticRageBG.y, 0, " ", 16);
+			ragePercent.angle = -90;
+			ragePercent.setFormat(Paths.font("vcr.ttf"), 16, 0xFFDC143C, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			ragePercent.scrollFactor.set();
+			add(ragePercent);
+			ragePercent.cameras = [camHUD];
+		}
 
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar'));
 		if (PlayStateChangeables.useDownscroll)
@@ -867,6 +893,8 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		erraticRageBG.cameras = [camHUD];
+		erraticRageBar.cameras = [camHUD];
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1224,7 +1252,35 @@ class PlayState extends MusicBeatState
 			songPosBar.cameras = [camHUD];
 			songName.cameras = [camHUD];
 		}
+		if (SONG.song.toLowerCase() == 'vencit')
+		{
+			erraticRageBG = new FlxSprite(-275, 10).loadGraphic(Paths.image('healthBar'));
+			erraticRageBG.angle = -90;
+			erraticRageBG.screenCenter(Y);
+			erraticRageBG.scrollFactor.set();
+			add(erraticRageBG);
 
+			erraticRageBar = new FlxBar(erraticRageBG.x
+				+ 4, erraticRageBG.y
+				+ 4, LEFT_TO_RIGHT, Std.int(erraticRageBG.width - 8),
+				Std.int(erraticRageBG.height - 8), this, 'theRageBar', 0, songLength
+				- 1000);
+			erraticRageBar.angle = -90;
+			erraticRageBar.numDivisions = 1000;
+			erraticRageBar.scrollFactor.set();
+			erraticRageBar.createFilledBar(FlxColor.BLACK, FlxColor.RED);
+			add(erraticRageBar);
+
+			var ragePercent = new FlxText(erraticRageBG.x + (erraticRageBG.width / 2) - (SONG.song.length * 5), erraticRageBG.y + 10, 0, "R A G E", 50);
+			ragePercent.angle = -90;
+			ragePercent.setFormat(Paths.font("vcr.ttf"), 16, 0xFFDC143C, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			ragePercent.scrollFactor.set();
+			add(ragePercent);
+
+			erraticRageBG.cameras = [camHUD];
+			erraticRageBar.cameras = [camHUD];
+			ragePercent.cameras = [camHUD];
+		}
 		// Song check real quick
 		switch (curSong)
 		{
@@ -1851,9 +1907,9 @@ class PlayState extends MusicBeatState
 
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
-
-		if (health > 2)
-			health = 2;
+		if (SONG.song.toLowerCase() == "vencit")
+			if (health > 2)
+				health = 2;
 		if (healthBar.percent < 20)
 			iconP1.animation.curAnim.curFrame = 1;
 		else
@@ -1922,6 +1978,7 @@ class PlayState extends MusicBeatState
 					FlxG.sound.music._channel.
 			}*/
 			songPositionBar = Conductor.songPosition;
+			theRageBar = Conductor.songPosition;
 
 			if (!paused)
 			{
