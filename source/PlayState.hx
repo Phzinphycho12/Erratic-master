@@ -374,23 +374,6 @@ class PlayState extends MusicBeatState
 		// dialogue shit
 		switch (songLowercase)
 		{
-			case 'tutorial':
-				dialogue = ["Hey you're pretty cute.", 'Use the arrow keys to keep up \nwith me singing.'];
-			case 'bopeebo':
-				dialogue = [
-					'HEY!',
-					"You think you can just sing\nwith my daughter like that?",
-					"If you want to date her...",
-					"You're going to have to go \nthrough ME first!"
-				];
-			case 'fresh':
-				dialogue = ["Not too shabby boy.", ""];
-			case 'dadbattle':
-				dialogue = [
-					"gah you think you're hot stuff?",
-					"If you can beat me here...",
-					"Only then I will even CONSIDER letting you\ndate my daughter!"
-				];
 			case 'encounter':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('encounter/dialog'));
 			case 'kermis':
@@ -410,26 +393,6 @@ class PlayState extends MusicBeatState
 					stageCheck = 'halloween';
 				case 3:
 					stageCheck = 'circus';
-				case 4:
-					stageCheck = 'limo';
-				case 5:
-					if (songLowercase == 'winter-horrorland')
-					{
-						stageCheck = 'mallEvil';
-					}
-					else
-					{
-						stageCheck = 'mall';
-					}
-				case 6:
-					if (songLowercase == 'thorns')
-					{
-						stageCheck = 'schoolEvil';
-					}
-					else
-					{
-						stageCheck = 'school';
-					}
 					// i should check if its stage (but this is when none is found in chart anyway)
 			}
 		}
@@ -484,14 +447,14 @@ class PlayState extends MusicBeatState
 				case 'erratichell':
 					{
 						defaultCamZoom = 0.9;
-						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
+						curStage = 'erratichell';
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hell/hellscene', 'erratic'));
 						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
 						add(bg);
 
-						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('hell/rockystage', 'erratic'));
 						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 						stageFront.updateHitbox();
 						stageFront.antialiasing = true;
@@ -548,6 +511,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
+			case 'vencitgf':
+				curGf = 'vencitgf';
 			default:
 				curGf = 'gf';
 		}
@@ -610,7 +575,7 @@ class PlayState extends MusicBeatState
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
 
-		if (dad.curCharacter == 'erratic' || dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
+		if (dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
 		{
 			dad.setGraphicSize(Std.int(dad.width * 1.1));
 		}
@@ -3794,10 +3759,6 @@ class PlayState extends MusicBeatState
 					if (FlxG.random.bool(10) && fastCarCanDrive)
 						fastCarDrive();
 				}
-		}
-		if (SONG.song.toLowerCase() == 'vencit')
-		{
-			gf.visible = false;
 		}
 		if (isHalloween && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
 		{

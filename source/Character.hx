@@ -62,6 +62,13 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
+			case 'vencitgf':
+				tex = Paths.getSparrowAtlas('characters/gfvencit');
+				frames = tex;
+				animation.addByPrefix('idle', 'gf idle dance', 24, false);
+				addOffset('idle');
+
+				playAnim('idle');
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST', 'shared');
@@ -124,6 +131,23 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 			case 'erratic':
+				tex = Paths.getSparrowAtlas('characters/erratic');
+				frames = tex;
+				animation.addByPrefix('idle', "erratic idle", 24);
+				animation.addByPrefix('singUP', 'erratic up', 24, false);
+				animation.addByPrefix('singDOWN', 'erratic down bad', 24, false);
+				animation.addByPrefix('singLEFT', 'erratic left', 24, false);
+				animation.addByPrefix('singRIGHT', 'erratic right', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 1, 7);
+				addOffset("singRIGHT", -8, 3);
+				addOffset("singLEFT", -7, 1);
+				addOffset("singDOWN", 10, 0);
+
+				playAnim('idle');
+
+			case 'erraticmad':
 				tex = Paths.getSparrowAtlas('characters/Pico_FNF_assetss');
 				frames = tex;
 				animation.addByPrefix('idle', "Pico Idle Dance", 24);
@@ -139,8 +163,6 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 200, -70);
 
 				playAnim('idle');
-
-				flipX = true;
 
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');

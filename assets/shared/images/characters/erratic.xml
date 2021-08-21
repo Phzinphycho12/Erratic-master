@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="erratic.png"><SubTexture name="erratic idle0000" x="0" y="0" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic idle0001" x="752" y="0" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic idle0002" x="1504" y="0" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic idle0003" x="2256" y="0" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic idle0004" x="0" y="554" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic idle0005" x="752" y="554" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic idle0006" x="1504" y="554" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic idle0007" x="2256" y="554" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic right0000" x="0" y="1108" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic right0001" x="752" y="1108" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic right0002" x="1504" y="1108" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic right0003" x="2256" y="1108" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic right0004" x="0" y="1662" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic left0000" x="752" y="1662" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic left0001" x="1504" y="1662" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic left0002" x="2256" y="1662" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic left0003" x="0" y="2216" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic left0004" x="752" y="2216" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic up0000" x="1504" y="2216" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic up0001" x="2256" y="2216" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic up0002" x="0" y="2770" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic up0003" x="752" y="2770" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic up0004" x="1504" y="2770" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic down bad0000" x="2256" y="2770" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic down bad0001" x="0" y="3324" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic down bad0002" x="752" y="3324" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic down bad0003" x="1504" y="3324" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+<SubTexture name="erratic down bad0004" x="2256" y="3324" width="752" height="554" frameX="0" frameY="0" frameWidth="752" frameHeight="554" />
+</TextureAtlas>
