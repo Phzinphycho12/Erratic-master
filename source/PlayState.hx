@@ -519,7 +519,8 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() == 'vencit')
 		{
-			gf = new Character(5555, 6666, curGf);
+			gf = new Character(175, -200, curGf);
+			gf.setGraphicSize(Std.int(gf.width * 0.3));
 			gf.scrollFactor.set(0.95, 0.95);
 		}
 		else
