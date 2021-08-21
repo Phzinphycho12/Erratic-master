@@ -83,7 +83,6 @@ class Character extends FlxSprite
 			case 'erraticpissed':
 				tex = Paths.getSparrowAtlas('characters/ErraticVencit');
 				frames = tex;
-
 				animation.addByPrefix('idle', "ErraticVencit Idle", 24, false);
 				animation.addByPrefix('singUP', "ErraticVencit Up", 24, false);
 				animation.addByPrefix('singDOWN', "ErraticVencit Down", 24, false);

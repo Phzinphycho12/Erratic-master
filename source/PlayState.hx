@@ -459,21 +459,15 @@ class PlayState extends MusicBeatState
 
 						isHalloween = true;
 					}
-				case 'philly':
+				case 'circus':
 					{
-						curStage = 'philly';
+						curStage = 'circus';
 
-						var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('philly/sky', 'week3'));
+						var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('circus/background', 'erratic'));
 						bg.scrollFactor.set(0.1, 0.1);
 						add(bg);
 
-						var city:FlxSprite = new FlxSprite(-10).loadGraphic(Paths.image('philly/city', 'week3'));
-						city.scrollFactor.set(0.3, 0.3);
-						city.setGraphicSize(Std.int(city.width * 0.85));
-						city.updateHitbox();
-						add(city);
-
-						var street:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('philly/street', 'week3'));
+						var street:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/background', 'erratic'));
 						add(street);
 					}
 				case 'stage':
@@ -630,7 +624,7 @@ class PlayState extends MusicBeatState
 				dad.y += 300;
 			case 'erraticpissed':
 				dad.width += 50;
-				dad.y += 250;
+				dad.y += 200;
 				dad.x -= 100;
 			case 'parents-christmas':
 				dad.x -= 500;
@@ -649,6 +643,11 @@ class PlayState extends MusicBeatState
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
+
+		if (dad.curCharacter == 'erratic' || dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
+		{
+			dad.setGraphicSize(Std.int(dad.width * 1.1));
+		}
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
