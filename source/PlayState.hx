@@ -552,7 +552,9 @@ class PlayState extends MusicBeatState
 				camPos.x += 400;
 			case 'erratic':
 				camPos.x += 600;
-				dad.y += 300;
+				dad.y += 200;
+			case 'erraticmad':
+				dad.y += 200;
 			case 'erraticpissed':
 				dad.width += 50;
 				dad.y += 200;

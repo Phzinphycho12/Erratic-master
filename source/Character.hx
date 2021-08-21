@@ -148,19 +148,19 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 			case 'erraticmad':
-				tex = Paths.getSparrowAtlas('characters/Pico_FNF_assetss');
+				tex = Paths.getSparrowAtlas('characters/CQ erratic');
 				frames = tex;
-				animation.addByPrefix('idle', "Pico Idle Dance", 24);
-				animation.addByPrefix('singUP', 'pico Up note0', 24, false);
-				animation.addByPrefix('singDOWN', 'Pico Down Note0', 24, false);
-				animation.addByPrefix('singLEFT', 'Pico NOTE LEFT0', 24, false);
-				animation.addByPrefix('singRIGHT', 'Pico Note Right0', 24, false);
+				animation.addByPrefix('idle', "CQ erratic idle zaddy", 24);
+				animation.addByPrefix('singUP', 'CQ erratic up brightfyre', 24, false);
+				animation.addByPrefix('singDOWN', 'CQ erratic down in the deep', 24, false);
+				animation.addByPrefix('singLEFT', 'CQ erratic left me', 24, false);
+				animation.addByPrefix('singRIGHT', 'CQ erratic right', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -68, -7);
-				addOffset("singLEFT", 65, 9);
-				addOffset("singDOWN", 200, -70);
+				addOffset("singUP", 1, 2);
+				addOffset("singRIGHT", -8, -4);
+				addOffset("singLEFT", -5, 1);
+				addOffset("singDOWN", 10, 0);
 
 				playAnim('idle');
 
