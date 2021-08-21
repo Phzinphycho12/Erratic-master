@@ -3767,6 +3767,12 @@ class PlayState extends MusicBeatState
 			dad.playAnim('cheer', true);
 		}
 
+		if (SONG.song.toLowerCase() == 'vencit')
+			switch (curBeat)
+			{
+				case 720:
+					SONG.noteStyle = 'shattered';
+			}
 		switch (curStage)
 		{
 			case 'school':
