@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="gf.png"><SubTexture name="gf idle dance0000" x="0" y="0" width="1110" height="1190" frameX="0" frameY="0" frameWidth="1110" frameHeight="1190" />
+<SubTexture name="gf idle dance0001" x="1110" y="0" width="1110" height="1190" frameX="0" frameY="0" frameWidth="1110" frameHeight="1190" />
+<SubTexture name="gf idle dance0002" x="2220" y="0" width="1110" height="1190" frameX="0" frameY="0" frameWidth="1110" frameHeight="1190" />
+<SubTexture name="gf idle dance0003" x="3330" y="0" width="1110" height="1190" frameX="0" frameY="0" frameWidth="1110" frameHeight="1190" />
+<SubTexture name="gf idle dance0004" x="0" y="1190" width="1110" height="1190" frameX="0" frameY="0" frameWidth="1110" frameHeight="1190" />
+<SubTexture name="gf idle dance0005" x="1110" y="1190" width="1110" height="1190" frameX="0" frameY="0" frameWidth="1110" frameHeight="1190" />
+<SubTexture name="gf idle dance0006" x="2220" y="1190" width="1110" height="1190" frameX="0" frameY="0" frameWidth="1110" frameHeight="1190" />
+</TextureAtlas>

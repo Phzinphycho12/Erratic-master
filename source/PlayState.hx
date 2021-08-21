@@ -409,7 +409,7 @@ class PlayState extends MusicBeatState
 				case 2:
 					stageCheck = 'halloween';
 				case 3:
-					stageCheck = 'philly';
+					stageCheck = 'circus';
 				case 4:
 					stageCheck = 'limo';
 				case 5:
@@ -442,33 +442,17 @@ class PlayState extends MusicBeatState
 		{
 			switch (stageCheck)
 			{
-				case 'halloween':
-					{
-						curStage = 'spooky';
-						halloweenLevel = true;
-
-						var hallowTex = Paths.getSparrowAtlas('halloween_bg', 'week2');
-
-						halloweenBG = new FlxSprite(-200, -100);
-						halloweenBG.frames = hallowTex;
-						halloweenBG.animation.addByPrefix('idle', 'halloweem bg0');
-						halloweenBG.animation.addByPrefix('lightning', 'halloweem bg lightning strike', 24, false);
-						halloweenBG.animation.play('idle');
-						halloweenBG.antialiasing = true;
-						add(halloweenBG);
-
-						isHalloween = true;
-					}
 				case 'circus':
 					{
+						defaultCamZoom = 0.9;
 						curStage = 'circus';
 
-						var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('circus/background', 'erratic'));
-						bg.scrollFactor.set(0.1, 0.1);
-						add(bg);
+						var circusbg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
+						circusbg.scrollFactor.set(0.1, 0.1);
+						add(circusbg);
 
-						var street:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/background', 'erratic'));
-						add(street);
+						var floor:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
+						add(floor);
 					}
 				case 'stage':
 					{
@@ -514,15 +498,6 @@ class PlayState extends MusicBeatState
 						stageFront.scrollFactor.set(0.9, 0.9);
 						stageFront.active = false;
 						add(stageFront);
-
-						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-						stageCurtains.updateHitbox();
-						stageCurtains.antialiasing = true;
-						stageCurtains.scrollFactor.set(1.3, 1.3);
-						stageCurtains.active = false;
-
-						add(stageCurtains);
 					}
 				default:
 					{
@@ -541,15 +516,6 @@ class PlayState extends MusicBeatState
 						stageFront.scrollFactor.set(0.9, 0.9);
 						stageFront.active = false;
 						add(stageFront);
-
-						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-						stageCurtains.updateHitbox();
-						stageCurtains.antialiasing = true;
-						stageCurtains.scrollFactor.set(1.3, 1.3);
-						stageCurtains.active = false;
-
-						add(stageCurtains);
 					}
 			}
 		}
@@ -892,8 +858,11 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
-		erraticRageBG.cameras = [camHUD];
-		erraticRageBar.cameras = [camHUD];
+		if (SONG.song.toLowerCase() == 'vencit')
+		{
+			erraticRageBG.cameras = [camHUD];
+			erraticRageBar.cameras = [camHUD];
+		}
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
