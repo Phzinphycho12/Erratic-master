@@ -272,29 +272,40 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
-		curDifficulty += change;
-
-		if (curDifficulty < 0)
-			curDifficulty = 3;
-		if (curDifficulty > 3)
-			curDifficulty = 0;
-
-		// adjusting the highscore song name to be compatible (changeDiff)
-		var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
-		switch (songHighscore)
+		if (songs[curSelected].songName.toLowerCase() == "vencit")
 		{
-			case 'Dad-Battle':
-				songHighscore = 'Dadbattle';
-			case 'Philly-Nice':
-				songHighscore = 'Philly';
+			curDifficulty += change; // Thanks again Hazard! This helps a lot!
+
+			if (curDifficulty < 2)
+				curDifficulty = 3;
+			if (curDifficulty > 3)
+				curDifficulty = 2;
+
+			// adjusting the highscore song name to be compatible (changeDiff)
+			var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
+
+			#if !switch
+			intendedScore = Highscore.getScore(songHighscore, curDifficulty);
+			combo = Highscore.getCombo(songHighscore, curDifficulty);
+			#end
+
+			diffText.text = CoolUtil.difficultyFromInt(curDifficulty).toUpperCase();
 		}
-
-		#if !switch
-		intendedScore = Highscore.getScore(songHighscore, curDifficulty);
-		combo = Highscore.getCombo(songHighscore, curDifficulty);
-		#end
-
-		diffText.text = CoolUtil.difficultyFromInt(curDifficulty).toUpperCase();
+		else
+		{
+			curDifficulty += change;
+			if (curDifficulty < 0)
+				curDifficulty = 3;
+			if (curDifficulty > 3)
+				curDifficulty = 0;
+			// adjusting the highscore song name to be compatible (changeDiff)
+			var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
+			#if !switch
+			intendedScore = Highscore.getScore(songHighscore, curDifficulty);
+			combo = Highscore.getCombo(songHighscore, curDifficulty);
+			#end
+			diffText.text = CoolUtil.difficultyFromInt(curDifficulty).toUpperCase();
+		}
 	}
 
 	function changeSelection(change:Int = 0)
@@ -317,14 +328,8 @@ class FreeplayState extends MusicBeatState
 
 		// adjusting the highscore song name to be compatible (changeSelection)
 		// would read original scores if we didn't change packages
+		changeDiff(0);
 		var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
-		switch (songHighscore)
-		{
-			case 'Dad-Battle':
-				songHighscore = 'Dadbattle';
-			case 'Philly-Nice':
-				songHighscore = 'Philly';
-		}
 
 		#if !switch
 		intendedScore = Highscore.getScore(songHighscore, curDifficulty);
