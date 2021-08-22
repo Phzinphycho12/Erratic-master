@@ -523,6 +523,11 @@ class PlayState extends MusicBeatState
 			gf.setGraphicSize(Std.int(gf.width * 0.3));
 			gf.scrollFactor.set(0.95, 0.95);
 		}
+		else if (curStage == 'circus')
+		{
+			gf = new Character(500, 100, curGf);
+			gf.scrollFactor.set(0.95, 0.95);
+		}
 		else
 		{
 			gf = new Character(400, 130, curGf);
@@ -576,7 +581,14 @@ class PlayState extends MusicBeatState
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 		}
 
-		boyfriend = new Boyfriend(770, 450, SONG.player1);
+		if (curStage == 'circus')
+		{
+			boyfriend = new Boyfriend(1200, 450, SONG.player1);
+		}
+		else
+		{
+			boyfriend = new Boyfriend(770, 450, SONG.player1);
+		}
 
 		if (dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
 		{
@@ -932,8 +944,18 @@ class PlayState extends MusicBeatState
 	{
 		inCutscene = false;
 
-		generateStaticArrows(0);
-		generateStaticArrows(1);
+		generateStaticArrows(0, SONG.noteStyle);
+		generateStaticArrows(1, SONG.noteStyle);
+		if (arrowsShatter = true)
+		{
+			remove(strumLineNotes);
+			strumLineNotes = new FlxTypedGroup<FlxSprite>();
+			add(strumLineNotes);
+			strumLineNotes.cameras = [camHUD];
+
+			generateStaticArrows(0, 'shattered', false);
+			generateStaticArrows(1, 'shattered', false);
+		}
 
 		#if windows
 		// pre lowercasing the song name (startCountdown)
@@ -1390,7 +1412,7 @@ class PlayState extends MusicBeatState
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1.strumTime, Obj2.strumTime);
 	}
 
-	private function generateStaticArrows(player:Int):Void
+	private function generateStaticArrows(player:Int, style:String, tweenShit:Bool = true):Void
 	{
 		for (i in 0...4)
 		{
@@ -1702,6 +1724,7 @@ class PlayState extends MusicBeatState
 
 	public static var songRate = 1.5;
 
+	public var arrowsShatter:Bool = false;
 	public var stopUpdate = false;
 	public var removedVideo = false;
 
@@ -3679,7 +3702,12 @@ class PlayState extends MusicBeatState
 			luaModchart.executeState('beatHit', [curBeat]);
 		}
 		#end
-
+		if (SONG.song.toLowerCase() == 'vencit')
+			switch (curBeat)
+			{
+				case 720:
+					arrowsShatter = true;
+			}
 		if (curSong == 'Tutorial' && dad.curCharacter == 'gf')
 		{
 			if (curBeat % 2 == 1 && dad.animOffsets.exists('danceLeft'))
@@ -3767,12 +3795,6 @@ class PlayState extends MusicBeatState
 			dad.playAnim('cheer', true);
 		}
 
-		if (SONG.song.toLowerCase() == 'vencit')
-			switch (curBeat)
-			{
-				case 720:
-					SONG.noteStyle = 'shattered';
-			}
 		switch (curStage)
 		{
 			case 'school':
