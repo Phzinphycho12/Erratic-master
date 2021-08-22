@@ -5741,7 +5741,7 @@
             }
         ],
         "song": "Ringmaster",
-        "stage": "circus",
+        "stage": "disrepaircircus",
         "needsVoices": true,
         "validScore": true,
         "speed": 2.7,

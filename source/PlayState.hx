@@ -407,11 +407,23 @@ class PlayState extends MusicBeatState
 			{
 				case 'circus':
 					{
-						defaultCamZoom = 0.9;
+						defaultCamZoom = 0.85;
 						curStage = 'circus';
 
-						var circusbg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
-						circusbg.scrollFactor.set(0.1, 0.1);
+						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
+						circusbg.setGraphicSize(Std.int(circusbg.width * 1.1));
+						add(circusbg);
+
+						var floor:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
+						add(floor);
+					}
+				case 'disrepaircircus':
+					{
+						defaultCamZoom = 0.85;
+						curStage = 'circus';
+
+						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuscrowddark', 'erratic'));
+						circusbg.setGraphicSize(Std.int(circusbg.width * 1.1));
 						add(circusbg);
 
 						var floor:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
@@ -583,7 +595,7 @@ class PlayState extends MusicBeatState
 
 		if (curStage == 'circus')
 		{
-			boyfriend = new Boyfriend(1200, 450, SONG.player1);
+			boyfriend = new Boyfriend(1100, 450, SONG.player1);
 		}
 		else
 		{
