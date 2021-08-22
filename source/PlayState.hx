@@ -458,7 +458,7 @@ class PlayState extends MusicBeatState
 					}
 				case 'erratichell':
 					{
-						defaultCamZoom = 0.9;
+						defaultCamZoom = 0.7;
 						curStage = 'erratichell';
 						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hell/hellscene', 'erratic'));
 						bg.antialiasing = true;
@@ -467,7 +467,6 @@ class PlayState extends MusicBeatState
 						add(bg);
 
 						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('hell/rockystage', 'erratic'));
-						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 						stageFront.updateHitbox();
 						stageFront.antialiasing = true;
 						stageFront.scrollFactor.set(0.9, 0.9);
@@ -535,7 +534,7 @@ class PlayState extends MusicBeatState
 			gf.setGraphicSize(Std.int(gf.width * 0.3));
 			gf.scrollFactor.set(0.95, 0.95);
 		}
-		else if (curStage == 'circus')
+		else if (curStage == 'circus' || curStage == 'disrepaircircus')
 		{
 			gf = new Character(500, 100, curGf);
 			gf.scrollFactor.set(0.95, 0.95);
@@ -545,7 +544,11 @@ class PlayState extends MusicBeatState
 			gf = new Character(400, 130, curGf);
 			gf.scrollFactor.set(0.95, 0.95);
 		}
-		dad = new Character(100, 100, SONG.player2);
+
+		if (curStage == 'erratichell')
+		{
+			dad = new Character(0, 100, SONG.player2);
+		}
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -593,9 +596,13 @@ class PlayState extends MusicBeatState
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 		}
 
-		if (curStage == 'circus')
+		if (curStage == 'circus || disrepaircircus')
 		{
 			boyfriend = new Boyfriend(1100, 450, SONG.player1);
+		}
+		else if (curStage == 'erratichell')
+		{
+			boyfriend = new Boyfriend(900, 450, SONG.player1);
 		}
 		else
 		{
@@ -3683,14 +3690,14 @@ class PlayState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.RED, 0.5);
 				case 2240:
 					FlxG.camera.flash(FlxColor.RED, 0.5);
-				case 2825:
+				case 2828:
 					remove(dad);
-					dad = new Character(0, 350, 'erraticspeaks');
+					dad = new Character(-100, 350, 'erraticspeaks');
 					add(dad);
 				case 2880:
 					FlxG.camera.flash(FlxColor.RED, 0.5);
 					remove(dad);
-					dad = new Character(0, 350, 'erraticpissed');
+					dad = new Character(-100, 350, 'erraticpissed');
 					add(dad);
 			}
 	}
