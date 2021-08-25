@@ -751,9 +751,11 @@ class PlayState extends MusicBeatState
 			add(erraticRageBG);
 
 			erraticRageBar = new FlxBar(erraticRageBG.x + 4, erraticRageBG.y + 4, LEFT_TO_RIGHT, Std.int(erraticRageBG.width - 8),
-				Std.int(erraticRageBG.height - 8), this, 'theRageBar', 0, 90000);
+				Std.int(erraticRageBG.height - 8), this, 'theRageBar', 0, 180000);
+
 			erraticRageBar.angle = -90;
 			erraticRageBar.scrollFactor.set();
+
 			erraticRageBar.createFilledBar(FlxColor.BLACK, FlxColor.RED);
 			add(erraticRageBar);
 
@@ -1207,35 +1209,7 @@ class PlayState extends MusicBeatState
 			songPosBar.cameras = [camHUD];
 			songName.cameras = [camHUD];
 		}
-		if (SONG.song.toLowerCase() == 'vencit')
-		{
-			erraticRageBG = new FlxSprite(-275, 10).loadGraphic(Paths.image('healthBar'));
-			erraticRageBG.angle = -90;
-			erraticRageBG.screenCenter(Y);
-			erraticRageBG.scrollFactor.set();
-			add(erraticRageBG);
 
-			erraticRageBar = new FlxBar(erraticRageBG.x
-				+ 4, erraticRageBG.y
-				+ 4, LEFT_TO_RIGHT, Std.int(erraticRageBG.width - 8),
-				Std.int(erraticRageBG.height - 8), this, 'theRageBar', 0, songLength
-				- 1000);
-			erraticRageBar.angle = -90;
-			erraticRageBar.numDivisions = 1000;
-			erraticRageBar.scrollFactor.set();
-			erraticRageBar.createFilledBar(FlxColor.BLACK, FlxColor.RED);
-			add(erraticRageBar);
-
-			var ragePercent = new FlxText(erraticRageBG.x + (erraticRageBG.width / 2) - (SONG.song.length * 5), erraticRageBG.y + 10, 0, "R A G E", 50);
-			ragePercent.angle = -90;
-			ragePercent.setFormat(Paths.font("vcr.ttf"), 16, 0xFFDC143C, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			ragePercent.scrollFactor.set();
-			add(ragePercent);
-
-			erraticRageBG.cameras = [camHUD];
-			erraticRageBar.cameras = [camHUD];
-			ragePercent.cameras = [camHUD];
-		}
 		// Song check real quick
 		switch (curSong)
 		{
@@ -3699,6 +3673,8 @@ class PlayState extends MusicBeatState
 					generateStaticArrows(1, false);
 					add(strumLineNotes);
 					add(notes);
+				case 3904:
+					FlxTween.tween(erraticRageBar, {color: FlxColor.BLACK}, 5);
 			}
 	}
 
@@ -3748,6 +3724,10 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 720 && curBeat <= 984 && healthBar.percent > 2)
 		{
 			health -= 0.05;
+		}
+		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 976)
+		{
+			theRageBar == 0;
 		}
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
