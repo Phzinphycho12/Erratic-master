@@ -945,20 +945,14 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		SONG.noteStyle = ChartingState.defaultnoteStyle;
+
+		var doesitTween:Bool = if (SONG.song.toLowerCase() == "vencit") true else false;
+
 		inCutscene = false;
 
-		generateStaticArrows(0, SONG.noteStyle);
-		generateStaticArrows(1, SONG.noteStyle);
-		if (arrowsShatter = true)
-		{
-			remove(strumLineNotes);
-			strumLineNotes = new FlxTypedGroup<FlxSprite>();
-			add(strumLineNotes);
-			strumLineNotes.cameras = [camHUD];
-
-			generateStaticArrows(0, 'shattered', false);
-			generateStaticArrows(1, 'shattered', false);
-		}
+		generateStaticArrows(0, doesitTween);
+		generateStaticArrows(1, doesitTween);
 
 		#if windows
 		// pre lowercasing the song name (startCountdown)
@@ -1338,9 +1332,23 @@ class PlayState extends MusicBeatState
 		var daBeats:Int = 0; // Not exactly representative of 'daBeats' lol, just how much it has looped
 		for (section in noteData)
 		{
+			var alt:String = "";
+
+			if (curBeat <= 720 && SONG.song.toLowerCase() == "vencit")
+				alt = "shattered";
+
 			var coolSection:Int = Std.int(section.lengthInSteps / 4);
 
-			for (songNotes in section.sectionNotes)
+			var newNote = [];
+
+			for (i in 0...section.sectionNotes.length)
+			{
+				var note = section.sectionNotes[i];
+				if (!newNote.contains(note))
+					newNote.push(note);
+			}
+
+			for (songNotes in newNote)
 			{
 				var daStrumTime:Float = songNotes[0] + FlxG.save.data.offset + songOffset;
 				if (daStrumTime < 0)
@@ -1380,7 +1388,8 @@ class PlayState extends MusicBeatState
 					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
 					sustainNote.scrollFactor.set();
 					unspawnNotes.push(sustainNote);
-
+					if (alt == "shattered")
+						sustainNote.blend = "add";
 					sustainNote.mustPress = gottaHitNote;
 
 					if (sustainNote.mustPress)
@@ -1415,7 +1424,7 @@ class PlayState extends MusicBeatState
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1.strumTime, Obj2.strumTime);
 	}
 
-	private function generateStaticArrows(player:Int, style:String, tweenShit:Bool = true):Void
+	private function generateStaticArrows(player:Int, tweened:Bool):Void
 	{
 		for (i in 0...4)
 		{
@@ -1727,7 +1736,6 @@ class PlayState extends MusicBeatState
 
 	public static var songRate = 1.5;
 
-	public var arrowsShatter:Bool = false;
 	public var stopUpdate = false;
 	public var removedVideo = false;
 
@@ -3683,6 +3691,14 @@ class PlayState extends MusicBeatState
 					remove(dad);
 					dad = new Character(-100, 350, 'erraticpissed');
 					add(dad);
+					remove(strumLineNotes);
+					remove(notes);
+				case 2881:
+					SONG.noteStyle = "shattered";
+					generateStaticArrows(0, false);
+					generateStaticArrows(1, false);
+					add(strumLineNotes);
+					add(notes);
 			}
 	}
 
@@ -3705,12 +3721,7 @@ class PlayState extends MusicBeatState
 			luaModchart.executeState('beatHit', [curBeat]);
 		}
 		#end
-		if (SONG.song.toLowerCase() == 'vencit')
-			switch (curBeat)
-			{
-				case 720:
-					arrowsShatter = true;
-			}
+
 		if (curSong == 'Tutorial' && dad.curCharacter == 'gf')
 		{
 			if (curBeat % 2 == 1 && dad.animOffsets.exists('danceLeft'))

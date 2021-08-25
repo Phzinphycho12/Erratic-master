@@ -22,6 +22,7 @@ class HealthIcon extends FlxSprite
 		animation.add('erraticpissed', [6, 7], 0, false, isPlayer);
 		animation.add('bf-old', [14, 15], 0, false, isPlayer);
 		animation.add('gf', [16], 0, false, isPlayer);
+		animation.add('dad', [12, 13], 0, false, isPlayer);
 		animation.play(char);
 
 		scrollFactor.set();

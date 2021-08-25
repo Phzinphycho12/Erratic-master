@@ -98,6 +98,8 @@ class ChartingState extends MusicBeatState
 
 	public var snapText:FlxText;
 
+	public static var defaultnoteStyle:String;
+
 	override function create()
 	{
 		curSection = lastSection;
@@ -344,6 +346,7 @@ class ChartingState extends MusicBeatState
 		var noteStyleDropDown = new FlxUIDropDownMenu(10, 300, FlxUIDropDownMenu.makeStrIdLabelArray(noteStyles, true), function(noteStyle:String)
 		{
 			_song.noteStyle = noteStyles[Std.parseInt(noteStyle)];
+			defaultnoteStyle = noteStyles[Std.parseInt(noteStyle)];
 		});
 		noteStyleDropDown.selectedLabel = _song.noteStyle;
 
