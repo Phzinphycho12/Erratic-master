@@ -17,6 +17,7 @@ class HealthIcon extends FlxSprite
 
 		antialiasing = true;
 		animation.add('bf', [0, 1], 0, false, isPlayer);
+		animation.add('vencitbf', [0, 1], 0, false, isPlayer);
 		animation.add('erratic', [4, 5], 0, false, isPlayer);
 		animation.add('erraticmad', [10, 11], 0, false, isPlayer);
 		animation.add('erraticpissed', [6, 7], 0, false, isPlayer);
