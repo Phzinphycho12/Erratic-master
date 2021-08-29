@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="RAGE_Arrows.png">
+<SubTexture name="blue instance 10000" x="0" y="0" width="276" height="276" frameX="0" frameY="0" frameWidth="276" frameHeight="276" />
+<SubTexture name="purple instance 10000" x="276" y="0" width="276" height="276" frameX="0" frameY="0" frameWidth="276" frameHeight="276" />
+<SubTexture name="red instance 10000" x="552" y="0" width="276" height="276" frameX="0" frameY="0" frameWidth="276" frameHeight="276" />
+<SubTexture name="green instance 10000" x="828" y="0" width="276" height="276" frameX="0" frameY="0" frameWidth="276" frameHeight="276" />
+</TextureAtlas>
