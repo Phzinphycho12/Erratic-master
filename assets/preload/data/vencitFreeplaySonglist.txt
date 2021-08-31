@@ -3,3 +3,6 @@ Encounter:erratic:1
 Kermis:erratic:1
 Ringmaster:erraticmad:1
 Vencit:erraticpissed:1
+Freakshow:erratic:2
+Vengeance:erratic:2
+Maledicta:dad:2

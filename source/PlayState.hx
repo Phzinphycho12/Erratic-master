@@ -895,7 +895,7 @@ class PlayState extends MusicBeatState
 
 	function rageHit()
 	{
-		SONG.speed += 0.01;
+		SONG.speed += 0.1;
 	}
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
