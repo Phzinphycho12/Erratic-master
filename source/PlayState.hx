@@ -176,6 +176,7 @@ class PlayState extends MusicBeatState
 
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
+	var daSection:Int = 1;
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
@@ -887,6 +888,16 @@ class PlayState extends MusicBeatState
 		super.create();
 	}
 
+	function rageHitMiss()
+	{
+		health -= 9999;
+	}
+
+	function rageHit()
+	{
+		SONG.speed += 0.01;
+	}
+
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
 		if (dialogueBox != null)
@@ -1268,24 +1279,15 @@ class PlayState extends MusicBeatState
 		var daBeats:Int = 0; // Not exactly representative of 'daBeats' lol, just how much it has looped
 		for (section in noteData)
 		{
-			var alt:String = "";
-
-			if (curBeat <= 720 && SONG.song.toLowerCase() == "vencit")
-				alt = "shattered";
+			if (daSection == 180 && curSong.toLowerCase() == 'vencit')
+				SONG.noteStyle = 'shattered';
 
 			var coolSection:Int = Std.int(section.lengthInSteps / 4);
 
-			var newNote = [];
-
-			for (i in 0...section.sectionNotes.length)
+			for (songNotes in section.sectionNotes)
 			{
-				var note = section.sectionNotes[i];
-				if (!newNote.contains(note))
-					newNote.push(note);
-			}
+				// 1. Basically if it's the 50th, section, it changes the skin
 
-			for (songNotes in newNote)
-			{
 				var daStrumTime:Float = songNotes[0] + FlxG.save.data.offset + songOffset;
 				if (daStrumTime < 0)
 					daStrumTime = 0;
@@ -1304,12 +1306,12 @@ class PlayState extends MusicBeatState
 				else
 					oldNote = null;
 
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+				var daType = songNotes[3];
 
-				if (!gottaHitNote && PlayStateChangeables.Optimize)
-					continue;
-
+				// 2. I added a new parameter: daSkin which basically make the notes specific skins
+				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote, false, daType);
 				swagNote.sustainLength = songNotes[2];
+
 				swagNote.scrollFactor.set(0, 0);
 
 				var susLength:Float = swagNote.sustainLength;
@@ -1324,8 +1326,7 @@ class PlayState extends MusicBeatState
 					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
 					sustainNote.scrollFactor.set();
 					unspawnNotes.push(sustainNote);
-					if (alt == "shattered")
-						sustainNote.blend = "add";
+
 					sustainNote.mustPress = gottaHitNote;
 
 					if (sustainNote.mustPress)
@@ -1344,6 +1345,8 @@ class PlayState extends MusicBeatState
 				{
 				}
 			}
+			// 3. Make sure to change the section number so i can do if's
+			daSection += 1;
 			daBeats += 1;
 		}
 
@@ -1358,6 +1361,25 @@ class PlayState extends MusicBeatState
 	function sortByShit(Obj1:Note, Obj2:Note):Int
 	{
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1.strumTime, Obj2.strumTime);
+	}
+
+	function removeStatics()
+	{
+		playerStrums.forEach(function(todel:FlxSprite)
+		{
+			playerStrums.remove(todel);
+			todel.destroy();
+		});
+		cpuStrums.forEach(function(todel:FlxSprite)
+		{
+			cpuStrums.remove(todel);
+			todel.destroy();
+		});
+		strumLineNotes.forEach(function(todel:FlxSprite)
+		{
+			strumLineNotes.remove(todel);
+			todel.destroy();
+		});
 	}
 
 	private function generateStaticArrows(player:Int, tweened:Bool):Void
@@ -2439,20 +2461,13 @@ class PlayState extends MusicBeatState
 					}
 					else
 					{
-						if (loadRep && daNote.isSustainNote)
+						if (daNote.noteType == 2)
 						{
-							// im tired and lazy this sucks I know i'm dumb
-							if (findByTime(daNote.strumTime) != null)
-								totalNotesHit += 1;
-							else
-							{
-								health -= 0.075;
-								vocals.volume = 0;
-								if (theFunne)
-									noteMiss(daNote.noteData, daNote);
-							}
+							noteMiss(daNote.noteData, daNote);
+							rageHitMiss();
+							vocals.volume = 0;
 						}
-						else
+						if (daNote.noteType == 1 || daNote.noteType == 0)
 						{
 							health -= 0.075;
 							vocals.volume = 0;
@@ -2467,7 +2482,6 @@ class PlayState extends MusicBeatState
 				}
 			});
 		}
-
 		if (FlxG.save.data.cpuStrums)
 		{
 			cpuStrums.forEach(function(spr:FlxSprite)
@@ -2704,37 +2718,80 @@ class PlayState extends MusicBeatState
 		switch (daRating)
 		{
 			case 'shit':
-				score = -300;
-				combo = 0;
-				misses++;
-				health -= 0.2;
-				ss = false;
-				shits++;
-				if (FlxG.save.data.accuracyMod == 0)
-					totalNotesHit -= 1;
+				if (daNote.noteType == 2)
+				{
+					health -= 0.2;
+					rageHit();
+				}
+				if (daNote.noteType == 1 || daNote.noteType == 0)
+				{
+					score = -300;
+					combo = 0;
+					misses++;
+					health -= 0.2;
+					ss = false;
+					shits++;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0.25;
+				}
 			case 'bad':
-				daRating = 'bad';
-				score = 0;
-				health -= 0.06;
-				ss = false;
-				bads++;
-				if (FlxG.save.data.accuracyMod == 0)
-					totalNotesHit += 0.50;
+				if (daNote.noteType == 2)
+				{
+					health -= 0.06;
+					rageHit();
+				}
+				if (daNote.noteType == 1 || daNote.noteType == 0)
+				{
+					daRating = 'bad';
+					score = 0;
+					health -= 0.06;
+					ss = false;
+					bads++;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0.50;
+				}
 			case 'good':
-				daRating = 'good';
-				score = 200;
-				ss = false;
-				goods++;
-				if (health < 2)
-					health += 0.04;
-				if (FlxG.save.data.accuracyMod == 0)
-					totalNotesHit += 0.75;
+				if (daNote.noteType == 2)
+				{
+					daRating = 'good';
+					score = 200;
+					ss = false;
+					goods++;
+					if (health < 2)
+						health += 0.04;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0.75;
+					rageHit();
+				}
+				if (daNote.noteType == 1 || daNote.noteType == 0)
+				{
+					daRating = 'good';
+					score = 200;
+					ss = false;
+					goods++;
+					if (health < 2)
+						health += 0.04;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0.75;
+				}
 			case 'sick':
-				if (health < 2)
-					health += 0.1;
-				if (FlxG.save.data.accuracyMod == 0)
-					totalNotesHit += 1;
-				sicks++;
+				if (daNote.noteType == 2)
+				{
+					if (health < 2)
+						health += 0.1;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 1;
+					sicks++;
+					rageHit();
+				}
+				if (daNote.noteType == 1 || daNote.noteType == 0)
+				{
+					if (health < 2)
+						health += 0.1;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 1;
+					sicks++;
+				}
 		}
 
 		// trace('Wife accuracy loss: ' + wife + ' | Rating: ' + daRating + ' | Score: ' + score + ' | Weight: ' + (1 - wife));
@@ -3627,16 +3684,12 @@ class PlayState extends MusicBeatState
 					remove(dad);
 					dad = new Character(-100, 350, 'erraticpissed');
 					add(dad);
-					remove(strumLineNotes);
-					remove(notes);
-				case 2881:
-					SONG.noteStyle = "shattered";
+					SONG.noteStyle = 'shattered';
+					removeStatics();
 					generateStaticArrows(0, false);
 					generateStaticArrows(1, false);
-					add(strumLineNotes);
-					add(notes);
 				case 3904:
-					FlxTween.tween(erraticRageBar, {color: FlxColor.BLACK}, 5);
+					FlxTween.tween(erraticRageBar, {color: FlxColor.BLACK}, 7);
 			}
 	}
 
