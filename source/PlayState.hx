@@ -580,7 +580,7 @@ class PlayState extends MusicBeatState
 				dad.x -= 100;
 		}
 
-		if (curStage == 'circus || disrepaircircus')
+		if (curStage == 'circus' || curStage == 'disrepaircircus')
 		{
 			boyfriend = new Boyfriend(1100, 450, SONG.player1);
 		}
@@ -599,44 +599,6 @@ class PlayState extends MusicBeatState
 		}
 
 		// REPOSITIONING PER STAGE
-		switch (curStage)
-		{
-			case 'limo':
-				boyfriend.y -= 220;
-				boyfriend.x += 260;
-				if (FlxG.save.data.distractions)
-				{
-					resetFastCar();
-					add(fastCar);
-				}
-
-			case 'mall':
-				boyfriend.x += 200;
-
-			case 'mallEvil':
-				boyfriend.x += 320;
-				dad.y -= 80;
-			case 'school':
-				boyfriend.x += 200;
-				boyfriend.y += 220;
-				gf.x += 180;
-				gf.y += 300;
-			case 'schoolEvil':
-				if (FlxG.save.data.distractions)
-				{
-					// trailArea.scrollFactor.set();
-					var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-					// evilTrail.changeValuesEnabled(false, false, false, false);
-					// evilTrail.changeGraphic()
-					add(evilTrail);
-					// evilTrail.scrollFactor.set(1.1, 1.1);
-				}
-
-				boyfriend.x += 200;
-				boyfriend.y += 220;
-				gf.x += 180;
-				gf.y += 300;
-		}
 
 		if (!PlayStateChangeables.Optimize)
 		{
