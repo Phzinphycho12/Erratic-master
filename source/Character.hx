@@ -65,7 +65,7 @@ class Character extends FlxSprite
 			case 'vencitgf':
 				tex = Paths.getSparrowAtlas('characters/gfvencit');
 				frames = tex;
-				animation.addByPrefix('idle', 'gf idle dance', 24, false);
+				animation.addByPrefix('idle', 'gf idle dance', 16, false);
 				addOffset('idle');
 
 				playAnim('idle');

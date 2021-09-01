@@ -50,6 +50,16 @@ class FreeplayState extends MusicBeatState
 				songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1]));
 			}
 		}
+		else if (FlxG.save.data.week2completed)
+		{
+			var initSonglist = CoolUtil.coolTextFile(Paths.txt('maledictaFreeplaySonglist'));
+
+			for (i in 0...initSonglist.length)
+			{
+				var data:Array<String> = initSonglist[i].split(':');
+				songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1]));
+			}
+		}
 		else
 		{
 			var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
@@ -272,7 +282,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
-		if (songs[curSelected].songName.toLowerCase() == "vencit")
+		if (songs[curSelected].songName.toLowerCase() == "vencit" || songs[curSelected].songName.toLowerCase() == "maledicta")
 		{
 			curDifficulty += change; // Thanks again Hazard! This helps a lot!
 

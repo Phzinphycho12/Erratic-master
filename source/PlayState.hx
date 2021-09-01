@@ -896,6 +896,10 @@ class PlayState extends MusicBeatState
 	function rageHit()
 	{
 		SONG.speed += 0.1;
+		new FlxTimer().start(2, function(tmr:FlxTimer)
+		{
+			SONG.speed -= 0.1;
+		});
 	}
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
