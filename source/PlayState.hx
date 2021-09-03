@@ -474,6 +474,16 @@ class PlayState extends MusicBeatState
 						stageFront.active = false;
 						add(stageFront);
 					}
+				case 'finalhell':
+					{
+						defaultCamZoom = 0.3;
+						curStage = 'finalhell';
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
+						bg.scrollFactor.set(0.3, 0.3);
+						bg.updateHitbox();
+						bg.antialiasing = true;
+						add(bg);
+					}
 				default:
 					{
 						defaultCamZoom = 0.9;
