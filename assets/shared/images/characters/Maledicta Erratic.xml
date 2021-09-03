@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Maledicta Erratic.png">
+<SubTexture name="Maledicta Erratic Down0000" x="0" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Down0001" x="1818" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Down0002" x="3636" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Down0003" x="5454" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Down0004" x="7272" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSDown0000" x="0" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSDown0001" x="1818" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Left0000" x="3636" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Left0001" x="5454" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Left0002" x="7272" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Left0003" x="0" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Left0004" x="1818" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSLeft0000" x="3636" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSLeft0001" x="5454" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Right0000" x="7272" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Right0001" x="0" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Right0002" x="1818" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Right0003" x="3636" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Right0004" x="5454" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSRight0000" x="7272" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSRight0001" x="0" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Up0000" x="1818" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Up0001" x="3636" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Up0002" x="5454" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Up0003" x="7272" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Up0004" x="0" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSUp0000" x="1818" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic MISSUp0001" x="3636" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Idle0000" x="5454" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Idle0001" x="7272" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Idle0002" x="0" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Idle0003" x="1818" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Idle0004" x="3636" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Idle0005" x="5454" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic Idle0006" x="7272" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+</TextureAtlas>

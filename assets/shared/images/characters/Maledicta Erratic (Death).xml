@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Maledicta Erratic (Death).png">
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0000" x="0" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0001" x="1818" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0002" x="3636" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0003" x="5454" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0004" x="7272" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0005" x="9090" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0006" x="10908" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0007" x="12726" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0008" x="14544" y="0" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0009" x="0" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0010" x="1818" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0011" x="3636" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0012" x="5454" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0013" x="7272" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0014" x="9090" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0015" x="10908" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0016" x="12726" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0017" x="14544" y="1188" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0018" x="0" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0019" x="1818" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0020" x="3636" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0021" x="5454" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0022" x="7272" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0023" x="9090" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0024" x="10908" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0025" x="12726" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death LOOP0026" x="14544" y="2376" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0000" x="0" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0001" x="1818" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0002" x="3636" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0003" x="5454" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0004" x="7272" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0005" x="9090" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0006" x="10908" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0007" x="12726" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0008" x="14544" y="3564" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0009" x="0" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0010" x="1818" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0011" x="3636" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0012" x="5454" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0013" x="7272" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0014" x="9090" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0015" x="10908" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0016" x="12726" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0017" x="14544" y="4752" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0018" x="0" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0019" x="1818" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0020" x="3636" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0021" x="5454" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0022" x="7272" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0023" x="9090" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0024" x="10908" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death CONFIRM0025" x="12726" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0000" x="14544" y="5940" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0001" x="0" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0002" x="1818" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0003" x="3636" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0004" x="5454" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0005" x="7272" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0006" x="9090" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0007" x="10908" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0008" x="12726" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0009" x="14544" y="7128" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0010" x="0" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0011" x="1818" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0012" x="3636" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0013" x="5454" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0014" x="7272" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0015" x="9090" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0016" x="10908" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0017" x="12726" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0018" x="14544" y="8316" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0019" x="0" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0020" x="1818" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0021" x="3636" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0022" x="5454" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0023" x="7272" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0024" x="9090" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0025" x="10908" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0026" x="12726" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0027" x="14544" y="9504" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0028" x="0" y="10692" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0029" x="1818" y="10692" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0030" x="3636" y="10692" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0031" x="5454" y="10692" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0032" x="7272" y="10692" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0033" x="9090" y="10692" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+<SubTexture name="Maledicta Erratic (Death) Death0034" x="10908" y="10692" width="1818" height="1188" frameX="0" frameY="0" frameWidth="1818" frameHeight="1188" />
+</TextureAtlas>

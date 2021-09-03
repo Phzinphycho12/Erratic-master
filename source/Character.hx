@@ -71,13 +71,13 @@ class Character extends FlxSprite
 				playAnim('idle');
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST', 'shared');
+				tex = Paths.getSparrowAtlas('characters/Demon Dearest', 'shared');
 				frames = tex;
-				animation.addByPrefix('idle', 'Dad idle dance', 24);
-				animation.addByPrefix('singUP', 'Dad Sing Note UP', 24);
-				animation.addByPrefix('singRIGHT', 'Dad Sing Note RIGHT', 24);
-				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24);
-				animation.addByPrefix('singLEFT', 'Dad Sing Note LEFT', 24);
+				animation.addByPrefix('idle', 'Demon Dearest Idle', 24);
+				animation.addByPrefix('singUP', 'Demon Dearest Up', 24);
+				animation.addByPrefix('singRIGHT', 'Demon Dearest Right', 24);
+				animation.addByPrefix('singDOWN', 'Demon Dearest Down', 24);
+				animation.addByPrefix('singLEFT', 'Demon Dearest Left', 24);
 
 				addOffset('idle');
 				addOffset("singUP", -6, 50);
@@ -203,6 +203,57 @@ class Character extends FlxSprite
 				addOffset('scared', -4);
 
 				playAnim('idle');
+
+				flipX = true;
+
+			case 'erratic_md':
+				var tex = Paths.getSparrowAtlas('characters/Maledicta Erratic', 'shared');
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('idle', 'Maledicta Erratic Idle', 24, false);
+				animation.addByPrefix('singUP', 'Maledicta Erratic Up', 24, false);
+				animation.addByPrefix('singLEFT', 'Maledicta Erratic Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Maledicta Erratic Right', 24, false);
+				animation.addByPrefix('singDOWN', 'Maledicta Erratic Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'Maledicta Erratic MISSUp', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'Maledicta Erratic MISSLeft', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'Maledicta Erratic MISSRight', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'Maledicta Erratic MISSDown', 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -29, 27);
+				addOffset("singRIGHT", -38, -7);
+				addOffset("singLEFT", 12, -6);
+				addOffset("singDOWN", -10, -50);
+				addOffset("singUPmiss", 68, 89);
+				addOffset("singRIGHTmiss", -150, -9);
+				addOffset("singLEFTmiss", 122, -46);
+				addOffset("singDOWNmiss", 42, -123);
+
+				playAnim('idle');
+
+				flipX = true;
+
+			case 'erratic_md-dead':
+				var tex = Paths.getSparrowAtlas('characters/Maledicta Erratic (Death)', 'shared');
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('singUP', 'Maledicta Erratic (Death) Death', 24, false);
+				animation.addByPrefix('singLEFT', 'Maledicta Erratic (Death) Death', 24, false);
+				animation.addByPrefix('singRIGHT', 'Maledicta Erratic (Death) Death', 24, false);
+				animation.addByPrefix('singDOWN', 'Maledicta Erratic (Death) Death', 24, false);
+				animation.addByPrefix('firstDeath', "Maledicta Erratic (Death) Death", 24, false);
+				animation.addByPrefix('deathLoop', "Maledicta Erratic (Death) Death LOOP", 24, true);
+				animation.addByPrefix('deathConfirm', "Maledicta Erratic (Death) Death CONFIRM", 24, false);
+
+				addOffset('firstDeath');
+				addOffset('deathLoop', -37);
+				addOffset('deathConfirm', -37);
+				playAnim('firstDeath');
 
 				flipX = true;
 		}
