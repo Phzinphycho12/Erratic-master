@@ -188,7 +188,7 @@ class PlayState extends MusicBeatState
 	var fastCar:FlxSprite;
 	var songName:FlxText;
 	var ragePercent:FlxText;
-	var upperBoppers:FlxSprite;
+	var demon_r:Float = 600;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 
@@ -476,10 +476,11 @@ class PlayState extends MusicBeatState
 					}
 				case 'finalhell':
 					{
-						defaultCamZoom = 0.3;
+						defaultCamZoom = 0.45;
 						curStage = 'finalhell';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
-						bg.scrollFactor.set(0.3, 0.3);
+						var bg:FlxSprite = new FlxSprite(-2000, -400).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
+						bg.setGraphicSize(Std.int(bg.width * 1.7));
+
 						bg.updateHitbox();
 						bg.antialiasing = true;
 						add(bg);
@@ -560,6 +561,10 @@ class PlayState extends MusicBeatState
 		{
 			dad = new Character(0, 100, SONG.player2);
 		}
+		else if (curStage == 'finalhell')
+		{
+			dad = new Character(500, 100, SONG.player2);
+		}
 		else
 		{
 			dad = new Character(100, 100, SONG.player2);
@@ -599,6 +604,10 @@ class PlayState extends MusicBeatState
 		{
 			boyfriend = new Boyfriend(900, 450, SONG.player1);
 		}
+		else if (curStage == 'finalhell')
+		{
+			boyfriend = new Boyfriend(1700, 0, SONG.player1);
+		}
 		else
 		{
 			boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -621,6 +630,15 @@ class PlayState extends MusicBeatState
 
 			add(dad);
 			add(boyfriend);
+		}
+
+		if (SONG.player2 == 'dad')
+		{
+			if (curStep >= 0)
+			{
+				dad.y -= 32 * Math.cos((curStep * 0.25));
+				dad.x += 32 * Math.sin((curStep * 2));
+			}
 		}
 
 		if (loadRep)
@@ -3818,42 +3836,6 @@ class PlayState extends MusicBeatState
 			dad.playAnim('cheer', true);
 		}
 
-		switch (curStage)
-		{
-			case 'school':
-				if (FlxG.save.data.distractions)
-				{
-					bgGirls.dance();
-				}
-
-			case 'mall':
-				if (FlxG.save.data.distractions)
-				{
-					upperBoppers.animation.play('bop', true);
-					bottomBoppers.animation.play('bop', true);
-					santa.animation.play('idle', true);
-				}
-
-			case 'limo':
-				if (FlxG.save.data.distractions)
-				{
-					grpLimoDancers.forEach(function(dancer:BackgroundDancer)
-					{
-						dancer.dance();
-					});
-
-					if (FlxG.random.bool(10) && fastCarCanDrive)
-						fastCarDrive();
-				}
-		}
-		if (isHalloween && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
-		{
-			if (FlxG.save.data.distractions)
-			{
-				lightningStrikeShit();
-			}
-		}
+		var curLight:Int = 0;
 	}
-
-	var curLight:Int = 0;
 }

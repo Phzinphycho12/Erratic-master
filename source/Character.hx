@@ -73,11 +73,11 @@ class Character extends FlxSprite
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/Demon Dearest', 'shared');
 				frames = tex;
-				animation.addByPrefix('idle', 'Demon Dearest Idle', 24);
-				animation.addByPrefix('singUP', 'Demon Dearest Up', 24);
-				animation.addByPrefix('singRIGHT', 'Demon Dearest Right', 24);
-				animation.addByPrefix('singDOWN', 'Demon Dearest Down', 24);
-				animation.addByPrefix('singLEFT', 'Demon Dearest Left', 24);
+				animation.addByPrefix('idle', 'Demon Dearest Idle', 24, false);
+				animation.addByPrefix('singUP', 'Demon Dearest Up', 24, false);
+				animation.addByPrefix('singRIGHT', 'Demon Dearest Right', 24, false);
+				animation.addByPrefix('singDOWN', 'Demon Dearest Down', 24, false);
+				animation.addByPrefix('singLEFT', 'Demon Dearest Left', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP", -6, 50);
@@ -212,10 +212,10 @@ class Character extends FlxSprite
 
 				trace(tex.frames.length);
 
-				animation.addByPrefix('idle', 'Maledicta Erratic Idle', 24, false);
+				animation.addByPrefix('idle', 'Maledicta Erratic Idle', 24, true);
 				animation.addByPrefix('singUP', 'Maledicta Erratic Up', 24, false);
-				animation.addByPrefix('singLEFT', 'Maledicta Erratic Left', 24, false);
-				animation.addByPrefix('singRIGHT', 'Maledicta Erratic Right', 24, false);
+				animation.addByPrefix('singLEFT', 'Maledicta Erratic Right', 24, false); // I fucked up, ok? I'm the dumbass who mistook right for left.
+				animation.addByPrefix('singRIGHT', 'Maledicta Erratic Left', 24, false); // fuck you if you mock me, you'd never know!!!!
 				animation.addByPrefix('singDOWN', 'Maledicta Erratic Down', 24, false);
 				animation.addByPrefix('singUPmiss', 'Maledicta Erratic MISSUp', 24, false);
 				animation.addByPrefix('singLEFTmiss', 'Maledicta Erratic MISSLeft', 24, false);
@@ -240,15 +240,13 @@ class Character extends FlxSprite
 				var tex = Paths.getSparrowAtlas('characters/Maledicta Erratic (Death)', 'shared');
 				frames = tex;
 
-				trace(tex.frames.length);
-
 				animation.addByPrefix('singUP', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singLEFT', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singRIGHT', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singDOWN', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('firstDeath', "Maledicta Erratic (Death) Death", 24, false);
 				animation.addByPrefix('deathLoop', "Maledicta Erratic (Death) Death LOOP", 24, true);
-				animation.addByPrefix('deathConfirm', "Maledicta Erratic (Death) Death CONFIRM", 24, false);
+				animation.addByPrefix('deathConfirm', "Maledicta Erratic (Death) CONFIRM Death", 24, false);
 
 				addOffset('firstDeath');
 				addOffset('deathLoop', -37);
@@ -416,3 +414,7 @@ class Character extends FlxSprite
 		animOffsets[name] = [x, y];
 	}
 }
+// The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.
+// The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal.
+// [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible.
+// The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.
