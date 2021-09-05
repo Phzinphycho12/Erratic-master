@@ -408,24 +408,53 @@ class PlayState extends MusicBeatState
 			{
 				case 'circus':
 					{
-						defaultCamZoom = 0.85;
+						defaultCamZoom = 0.65;
+						curStage = 'circus';
+
+						var circusbg:FlxSprite = new FlxSprite(-17.5, 50).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
+						circusbg.setGraphicSize(Std.int(circusbg.width * 1.5));
+						add(circusbg);
+
+						var circusseats:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusseats', 'erratic'));
+						circusseats.setGraphicSize(Std.int(circusseats.width * 1.5));
+						add(circusseats);
+
+						var audience:FlxSprite = new FlxSprite(circusseats.x, circusseats.y).loadGraphic(Paths.image('circus/Audience', 'erratic'));
+						audience.setGraphicSize(Std.int(audience.width * 1.5));
+						add(audience);
+
+						var lights:FlxSprite = new FlxSprite(circusbg.x, circusbg.x).loadGraphic(Paths.image('circus/lightsdarker', 'erratic'));
+						lights.setGraphicSize(Std.int(lights.width * 1.5));
+						add(lights);
+
+						var light:FlxSprite = new FlxSprite(lights.x, lights.y).loadGraphic(Paths.image('circus/thebrightnessfuckinghurts', 'erratic'));
+						light.setGraphicSize(Std.int(light.width * 1.5));
+						add(light);
+
+						var floor:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
+						floor.setGraphicSize(Std.int(floor.width * 1.5));
+						add(floor);
+					}
+				case 'disrepaircircus':
+					{
+						defaultCamZoom = 0.65;
 						curStage = 'circus';
 
 						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
 						circusbg.setGraphicSize(Std.int(circusbg.width * 1.1));
 						add(circusbg);
 
-						var floor:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
-						add(floor);
-					}
-				case 'disrepaircircus':
-					{
-						defaultCamZoom = 0.85;
-						curStage = 'circus';
+						var circusseats:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusseats', 'erratic'));
+						circusseats.setGraphicSize(Std.int(circusseats.width * 1.1));
+						add(circusseats);
 
-						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuscrowddark', 'erratic'));
-						circusbg.setGraphicSize(Std.int(circusbg.width * 1.1));
-						add(circusbg);
+						var audience:FlxSprite = new FlxSprite(circusseats.x, circusseats.y).loadGraphic(Paths.image('circus/Audience', 'erratic'));
+						audience.setGraphicSize(Std.int(audience.width * 1.1));
+						add(audience);
+
+						var lights:FlxSprite = new FlxSprite(circusbg.x, circusbg.x).loadGraphic(Paths.image('circus/lightsoff', 'erratic'));
+						lights.setGraphicSize(Std.int(lights.width * 1.1));
+						add(lights);
 
 						var floor:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
 						add(floor);

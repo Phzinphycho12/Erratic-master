@@ -175,12 +175,12 @@ class TitleState extends MusicBeatState
 		if (Main.watermarks)
 		{
 			logoBl = new FlxSprite(-150, -100);
-			logoBl.frames = Paths.getSparrowAtlas('KadeEngineLogoBumpin');
+			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 			logoBl.antialiasing = true;
 			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
 			logoBl.animation.play('bump');
 			logoBl.updateHitbox();
-			// logoBl.screenCenter();
+			logoBl.screenCenter();
 			// logoBl.color = FlxColor.BLACK;
 		}
 		else
@@ -191,7 +191,7 @@ class TitleState extends MusicBeatState
 			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
 			logoBl.animation.play('bump');
 			logoBl.updateHitbox();
-			// logoBl.screenCenter();
+			logoBl.screenCenter();
 			// logoBl.color = FlxColor.BLACK;
 		}
 
@@ -200,8 +200,6 @@ class TitleState extends MusicBeatState
 		gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		gfDance.antialiasing = true;
-		add(gfDance);
-		add(logoBl);
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -252,6 +250,11 @@ class TitleState extends MusicBeatState
 		else
 			initialized = true;
 
+		if (!skippedIntro)
+		{
+			FlxG.switchState(new VideoState('assets/videos/ErraticIntro.webm', new TitleState()));
+			skipIntro();
+		}
 		// credGroup.add(credTextShit);
 	}
 
@@ -402,74 +405,11 @@ class TitleState extends MusicBeatState
 			gfDance.animation.play('danceRight');
 		else
 			gfDance.animation.play('danceLeft');
-
 		FlxG.log.add(curBeat);
 
 		switch (curBeat)
 		{
 			case 1:
-				createCoolText(['Weeeeeeee surge']);
-			case 2:
-				addMoreText('Redpanzee');
-			case 3:
-				addMoreText('SockieChow');
-			case 6:
-				deleteCoolText();
-			case 7:
-				createCoolText(['TechnicallyInsane']);
-			case 8:
-				addMoreText('Rzoar');
-			case 9:
-				addMoreText('Lost_Spirits');
-			case 12:
-				deleteCoolText();
-			case 13:
-				createCoolText(['Speedy']);
-			case 14:
-				addMoreText('Pyro');
-			case 17:
-				addMoreText('...Wait is there another');
-			case 18:
-				deleteCoolText();
-			case 19:
-				createCoolText(['Oh right!']);
-			case 21:
-				addMoreText('Almost forgot about...');
-			case 23:
-				addMoreText('CQ The Kid');
-			case 26:
-				deleteCoolText();
-			case 27:
-				createCoolText(['As TEAM MANIAC']);
-				ngSpr.visible = true;
-			case 30:
-				deleteCoolText();
-				ngSpr.visible = false;
-
-			case 31:
-				createCoolText(['Proudly Present:']);
-			case 34:
-				deleteCoolText();
-				ngSpr.visible = false;
-
-			case 35:
-				createCoolText([curWacky[0]]);
-
-			case 36:
-				addMoreText(curWacky[1]);
-
-			case 39:
-				deleteCoolText();
-
-			case 41:
-				addMoreText('Friday Night Funkin');
-
-			case 43:
-				addMoreText('Versus');
-
-			case 46:
-				addMoreText('Erratic');
-			case 50:
 				skipIntro();
 		}
 	}
