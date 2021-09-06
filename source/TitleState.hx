@@ -52,8 +52,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		FlxGraphic.defaultPersist = true;
-
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
@@ -172,34 +170,17 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		if (Main.watermarks)
-		{
-			logoBl = new FlxSprite(-150, -100);
-			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-			logoBl.antialiasing = true;
-			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-			logoBl.animation.play('bump');
-			logoBl.updateHitbox();
-			logoBl.screenCenter();
-			// logoBl.color = FlxColor.BLACK;
-		}
-		else
-		{
-			logoBl = new FlxSprite(-150, -100);
-			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-			logoBl.antialiasing = true;
-			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-			logoBl.animation.play('bump');
-			logoBl.updateHitbox();
-			logoBl.screenCenter();
-			// logoBl.color = FlxColor.BLACK;
-		}
-
-		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
-		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-		gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-		gfDance.antialiasing = true;
+		logoBl = new FlxSprite(-150, -100);
+		logoBl.frames = Paths.getSparrowAtlas('Logo');
+		logoBl.antialiasing = true;
+		logoBl.animation.addByPrefix('bump', 'Logo Bumpin', 12);
+		logoBl.animation.play('bump');
+		logoBl.screenCenter();
+		logoBl.updateHitbox();
+		logoBl.setGraphicSize(Std.int(logoBl.width * 0.7));
+		// logoBl.screenCenter();
+		// logoBl.color = FlxColor.BLACK;
+		add(logoBl);
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -250,11 +231,6 @@ class TitleState extends MusicBeatState
 		else
 			initialized = true;
 
-		if (!skippedIntro)
-		{
-			FlxG.switchState(new VideoState('assets/videos/ErraticIntro.webm', new TitleState()));
-			skipIntro();
-		}
 		// credGroup.add(credTextShit);
 	}
 
@@ -337,18 +313,18 @@ class TitleState extends MusicBeatState
 						trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
 						OutdatedSubState.needVer = returnedData[0];
 						OutdatedSubState.currChanges = returnedData[1];
-						FlxG.switchState(new MainMenuState());
+						FlxG.switchState(new VideoState('assets/videos/ErraticIntro.webm', new MainMenuState()));
 					}
 					else
 					{
-						FlxG.switchState(new MainMenuState());
+						FlxG.switchState(new VideoState('assets/videos/ErraticIntro.webm', new MainMenuState()));
 					}
 				}
 
 				http.onError = function(error)
 				{
 					trace('error: $error');
-					FlxG.switchState(new MainMenuState()); // fail but we go anyway
+					FlxG.switchState(new VideoState('assets/videos/ErraticIntro.webm', new MainMenuState())); // fail but we go anyway
 				}
 
 				http.request();
@@ -399,17 +375,85 @@ class TitleState extends MusicBeatState
 		super.beatHit();
 
 		logoBl.animation.play('bump');
-		danceLeft = !danceLeft;
 
-		if (danceLeft)
-			gfDance.animation.play('danceRight');
-		else
-			gfDance.animation.play('danceLeft');
 		FlxG.log.add(curBeat);
 
 		switch (curBeat)
 		{
-			case 1:
+			case 6:
+				createCoolText(["Welcome to the Circus!"]);
+			case 7:
+				addMoreText('Allow me to introduce');
+				addMoreText('A special Group!');
+			case 10:
+				deleteCoolText();
+			case 11:
+				createCoolText(['With Their Leaders']);
+			case 12:
+				addMoreText('Technically_Insane');
+				addMoreText('Sockie');
+			case 15:
+				deleteCoolText();
+			case 16:
+				createCoolText(['and their artists']);
+			case 17:
+				addMoreText('Rzoar');
+				addMoreText('Redpanzee');
+				addMoreText('Pyromaniac');
+			case 20:
+				deleteCoolText();
+			case 23:
+				createCoolText(['the musicians too']);
+			case 24:
+				addMoreText('Lost Spirits');
+				addMoreText('Redpanzee... again');
+			case 27:
+				deleteCoolText();
+			case 28:
+				createCoolText(["And the programmers"]);
+			case 29:
+				addMoreText('SpeedyFound');
+			case 30:
+				addMoreText('And lastly');
+				addMoreText(' Technically_Insane');
+			case 32:
+				deleteCoolText();
+			case 33:
+				createCoolText(["What? I forgot someone?!"]);
+			case 34:
+				addMoreText('Oh right... forgot about');
+				addMoreText('CQ The Kid');
+			case 36:
+				addMoreText('the other programmer');
+			case 37:
+				deleteCoolText();
+			case 38:
+				createCoolText(["Welcome Team Maniacs!"]);
+				ngSpr.visible = true;
+			case 40:
+				deleteCoolText();
+				ngSpr.visible = false;
+
+			case 41:
+				addMoreText('Friday Night Funkin');
+
+			case 43:
+				addMoreText('VS');
+
+			case 46:
+				addMoreText('Erratic');
+			case 48:
+				addMoreText('Enjoy the Show!');
+			case 50:
+				deleteCoolText();
+			case 51:
+				createCoolText(['And a special message']);
+			case 52:
+				deleteCoolText();
+			case 53:
+				addMoreText(curWacky[0]);
+				addMoreText(curWacky[1]);
+			case 55:
 				skipIntro();
 		}
 	}

@@ -191,7 +191,8 @@ class PlayState extends MusicBeatState
 	var demon_r:Float = 600;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
-
+	var ringmasterAudience:FlxSprite;
+	var stompAudience:FlxSprite;
 	var fc:Bool = true;
 
 	var bgGirls:BackgroundGirls;
@@ -212,6 +213,8 @@ class PlayState extends MusicBeatState
 	public static var daPixelZoom:Float = 6;
 
 	public static var theFunne:Bool = true;
+
+	var brazil:Int = 9999;
 
 	var funneEffect:FlxSprite;
 	var inCutscene:Bool = false;
@@ -438,25 +441,54 @@ class PlayState extends MusicBeatState
 				case 'disrepaircircus':
 					{
 						defaultCamZoom = 0.65;
-						curStage = 'circus';
+						curStage = 'disrepaircircus';
 
 						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
-						circusbg.setGraphicSize(Std.int(circusbg.width * 1.1));
+						circusbg.setGraphicSize(Std.int(circusbg.width * 1.5));
 						add(circusbg);
 
 						var circusseats:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusseats', 'erratic'));
-						circusseats.setGraphicSize(Std.int(circusseats.width * 1.1));
+						circusseats.setGraphicSize(Std.int(circusseats.width * 1.5));
 						add(circusseats);
 
-						var audience:FlxSprite = new FlxSprite(circusseats.x, circusseats.y).loadGraphic(Paths.image('circus/Audience', 'erratic'));
-						audience.setGraphicSize(Std.int(audience.width * 1.1));
-						add(audience);
+						stompAudience = new FlxSprite(circusseats.x - 5000, circusseats.y - 5000);
+						stompAudience.frames = Paths.getSparrowAtlas('circus/Circus Crowd', 'erratic');
+						stompAudience.animation.addByPrefix('stomp', 'Circus Crowd bop', true);
+						stompAudience.setGraphicSize(Std.int(stompAudience.width * 1.5));
+						stompAudience.animation.play('stomp');
+						add(stompAudience);
+
+						ringmasterAudience = new FlxSprite(circusseats.x, circusseats.y).loadGraphic(Paths.image('circus/Audience', 'erratic'));
+						ringmasterAudience.setGraphicSize(Std.int(ringmasterAudience.width * 1.5));
+						add(ringmasterAudience);
 
 						var lights:FlxSprite = new FlxSprite(circusbg.x, circusbg.x).loadGraphic(Paths.image('circus/lightsoff', 'erratic'));
-						lights.setGraphicSize(Std.int(lights.width * 1.1));
+						lights.setGraphicSize(Std.int(lights.width * 1.5));
 						add(lights);
 
-						var floor:FlxSprite = new FlxSprite(-40, 50).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
+						var floor:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
+						floor.setGraphicSize(Std.int(floor.width * 1.5));
+						add(floor);
+					}
+				case 'emptycircus':
+					{
+						defaultCamZoom = 0.65;
+						curStage = 'emptycircus';
+
+						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
+						circusbg.setGraphicSize(Std.int(circusbg.width * 1.5));
+						add(circusbg);
+
+						var circusseats:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusseats', 'erratic'));
+						circusseats.setGraphicSize(Std.int(circusseats.width * 1.5));
+						add(circusseats);
+
+						var lights:FlxSprite = new FlxSprite(circusbg.x, circusbg.x).loadGraphic(Paths.image('circus/lightsoff', 'erratic'));
+						lights.setGraphicSize(Std.int(lights.width * 1.5));
+						add(lights);
+
+						var floor:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
+						floor.setGraphicSize(Std.int(floor.width * 1.5));
 						add(floor);
 					}
 				case 'stage':
@@ -505,10 +537,10 @@ class PlayState extends MusicBeatState
 					}
 				case 'finalhell':
 					{
-						defaultCamZoom = 0.45;
+						defaultCamZoom = 0.3;
 						curStage = 'finalhell';
 						var bg:FlxSprite = new FlxSprite(-2000, -400).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
-						bg.setGraphicSize(Std.int(bg.width * 1.7));
+						bg.setGraphicSize(Std.int(bg.width * 1.5));
 
 						bg.updateHitbox();
 						bg.antialiasing = true;
@@ -577,7 +609,12 @@ class PlayState extends MusicBeatState
 		}
 		else if (curStage == 'circus' || curStage == 'disrepaircircus')
 		{
-			gf = new Character(500, 100, curGf);
+			gf = new Character(600, 200, curGf);
+			gf.scrollFactor.set(0.95, 0.95);
+		}
+		else if (curStage == 'emptycircus')
+		{
+			gf = new Character(brazil, brazil, curGf);
 			gf.scrollFactor.set(0.95, 0.95);
 		}
 		else
@@ -596,7 +633,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			dad = new Character(100, 100, SONG.player2);
+			dad = new Character(100, 200, SONG.player2);
 		}
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
@@ -617,6 +654,12 @@ class PlayState extends MusicBeatState
 			case 'erratic':
 				camPos.x += 600;
 				dad.y += 200;
+			case 'gooderratic':
+				camPos.x += 600;
+				dad.y += 200;
+			case 'brokenerratic':
+				camPos.x += 600;
+				dad.y += 200;
 			case 'erraticmad':
 				dad.y += 200;
 			case 'erraticpissed':
@@ -625,9 +668,9 @@ class PlayState extends MusicBeatState
 				dad.x -= 100;
 		}
 
-		if (curStage == 'circus' || curStage == 'disrepaircircus')
+		if (curStage == 'circus' || curStage == 'disrepaircircus' || curStage == 'emptycircus')
 		{
-			boyfriend = new Boyfriend(1100, 450, SONG.player1);
+			boyfriend = new Boyfriend(1100, 550, SONG.player1);
 		}
 		else if (curStage == 'erratichell')
 		{
@@ -1865,6 +1908,11 @@ class PlayState extends MusicBeatState
 				iconP1.animation.play(SONG.player1);
 			else
 				iconP1.animation.play('bf-old');
+		}
+
+		if (dad.curCharacter == 'brokenerratic')
+		{
+			iconP2.animation.play('brokenerratic2');
 		}
 
 		super.update(elapsed);
@@ -3725,6 +3773,18 @@ class PlayState extends MusicBeatState
 			songLength
 			- Conductor.songPosition);
 		#end
+		if (curStage == 'disrepaircircus' && SONG.song.toLowerCase() == 'ringmaster')
+			switch (curStep)
+			{
+				case 362:
+					stompAudience.x = ringmasterAudience.x;
+					stompAudience.y = ringmasterAudience.y;
+					FlxTween.tween(ringmasterAudience, {alpha: 0}, 0.1);
+				case 1938:
+					FlxTween.tween(stompAudience, {alpha: 0}, 0.1);
+					FlxTween.tween(ringmasterAudience, {alpha: 1}, 0.1);
+			}
+
 		if (SONG.song.toLowerCase() == 'vencit')
 			switch (curStep)
 			{

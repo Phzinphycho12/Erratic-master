@@ -47,7 +47,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('scared', 'GF FEAR', 24);
 
 				addOffset('cheer');
-				addOffset('sad', -2, -2);
+				addOffset('sad', -2, -21);
 				addOffset('danceLeft', 0, -9);
 				addOffset('danceRight', 0, -9);
 
@@ -147,6 +147,40 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 
+			case 'gooderratic':
+				tex = Paths.getSparrowAtlas('characters/erratic');
+				frames = tex;
+				animation.addByPrefix('idle', "erratic idle", 24);
+				animation.addByPrefix('singUP', 'erratic up', 24, false);
+				animation.addByPrefix('singDOWN', 'erratic down bad', 24, false);
+				animation.addByPrefix('singLEFT', 'erratic left', 24, false);
+				animation.addByPrefix('singRIGHT', 'erratic right', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 1, 7);
+				addOffset("singRIGHT", -8, 3);
+				addOffset("singLEFT", -7, 1);
+				addOffset("singDOWN", 10, 0);
+
+				playAnim('idle');
+
+			case 'brokenerratic':
+				tex = Paths.getSparrowAtlas('characters/B-Erratic');
+				frames = tex;
+				animation.addByPrefix('idle', "B-Erratic idle", 24);
+				animation.addByPrefix('singUP', 'B-Erratic up', 24, false);
+				animation.addByPrefix('singDOWN', 'B-Erratic down', 24, false);
+				animation.addByPrefix('singLEFT', 'B-Erratic left', 24, false);
+				animation.addByPrefix('singRIGHT', 'B-Erratic right', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 1, 7);
+				addOffset("singRIGHT", -8, 3);
+				addOffset("singLEFT", -7, 1);
+				addOffset("singDOWN", 10, 0);
+
+				playAnim('idle');
+
 			case 'erraticmad':
 				tex = Paths.getSparrowAtlas('characters/CQ erratic');
 				frames = tex;
@@ -233,13 +267,12 @@ class Character extends FlxSprite
 				addOffset("singDOWNmiss", 42, -123);
 
 				playAnim('idle');
-
+				setGraphicSize(Std.int(width * 1.5)); // this is a gift from BrightFyre
 				flipX = true;
 
 			case 'erratic_md-dead':
 				var tex = Paths.getSparrowAtlas('characters/Maledicta Erratic (Death)', 'shared');
 				frames = tex;
-
 				animation.addByPrefix('singUP', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singLEFT', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singRIGHT', 'Maledicta Erratic (Death) Death', 24, false);
@@ -252,7 +285,7 @@ class Character extends FlxSprite
 				addOffset('deathLoop', -37);
 				addOffset('deathConfirm', -37);
 				playAnim('firstDeath');
-
+				setGraphicSize(Std.int(width * 1.5)); // this is a gift from BrightFyre
 				flipX = true;
 		}
 

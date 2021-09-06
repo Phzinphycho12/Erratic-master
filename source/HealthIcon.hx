@@ -21,7 +21,10 @@ class HealthIcon extends FlxSprite
 		animation.add('erratic', [4, 5], 0, false, isPlayer);
 		animation.add('erraticmad', [10, 11], 0, false, isPlayer);
 		animation.add('erraticpissed', [6, 7], 0, false, isPlayer);
-		animation.add('erratic_md', [4, 5], 0, false, isPlayer);
+		animation.add('gooderratic', [2, 3], 0, false, isPlayer);
+		animation.add('brokenerratic', [2, 3], 0, false, isPlayer);
+		animation.add('brokenerratic2', [8, 9], 0, false, isPlayer);
+		animation.add('erratic_md', [17, 18], 0, false, isPlayer);
 		animation.add('bf-old', [14, 15], 0, false, isPlayer);
 		animation.add('gf', [16], 0, false, isPlayer);
 		animation.add('dad', [12, 13], 0, false, isPlayer);

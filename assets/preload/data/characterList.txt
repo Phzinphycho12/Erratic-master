@@ -6,4 +6,6 @@ vencitgf
 erratic
 erraticmad
 erraticpissed
+gooderratic
+brokenerratic
 erratic_md
