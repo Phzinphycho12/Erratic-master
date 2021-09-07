@@ -540,7 +540,7 @@ class PlayState extends MusicBeatState
 					{
 						defaultCamZoom = 0.35;
 						curStage = 'finalhell';
-						var bg:FlxSprite = new FlxSprite(-2250, -600).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
+						var bg:FlxSprite = new FlxSprite(-3000, -750).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
 						bg.setGraphicSize(Std.int(bg.width * 1.2));
 						bg.scrollFactor.set(0.3, 0.3);
 						bg.updateHitbox();
