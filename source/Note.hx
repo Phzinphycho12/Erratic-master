@@ -189,7 +189,7 @@ class Note extends FlxSprite
 							updateHitbox();
 							antialiasing = true;
 							offset.x += 30;
-							offset.y -= 30;
+							offset.y += 30;
 						}
 					default:
 						{

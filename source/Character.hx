@@ -73,7 +73,7 @@ class Character extends FlxSprite
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/Demon Dearest', 'shared');
 				frames = tex;
-				animation.addByPrefix('idle', 'Demon Dearest Idle', 24, false);
+				animation.addByPrefix('idle', 'Demon Dearest Idle', 24, true);
 				animation.addByPrefix('singUP', 'Demon Dearest Up', 24, false);
 				animation.addByPrefix('singRIGHT', 'Demon Dearest Right', 24, false);
 				animation.addByPrefix('singDOWN', 'Demon Dearest Down', 24, false);

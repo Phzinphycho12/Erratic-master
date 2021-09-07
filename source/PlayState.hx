@@ -119,6 +119,7 @@ class PlayState extends MusicBeatState
 	public var originalX:Float;
 
 	public static var dad:Character;
+	public static var erraticScreams:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
 
@@ -537,11 +538,11 @@ class PlayState extends MusicBeatState
 					}
 				case 'finalhell':
 					{
-						defaultCamZoom = 0.3;
+						defaultCamZoom = 0.35;
 						curStage = 'finalhell';
-						var bg:FlxSprite = new FlxSprite(-2000, -400).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
-						bg.setGraphicSize(Std.int(bg.width * 1.5));
-
+						var bg:FlxSprite = new FlxSprite(-2250, -600).loadGraphic(Paths.image('truehell/True Hell', 'erratic'));
+						bg.setGraphicSize(Std.int(bg.width * 1.2));
+						bg.scrollFactor.set(0.3, 0.3);
 						bg.updateHitbox();
 						bg.antialiasing = true;
 						add(bg);
@@ -614,7 +615,7 @@ class PlayState extends MusicBeatState
 		}
 		else if (curStage == 'emptycircus')
 		{
-			gf = new Character(brazil, brazil, curGf);
+			gf = new Character(brazil, brazil, 'brokenerratic');
 			gf.scrollFactor.set(0.95, 0.95);
 		}
 		else
@@ -691,7 +692,32 @@ class PlayState extends MusicBeatState
 		}
 
 		// REPOSITIONING PER STAGE
-
+		if (dad.curCharacter == 'dad')
+		{
+			FlxTween.tween(dad, {
+				x: dad.x + 256 * 0.9 + Math.sin((Conductor.songPosition / 200) * (Conductor.bpm / 60) * 3.5) * 0.5,
+				y: dad.y + 256 * 1.7 * Math.cos((Conductor.songPosition / 200) * (Conductor.bpm / 60) * 3.7 * Math.PI)
+			}, 5, {
+				type: FlxTween.PINGPONG,
+				ease: FlxEase.quadInOut,
+				onComplete: null,
+				startDelay: 0,
+				loopDelay: 0
+			});
+		}
+		if (SONG.player1 == 'erratic_md')
+		{
+			FlxTween.tween(boyfriend, {
+				x: boyfriend.x - 256 * 0.8 + Math.sin((Conductor.songPosition / 250) * (Conductor.bpm / 60) * 3) * 0.5,
+				y: boyfriend.y - 256 * 1.3 * Math.cos((Conductor.songPosition / 250) * (Conductor.bpm / 60) * 3 * Math.PI)
+			}, 4, {
+				type: FlxTween.PINGPONG,
+				ease: FlxEase.quadInOut,
+				onComplete: null,
+				startDelay: 0,
+				loopDelay: 0
+			});
+		}
 		if (!PlayStateChangeables.Optimize)
 		{
 			add(gf);
@@ -702,15 +728,6 @@ class PlayState extends MusicBeatState
 
 			add(dad);
 			add(boyfriend);
-		}
-
-		if (SONG.player2 == 'dad')
-		{
-			if (curStep >= 0)
-			{
-				dad.y -= 32 * Math.cos((curStep * 0.25));
-				dad.x += 32 * Math.sin((curStep * 2));
-			}
 		}
 
 		if (loadRep)
@@ -3811,6 +3828,14 @@ class PlayState extends MusicBeatState
 					generateStaticArrows(1, false);
 				case 3904:
 					FlxTween.tween(erraticRageBar, {color: FlxColor.BLACK}, 7);
+			}
+		if (SONG.song.toLowerCase() == 'vengeance')
+			switch (curStep)
+			{
+				case 713:
+					remove(dad);
+					dad = new Character(100, 400, 'brokenerratic');
+					add(dad);
 			}
 	}
 
