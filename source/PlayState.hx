@@ -521,7 +521,7 @@ class PlayState extends MusicBeatState
 					}
 				case 'erratichell':
 					{
-						defaultCamZoom = 0.7;
+						defaultCamZoom = 0.75;
 						curStage = 'erratichell';
 						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hell/hellscene', 'erratic'));
 						bg.antialiasing = true;
@@ -675,7 +675,7 @@ class PlayState extends MusicBeatState
 		}
 		else if (curStage == 'erratichell')
 		{
-			boyfriend = new Boyfriend(900, 450, SONG.player1);
+			boyfriend = new Boyfriend(600, 50, SONG.player1);
 		}
 		else if (curStage == 'finalhell')
 		{
@@ -1078,7 +1078,14 @@ class PlayState extends MusicBeatState
 		{
 			dad.dance();
 			gf.dance();
-			boyfriend.playAnim('idle');
+			if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
+			{
+				boyfriend.playAnim('scaredidle');
+			}
+			else
+			{
+				boyfriend.playAnim('idle');
+			}
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 			introAssets.set('default', ['ready', "set", "go"]);
@@ -3329,8 +3336,18 @@ class PlayState extends MusicBeatState
 
 		if (boyfriend.holdTimer > Conductor.stepCrochet * 4 * 0.001 && (!holdArray.contains(true) || PlayStateChangeables.botPlay))
 		{
-			if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+			if (boyfriend.animation.curAnim.name.startsWith('sing')
+				&& !boyfriend.animation.curAnim.name.endsWith('miss')
+				&& PlayState.SONG.song.toLowerCase() == 'vencit'
+				&& curStep >= 567
+				&& SONG.player1 == 'vencitbf')
+			{
+				boyfriend.playAnim('scaredidle');
+			}
+			else if (boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+			{
 				boyfriend.playAnim('idle');
+			}
 		}
 
 		playerStrums.forEach(function(spr:FlxSprite)
@@ -3666,13 +3683,42 @@ class PlayState extends MusicBeatState
 			switch (note.noteData)
 			{
 				case 2:
-					boyfriend.playAnim('singUP', true);
+					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
+					{
+						boyfriend.playAnim('singUPscared', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singUP', true);
+					}
+
 				case 3:
-					boyfriend.playAnim('singRIGHT', true);
+					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
+					{
+						boyfriend.playAnim('singRIGHTscared', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singRIGHT', true);
+					}
 				case 1:
-					boyfriend.playAnim('singDOWN', true);
+					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
+					{
+						boyfriend.playAnim('singDOWNscared', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singDOWN', true);
+					}
 				case 0:
-					boyfriend.playAnim('singLEFT', true);
+					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
+					{
+						boyfriend.playAnim('singLEFTscared', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singLEFT', true);
+					}
 			}
 
 			#if windows
@@ -3934,7 +3980,14 @@ class PlayState extends MusicBeatState
 			gf.dance();
 		}
 
-		if (!boyfriend.animation.curAnim.name.startsWith("sing"))
+		if (!boyfriend.animation.curAnim.name.startsWith("sing")
+			&& PlayState.SONG.song.toLowerCase() == 'vencit'
+			&& curStep >= 567
+			&& SONG.player1 == 'vencitbf')
+		{
+			boyfriend.playAnim('scaredidle');
+		}
+		else if (!boyfriend.animation.curAnim.name.startsWith("sing"))
 		{
 			boyfriend.playAnim('idle');
 		}

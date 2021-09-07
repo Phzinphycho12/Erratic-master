@@ -240,6 +240,54 @@ class Character extends FlxSprite
 
 				flipX = true;
 
+			case 'vencitbf':
+				var tex = Paths.getSparrowAtlas('characters/Vencit BF', 'shared');
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('idle', 'Vencit BF Idle', 16, false);
+				animation.addByPrefix('singUP', 'Vencit BF Up', 16, false);
+				animation.addByPrefix('singLEFT', 'Vencit BF Left', 16, false);
+				animation.addByPrefix('singRIGHT', 'Vencit BF Right', 16, false);
+				animation.addByPrefix('singDOWN', 'Vencit BF Down', 16, false);
+				animation.addByPrefix('singUPscared', 'Vencit BF SCAREDUP', 16, false);
+				animation.addByPrefix('singLEFTscared', 'Vencit BF SCAREDLEFT', 16, false);
+				animation.addByPrefix('singRIGHTscared', 'Vencit BF SCAREDRIGHT', 16, false);
+				animation.addByPrefix('singDOWNscared', 'Vencit BF SCAREDDOWN', 16, false);
+				animation.addByPrefix('singUPmiss', 'Vencit BF MISSUP', 16, false);
+				animation.addByPrefix('singLEFTmiss', 'Vencit BF MISSLEFT', 16, false);
+				animation.addByPrefix('singRIGHTmiss', 'Vencit BF MISSRIGHT', 16, false);
+				animation.addByPrefix('singDOWNmiss', 'Vencit BF MISSDOWN', 16, false);
+
+				animation.addByPrefix('firstDeath', "Vencit BF Death", 16, false);
+				animation.addByPrefix('deathLoop', "Vencit BF Death LOOP", 16, true);
+				animation.addByPrefix('deathConfirm', "Vencit BF Death CONFIRM", 16, false);
+
+				animation.addByPrefix('scaredidle', 'Vencit BF SCAREDIDLE', 16);
+
+				addOffset('idle', -5);
+				addOffset("singUP", 6, 1);
+				addOffset("singRIGHT", -4, 1);
+				addOffset("singLEFT", 14, -1);
+				addOffset("singDOWN", 0, 6);
+				addOffset("singUPscared", 6, 1);
+				addOffset("singRIGHTscared", -4, 1);
+				addOffset("singLEFTscared", 14, -1);
+				addOffset("singDOWNscared", 0, 6);
+				addOffset("singUPmiss", 11, 5);
+				addOffset("singRIGHTmiss", 10, 1);
+				addOffset("singLEFTmiss", 12, 1);
+				addOffset("singDOWNmiss", -11, 11);
+				addOffset('firstDeath', 37, 11);
+				addOffset('deathLoop', 37, 5);
+				addOffset('deathConfirm', 37, 69);
+				addOffset('scaredidle', 7, -1);
+
+				playAnim('idle');
+				setGraphicSize(Std.int(width * 0.45));
+				flipX = true;
+
 			case 'erratic_md':
 				var tex = Paths.getSparrowAtlas('characters/Maledicta Erratic', 'shared');
 				frames = tex;
