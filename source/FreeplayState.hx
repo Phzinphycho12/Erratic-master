@@ -282,7 +282,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
-		if (songs[curSelected].songName.toLowerCase() == "vencit" || songs[curSelected].songName.toLowerCase() == "maledicta")
+		if (songs[curSelected].songName.toLowerCase() == "vencit")
 		{
 			curDifficulty += change; // Thanks again Hazard! This helps a lot!
 
@@ -300,6 +300,20 @@ class FreeplayState extends MusicBeatState
 			#end
 
 			diffText.text = CoolUtil.difficultyFromInt(curDifficulty).toUpperCase();
+		}
+		else if (songs[curSelected].songName.toLowerCase() == "maledicta")
+		{
+			curDifficulty = 3; // Thanks again Hazard! This helps a lot!
+
+			// adjusting the highscore song name to be compatible (changeDiff)
+			var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
+
+			#if !switch
+			intendedScore = Highscore.getScore(songHighscore, curDifficulty);
+			combo = Highscore.getCombo(songHighscore, curDifficulty);
+			#end
+
+			diffText.text = ("GRAND FINALE");
 		}
 		else
 		{

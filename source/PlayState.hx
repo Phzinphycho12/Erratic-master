@@ -191,7 +191,10 @@ class PlayState extends MusicBeatState
 	var ragePercent:FlxText;
 	var demon_r:Float = 600;
 	var bottomBoppers:FlxSprite;
+	var enough:FlxSound;
 	var santa:FlxSprite;
+	var notlight:FlxSprite;
+	var notlights:FlxSprite;
 	var ringmasterAudience:FlxSprite;
 	var stompAudience:FlxSprite;
 	var fc:Bool = true;
@@ -444,6 +447,8 @@ class PlayState extends MusicBeatState
 						defaultCamZoom = 0.65;
 						curStage = 'disrepaircircus';
 
+						enough = new FlxSound().loadEmbedded(Paths.sound('enough', 'erratic'));
+
 						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
 						circusbg.setGraphicSize(Std.int(circusbg.width * 1.5));
 						add(circusbg);
@@ -462,6 +467,14 @@ class PlayState extends MusicBeatState
 						ringmasterAudience = new FlxSprite(circusseats.x, circusseats.y).loadGraphic(Paths.image('circus/Audience', 'erratic'));
 						ringmasterAudience.setGraphicSize(Std.int(ringmasterAudience.width * 1.5));
 						add(ringmasterAudience);
+
+						notlights = new FlxSprite(circusbg.x, circusbg.x).loadGraphic(Paths.image('circus/lightsdarker', 'erratic'));
+						notlights.setGraphicSize(Std.int(notlights.width * 1.5));
+						add(notlights);
+
+						notlight = new FlxSprite(notlights.x, notlights.y).loadGraphic(Paths.image('circus/thebrightnessfuckinghurts', 'erratic'));
+						notlight.setGraphicSize(Std.int(notlights.width * 1.5));
+						add(notlight);
 
 						var lights:FlxSprite = new FlxSprite(circusbg.x, circusbg.x).loadGraphic(Paths.image('circus/lightsoff', 'erratic'));
 						lights.setGraphicSize(Std.int(lights.width * 1.5));
@@ -862,12 +875,24 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4, healthBarBG.y
-			+ 50, 0,
-			SONG.song
-			+ " - "
-			+ CoolUtil.difficultyFromInt(storyDifficulty)
-			+ (Main.watermarks ? " | KE " + MainMenuState.kadeEngineVer : ""), 16);
+		if (SONG.song.toLowerCase() == "maledicta")
+		{
+			kadeEngineWatermark = new FlxText(4, healthBarBG.y
+				+ 50, 0,
+				SONG.song
+				+ " - "
+				+ "GRAND FINALE"
+				+ (Main.watermarks ? " | KE " + MainMenuState.kadeEngineVer : ""), 16);
+		}
+		else
+		{
+			kadeEngineWatermark = new FlxText(4, healthBarBG.y
+				+ 50, 0,
+				SONG.song
+				+ " - "
+				+ CoolUtil.difficultyFromInt(storyDifficulty)
+				+ (Main.watermarks ? " | KE " + MainMenuState.kadeEngineVer : ""), 16);
+		}
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
@@ -3839,6 +3864,14 @@ class PlayState extends MusicBeatState
 		if (curStage == 'disrepaircircus' && SONG.song.toLowerCase() == 'ringmaster')
 			switch (curStep)
 			{
+				case 288:
+					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 2.5);
+				case 330:
+					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0);
+					FlxG.camera.flash(FlxColor.BLACK, 15);
+					enough.play(true);
+					notlights.visible = false;
+					notlight.visible = false;
 				case 362:
 					stompAudience.x = ringmasterAudience.x;
 					stompAudience.y = ringmasterAudience.y;

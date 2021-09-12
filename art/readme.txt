@@ -90,3 +90,4 @@ I love Tom Fulp.
                                                                                   
 ##################################################################################
 i stole this from stamper.
+"HAHAHA! Hope you enjoyed the story humans!" -Erratic

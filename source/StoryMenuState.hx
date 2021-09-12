@@ -24,17 +24,20 @@ class StoryMenuState extends MusicBeatState
 {
 	var scoreText:FlxText;
 
-	var weekData:Array<Dynamic> = [['Encounter', 'Kermis', 'Ringmaster', 'Vencit']];
+	var weekData:Array<Dynamic> = [
+		['Encounter', 'Kermis', 'Ringmaster', 'Vencit'],
+		['Freakshow', 'Vengeance', 'Maledicta']
+	];
 
-	var trackData:Array<Dynamic> = [['Encounter', 'Kermis', 'Ringmaster']];
+	var trackData:Array<Dynamic> = [['Encounter', 'Kermis', 'Ringmaster'], ['Freakshow', 'Vengeance', '? ? ?']];
 
 	var curDifficulty:Int = 1;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
-	var weekCharacters:Array<Dynamic> = [['erratic', 'bf', 'gf']];
+	var weekCharacters:Array<Dynamic> = [['erratic', 'bf', 'gf'], ['erratic', 'bf', 'gf']];
 
-	var weekNames:Array<String> = ["Erratic's Enclave"];
+	var weekNames:Array<String> = ["Erratic's Enclave", "Closing Act"];
 
 	var txtWeekTitle:FlxText;
 
@@ -87,7 +90,7 @@ class StoryMenuState extends MusicBeatState
 		var week1FG:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Erratic_week1_assets'));
 		week1FG.setGraphicSize(Std.int(week1FG.width * 0.156));
 		week1FG.screenCenter();
-		week1FG.y -= 200;
+		week1FG.y -= 250;
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);
