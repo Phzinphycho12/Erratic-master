@@ -66,6 +66,7 @@ using StringTools;
 import webm.WebmPlayer;
 #end
 #if windows
+// me when ur mom
 import Discord.DiscordClient;
 #end
 #if windows
@@ -1035,12 +1036,17 @@ class PlayState extends MusicBeatState
 		health -= 9999;
 	}
 
+	function demonHit()
+	{
+		health -= 0.4;
+	}
+
 	function rageHit()
 	{
-		SONG.speed += 0.1;
-		new FlxTimer().start(2, function(tmr:FlxTimer)
+		SONG.speed += 0.15;
+		new FlxTimer().start(2.5, function(tmr:FlxTimer)
 		{
-			SONG.speed -= 0.1;
+			SONG.speed -= 0.15;
 		});
 	}
 
@@ -2619,6 +2625,10 @@ class PlayState extends MusicBeatState
 					}
 					else
 					{
+						if (daNote.noteType == 3)
+						{
+							health -= 0.0;
+						}
 						if (daNote.noteType == 2)
 						{
 							noteMiss(daNote.noteData, daNote);
@@ -2876,6 +2886,14 @@ class PlayState extends MusicBeatState
 		switch (daRating)
 		{
 			case 'shit':
+				if (daNote.noteType == 3)
+				{
+					demonHit();
+					if (health < 2)
+						health -= 0.0;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0;
+				}
 				if (daNote.noteType == 2)
 				{
 					health -= 0.2;
@@ -2893,6 +2911,14 @@ class PlayState extends MusicBeatState
 						totalNotesHit += 0.25;
 				}
 			case 'bad':
+				if (daNote.noteType == 3)
+				{
+					demonHit();
+					if (health < 2)
+						health -= 0.0;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0;
+				}
 				if (daNote.noteType == 2)
 				{
 					health -= 0.06;
@@ -2909,6 +2935,14 @@ class PlayState extends MusicBeatState
 						totalNotesHit += 0.50;
 				}
 			case 'good':
+				if (daNote.noteType == 3)
+				{
+					demonHit();
+					if (health < 2)
+						health -= 0.0;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0;
+				}
 				if (daNote.noteType == 2)
 				{
 					daRating = 'good';
@@ -2933,6 +2967,14 @@ class PlayState extends MusicBeatState
 						totalNotesHit += 0.75;
 				}
 			case 'sick':
+				if (daNote.noteType == 3)
+				{
+					demonHit();
+					if (health < 2)
+						health -= 0.0;
+					if (FlxG.save.data.accuracyMod == 0)
+						totalNotesHit += 0;
+				}
 				if (daNote.noteType == 2)
 				{
 					if (health < 2)
@@ -3547,20 +3589,59 @@ class PlayState extends MusicBeatState
 
 			songScore -= 10;
 
-			FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
+			if (daNote.noteType == 3)
+			{
+				trace("uglyyybiatch");
+			}
+			else
+			{
+				FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
+			}
+
 			// FlxG.sound.play(Paths.sound('missnote1'), 1, false);
 			// FlxG.log.add('played imss note');
 
 			switch (direction)
 			{
 				case 0:
-					boyfriend.playAnim('singLEFTmiss', true);
+					if (daNote.noteType == 3)
+					{
+						trace("uglyyybiatch");
+					}
+					else
+					{
+						boyfriend.playAnim('singLEFTmiss', true);
+					}
+
 				case 1:
-					boyfriend.playAnim('singDOWNmiss', true);
+					if (daNote.noteType == 3)
+					{
+						trace("uglyyybiatch");
+					}
+					else
+					{
+						boyfriend.playAnim('singDOWNmiss', true);
+					}
+
 				case 2:
-					boyfriend.playAnim('singUPmiss', true);
+					if (daNote.noteType == 3)
+					{
+						trace("uglyyybiatch");
+					}
+					else
+					{
+						boyfriend.playAnim('singUPmiss', true);
+					}
+
 				case 3:
-					boyfriend.playAnim('singRIGHTmiss', true);
+					if (daNote.noteType == 3)
+					{
+						trace("uglyyybiatch");
+					}
+					else
+					{
+						boyfriend.playAnim('singRIGHTmiss', true);
+					}
 			}
 
 			#if windows
@@ -3712,6 +3793,10 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.playAnim('singUPscared', true);
 					}
+					else if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singUPmiss', true);
+					}
 					else
 					{
 						boyfriend.playAnim('singUP', true);
@@ -3722,6 +3807,10 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.playAnim('singRIGHTscared', true);
 					}
+					else if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singRIGHTmiss', true);
+					}
 					else
 					{
 						boyfriend.playAnim('singRIGHT', true);
@@ -3731,6 +3820,10 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.playAnim('singDOWNscared', true);
 					}
+					else if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singDOWNmiss', true);
+					}
 					else
 					{
 						boyfriend.playAnim('singDOWN', true);
@@ -3739,6 +3832,10 @@ class PlayState extends MusicBeatState
 					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
 					{
 						boyfriend.playAnim('singLEFTscared', true);
+					}
+					else if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singLEFTmiss', true);
 					}
 					else
 					{
@@ -3865,7 +3962,7 @@ class PlayState extends MusicBeatState
 			switch (curStep)
 			{
 				case 288:
-					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 2.5);
+					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 3);
 				case 330:
 					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0);
 					FlxG.camera.flash(FlxColor.BLACK, 15);
@@ -3912,6 +4009,7 @@ class PlayState extends MusicBeatState
 			switch (curStep)
 			{
 				case 713:
+					remove(gf);
 					remove(dad);
 					dad = new Character(100, 400, 'brokenerratic');
 					add(dad);

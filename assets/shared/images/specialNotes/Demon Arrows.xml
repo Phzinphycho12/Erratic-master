@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Demon Arrows.png">
+<SubTexture name="Demon Arrows Down0000" x="0" y="0" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Down0001" x="821" y="0" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Down0002" x="1642" y="0" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Down0003" x="2463" y="0" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Left0000" x="0" y="695" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Left0001" x="821" y="695" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Left0002" x="1642" y="695" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Left0003" x="2463" y="695" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Right0000" x="0" y="1390" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Right0001" x="821" y="1390" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Right0002" x="1642" y="1390" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Right0003" x="2463" y="1390" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Up0000" x="0" y="2085" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Up0001" x="821" y="2085" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Up0002" x="1642" y="2085" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+<SubTexture name="Demon Arrows Up0003" x="2463" y="2085" width="821" height="695" frameX="0" frameY="0" frameWidth="821" frameHeight="695" />
+</TextureAtlas>

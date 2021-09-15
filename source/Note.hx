@@ -132,6 +132,29 @@ class Note extends FlxSprite
 							updateHitbox();
 							antialiasing = true;
 						}
+					case 3:
+						{
+							frames = Paths.getSparrowAtlas('crackedarrows/NOTE_assets', 'erratic');
+							animation.addByPrefix('greenScroll', 'green instance 1');
+							animation.addByPrefix('redScroll', 'red instance 1');
+							animation.addByPrefix('blueScroll', 'blue instance 1');
+							animation.addByPrefix('purpleScroll', 'purple instance 1');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold instance 1');
+							animation.addByPrefix('greenholdend', 'green hold end instance 1');
+							animation.addByPrefix('redholdend', 'red hold end instance 1');
+							animation.addByPrefix('blueholdend', 'blue hold end instance 1');
+
+							animation.addByPrefix('purplehold', 'purple hold piece instance 1');
+							animation.addByPrefix('greenhold', 'green hold piece instance 1');
+							animation.addByPrefix('redhold', 'red hold piece instance 1');
+							animation.addByPrefix('bluehold', 'blue hold piece instance 1');
+
+							setGraphicSize(Std.int(width * 0.7));
+
+							updateHitbox();
+							antialiasing = true;
+						}
 					default:
 						{
 							frames = Paths.getSparrowAtlas('crackedarrows/NOTE_assets', 'erratic');
@@ -190,6 +213,31 @@ class Note extends FlxSprite
 							antialiasing = true;
 							offset.x += 30;
 							offset.y += 30;
+						}
+					case 3:
+						{
+							frames = Paths.getSparrowAtlas('specialNotes/Demon Arrows', 'shared');
+							animation.addByPrefix('greenScroll', 'Demon Arrows Up');
+							animation.addByPrefix('redScroll', 'Demon Arrows Right');
+							animation.addByPrefix('blueScroll', 'Demon Arrows Down');
+							animation.addByPrefix('purpleScroll', 'Demon Arrows Left');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold instance 1');
+							animation.addByPrefix('greenholdend', 'green hold end instance 1');
+							animation.addByPrefix('redholdend', 'red hold end instance 1');
+							animation.addByPrefix('blueholdend', 'blue hold end instance 1');
+
+							animation.addByPrefix('purplehold', 'purple hold piece instance 1');
+							animation.addByPrefix('greenhold', 'green hold piece instance 1');
+							animation.addByPrefix('redhold', 'red hold piece instance 1');
+							animation.addByPrefix('bluehold', 'blue hold piece instance 1');
+
+							setGraphicSize(Std.int(width * 0.21));
+
+							updateHitbox();
+							antialiasing = true;
+							offset.x += 25;
+							offset.y += 0;
 						}
 					default:
 						{

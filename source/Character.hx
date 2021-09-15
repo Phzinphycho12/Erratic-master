@@ -321,6 +321,7 @@ class Character extends FlxSprite
 			case 'erratic_md-dead':
 				var tex = Paths.getSparrowAtlas('characters/Maledicta Erratic (Death)', 'shared');
 				frames = tex;
+				animation.addByPrefix('idle', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singUP', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singLEFT', 'Maledicta Erratic (Death) Death', 24, false);
 				animation.addByPrefix('singRIGHT', 'Maledicta Erratic (Death) Death', 24, false);
@@ -329,9 +330,11 @@ class Character extends FlxSprite
 				animation.addByPrefix('deathLoop', "Maledicta Erratic (Death) Death LOOP", 24, true);
 				animation.addByPrefix('deathConfirm', "Maledicta Erratic (Death) CONFIRM Death", 24, false);
 
+				addOffset('idle');
 				addOffset('firstDeath');
 				addOffset('deathLoop', -37);
 				addOffset('deathConfirm', -37);
+
 				playAnim('firstDeath');
 				setGraphicSize(Std.int(width * 1.5)); // this is a gift from BrightFyre
 				flipX = true;
