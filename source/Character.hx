@@ -131,13 +131,13 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 			case 'erratic':
-				tex = Paths.getSparrowAtlas('characters/erratic');
+				tex = Paths.getSparrowAtlas('characters/Erratic');
 				frames = tex;
-				animation.addByPrefix('idle', "erratic idle", 24);
-				animation.addByPrefix('singUP', 'erratic up', 24, false);
-				animation.addByPrefix('singDOWN', 'erratic down bad', 24, false);
-				animation.addByPrefix('singLEFT', 'erratic left', 24, false);
-				animation.addByPrefix('singRIGHT', 'erratic right', 24, false);
+				animation.addByPrefix('idle', "Erratic idle yuh", 13);
+				animation.addByPrefix('singUP', 'Erratic up yo momma', 13, false);
+				animation.addByPrefix('singDOWN', 'Erratic down lol', 13, false);
+				animation.addByPrefix('singLEFT', 'Erratic left me', 13, false);
+				animation.addByPrefix('singRIGHT', 'Erratic right ok cq', 13, false);
 
 				addOffset('idle');
 				addOffset("singUP", 1, 7);
@@ -148,13 +148,13 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 			case 'gooderratic':
-				tex = Paths.getSparrowAtlas('characters/erratic');
+				tex = Paths.getSparrowAtlas('characters/Erratic');
 				frames = tex;
-				animation.addByPrefix('idle', "erratic idle", 24);
-				animation.addByPrefix('singUP', 'erratic up', 24, false);
-				animation.addByPrefix('singDOWN', 'erratic down bad', 24, false);
-				animation.addByPrefix('singLEFT', 'erratic left', 24, false);
-				animation.addByPrefix('singRIGHT', 'erratic right', 24, false);
+				animation.addByPrefix('idle', "Erratic idle yuh", 13);
+				animation.addByPrefix('singUP', 'Erratic up yo momma', 13, false);
+				animation.addByPrefix('singDOWN', 'Erratic down lol', 13, false);
+				animation.addByPrefix('singLEFT', 'Erratic left me', 13, false);
+				animation.addByPrefix('singRIGHT', 'Erratic right ok cq', 13, false);
 
 				addOffset('idle');
 				addOffset("singUP", 1, 7);
@@ -163,7 +163,6 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 10, 0);
 
 				playAnim('idle');
-
 			case 'brokenerratic':
 				tex = Paths.getSparrowAtlas('characters/B-Erratic');
 				frames = tex;
@@ -184,11 +183,11 @@ class Character extends FlxSprite
 			case 'erraticmad':
 				tex = Paths.getSparrowAtlas('characters/CQ erratic');
 				frames = tex;
-				animation.addByPrefix('idle', "CQ erratic idle zaddy", 24);
-				animation.addByPrefix('singUP', 'CQ erratic up brightfyre', 24, false);
-				animation.addByPrefix('singDOWN', 'CQ erratic down in the deep', 24, false);
-				animation.addByPrefix('singLEFT', 'CQ erratic left me', 24, false);
-				animation.addByPrefix('singRIGHT', 'CQ erratic right', 24, false);
+				animation.addByPrefix('idle', "CQ erratic Idle", 13);
+				animation.addByPrefix('singUP', 'CQ erratic Up', 13, false);
+				animation.addByPrefix('singDOWN', 'CQ erratic Down', 13, false);
+				animation.addByPrefix('singLEFT', 'CQ erratic Left', 13, false);
+				animation.addByPrefix('singRIGHT', 'CQ erratic Right', 13, false);
 
 				addOffset('idle');
 				addOffset("singUP", 1, 2);

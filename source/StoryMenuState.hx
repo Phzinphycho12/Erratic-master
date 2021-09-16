@@ -146,7 +146,7 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.animation.addByPrefix('easy', 'EASY');
 		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
 		sprDifficulty.animation.addByPrefix('hard', 'HARD');
-		sprDifficulty.animation.addByPrefix('erratic', 'HARD');
+		sprDifficulty.animation.addByPrefix('erratic', 'ERRATIC');
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
 

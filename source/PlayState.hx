@@ -4003,7 +4003,7 @@ class PlayState extends MusicBeatState
 					generateStaticArrows(0, false);
 					generateStaticArrows(1, false);
 				case 3904:
-					FlxTween.tween(erraticRageBar, {color: FlxColor.BLACK}, 7);
+					FlxTween.tween(erraticRageBar, {color: FlxColor.BLACK}, 4);
 			}
 		if (SONG.song.toLowerCase() == 'vengeance')
 			switch (curStep)
