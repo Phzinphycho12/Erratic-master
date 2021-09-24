@@ -123,6 +123,7 @@ class PlayState extends MusicBeatState
 	public static var erraticScreams:Character;
 	public static var gf:Character;
 	public static var boyfriend:Boyfriend;
+	public static var boyfriendAssist:Character;
 
 	public var notes:FlxTypedGroup<Note>;
 
@@ -138,6 +139,7 @@ class PlayState extends MusicBeatState
 
 	public static var strumLineNotes:FlxTypedGroup<FlxSprite> = null;
 	public static var playerStrums:FlxTypedGroup<FlxSprite> = null;
+	public static var playerStrums2:FlxTypedGroup<FlxSprite> = null;
 	public static var cpuStrums:FlxTypedGroup<FlxSprite> = null;
 
 	private var camZooming:Bool = false;
@@ -146,6 +148,7 @@ class PlayState extends MusicBeatState
 	private var gfSpeed:Int = 1;
 
 	public var health:Float = 1; // making public because sethealth doesnt work without it
+	public var rage:Float = 0;
 
 	private var combo:Int = 0;
 
@@ -162,6 +165,8 @@ class PlayState extends MusicBeatState
 
 	private var healthBarBG:FlxSprite;
 	private var healthBar:FlxBar;
+	private var maldictaRageBarBG:FlxSprite;
+	private var maldictaRageBar:FlxBar;
 	private var songPositionBar:Float = 0;
 	private var theRageBar:Float = 0;
 
@@ -699,7 +704,10 @@ class PlayState extends MusicBeatState
 		{
 			boyfriend = new Boyfriend(770, 450, SONG.player1);
 		}
-
+		if (curStage == 'finalhell' && SONG.song.toLowerCase() == 'maledicta')
+		{
+			boyfriendAssist = new Character(boyfriend.x - 30, boyfriend.y + 60, 'vencitBF');
+		}
 		if (dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
 		{
 			dad.setGraphicSize(Std.int(dad.width * 1.1));
@@ -777,6 +785,7 @@ class PlayState extends MusicBeatState
 		add(strumLineNotes);
 
 		playerStrums = new FlxTypedGroup<FlxSprite>();
+		playerStrums2 = new FlxTypedGroup<FlxSprite>();
 		cpuStrums = new FlxTypedGroup<FlxSprite>();
 
 		// startCountdown();
@@ -859,6 +868,21 @@ class PlayState extends MusicBeatState
 			ragePercent.scrollFactor.set();
 			add(ragePercent);
 			ragePercent.cameras = [camHUD];
+		}
+		if (SONG.song.toLowerCase() == "maledicta")
+		{
+			maldictaRageBarBG = new FlxSprite(900, 300).loadGraphic(Paths.image('healthBar'));
+			maldictaRageBarBG.angle = -90;
+			maldictaRageBarBG.screenCenter(Y);
+			maldictaRageBarBG.scrollFactor.set();
+			add(maldictaRageBarBG);
+
+			maldictaRageBar = new FlxBar(maldictaRageBarBG.x + 4, maldictaRageBarBG.y + 4, LEFT_TO_RIGHT, Std.int(maldictaRageBarBG.width - 8),
+				Std.int(maldictaRageBarBG.height - 8), this, 'rage', 0, 5);
+			maldictaRageBar.angle = -90;
+			maldictaRageBar.scrollFactor.set();
+			maldictaRageBar.createFilledBar(0xFF808080, 0xFFFFD700);
+			add(maldictaRageBar);
 		}
 
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar'));
@@ -954,6 +978,13 @@ class PlayState extends MusicBeatState
 			erraticRageBG.cameras = [camHUD];
 			erraticRageBar.cameras = [camHUD];
 		}
+
+		if (SONG.song.toLowerCase() == 'maledicta')
+		{
+			maldictaRageBarBG.cameras = [camHUD];
+			maldictaRageBar.cameras = [camHUD];
+		}
+
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1033,12 +1064,24 @@ class PlayState extends MusicBeatState
 
 	function rageHitMiss()
 	{
-		health -= 9999;
+		if (SONG.player1 == 'erratic_md')
+		{
+			rage += 1;
+		}
+		else
+		{
+			health -= 0.6;
+			SONG.speed += 0.2;
+			new FlxTimer().start(4, function(tmr:FlxTimer)
+			{
+				SONG.speed -= 0.2;
+			});
+		}
 	}
 
 	function demonHit()
 	{
-		health -= 0.4;
+		health -= 0.6;
 	}
 
 	function rageHit()
@@ -1080,6 +1123,9 @@ class PlayState extends MusicBeatState
 
 		generateStaticArrows(0, doesitTween);
 		generateStaticArrows(1, doesitTween);
+
+		if (SONG.song.toLowerCase() == "maledicta")
+			generateStaticArrows(2, doesitTween);
 
 		#if windows
 		// pre lowercasing the song name (startCountdown)
@@ -1730,7 +1776,7 @@ class PlayState extends MusicBeatState
 			babyArrow.x += ((FlxG.width / 2) * player);
 
 			if (PlayStateChangeables.Optimize)
-				babyArrow.x -= 275;
+				babyArrow.x -= 270;
 
 			cpuStrums.forEach(function(spr:FlxSprite)
 			{
@@ -2341,7 +2387,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (health <= 0)
+		if (health <= 0 || rage >= 5)
 		{
 			boyfriend.stunned = true;
 
@@ -4063,10 +4109,7 @@ class PlayState extends MusicBeatState
 		{
 			health -= 0.05;
 		}
-		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 976)
-		{
-			theRageBar == 0;
-		}
+
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
@@ -4126,6 +4169,11 @@ class PlayState extends MusicBeatState
 		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
 		{
 			boyfriend.playAnim('hey', true);
+		}
+
+		if (curBeat % 16 == 7 && SONG.song.toLowerCase() == 'maledicta')
+		{
+			rage -= 0.125;
 		}
 
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)

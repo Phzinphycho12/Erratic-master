@@ -391,7 +391,7 @@ class TitleState extends MusicBeatState
 				createCoolText(['With Their Leaders']);
 			case 12:
 				addMoreText('Technically_Insane');
-				addMoreText('Sockie');
+				addMoreText('Sockie(ex-member)');
 			case 15:
 				deleteCoolText();
 			case 16:
