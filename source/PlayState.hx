@@ -4030,19 +4030,19 @@ class PlayState extends MusicBeatState
 		if (curStage == 'disrepaircircus' && SONG.song.toLowerCase() == 'ringmaster')
 			switch (curStep)
 			{
-				case 288:
-					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 3);
-				case 330:
+				case 253:
+					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 4);
+				case 295:
 					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0);
 					FlxG.camera.flash(FlxColor.BLACK, 15);
 					enough.play(true);
 					notlights.visible = false;
 					notlight.visible = false;
-				case 362:
+				case 327:
 					stompAudience.x = ringmasterAudience.x;
 					stompAudience.y = ringmasterAudience.y;
 					FlxTween.tween(ringmasterAudience, {alpha: 0}, 0.1);
-				case 1938:
+				case 1903:
 					FlxTween.tween(stompAudience, {alpha: 0}, 0.1);
 					FlxTween.tween(ringmasterAudience, {alpha: 1}, 0.1);
 			}
@@ -4058,11 +4058,11 @@ class PlayState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.RED, 0.5);
 				case 2240:
 					FlxG.camera.flash(FlxColor.RED, 0.5);
-				case 2828:
+				case 2825:
 					remove(dad);
 					dad = new Character(-100, 350, 'erraticspeaks');
 					add(dad);
-				case 2880:
+				case 2851:
 					FlxG.camera.flash(FlxColor.RED, 0.5);
 					remove(dad);
 					dad = new Character(-100, 350, 'erraticpissed');
@@ -4077,7 +4077,11 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'vengeance')
 			switch (curStep)
 			{
-				case 713:
+				case 624:
+					remove(dad);
+					dad = new Character(100, 400, 'brokenerraticscream');
+					add(dad);
+				case 639:
 					remove(gf);
 					remove(dad);
 					dad = new Character(100, 400, 'brokenerratic');

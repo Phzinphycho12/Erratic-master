@@ -150,11 +150,11 @@ class Character extends FlxSprite
 			case 'gooderratic':
 				tex = Paths.getSparrowAtlas('characters/Erratic_Rain');
 				frames = tex;
-				animation.addByPrefix('idle', "Erratic idle yuh", 17);
-				animation.addByPrefix('singUP', 'Erratic up yo momma', 17, false);
-				animation.addByPrefix('singDOWN', 'Erratic down lol', 17, false);
-				animation.addByPrefix('singLEFT', 'Erratic left me', 17, false);
-				animation.addByPrefix('singRIGHT', 'Erratic right ok cq', 17, false);
+				animation.addByPrefix('idle', "Erratic_Rain Idle", 17);
+				animation.addByPrefix('singUP', 'Erratic_Rain Up', 17, false);
+				animation.addByPrefix('singDOWN', 'Erratic_Rain Down', 17, false);
+				animation.addByPrefix('singLEFT', 'Erratic_Rain Left', 17, false);
+				animation.addByPrefix('singRIGHT', 'Erratic_Rain Right', 17, false);
 
 				addOffset('idle');
 				addOffset("singUP", 1, 7);
@@ -166,13 +166,34 @@ class Character extends FlxSprite
 			case 'brokenerratic':
 				tex = Paths.getSparrowAtlas('characters/B-Erratic');
 				frames = tex;
-				animation.addByPrefix('idle', "B-Erratic idle", 24);
-				animation.addByPrefix('singUP', 'B-Erratic up', 24, false);
-				animation.addByPrefix('singDOWN', 'B-Erratic down', 24, false);
-				animation.addByPrefix('singLEFT', 'B-Erratic left', 24, false);
-				animation.addByPrefix('singRIGHT', 'B-Erratic right', 24, false);
+				animation.addByPrefix('idle', "B-Erratic Idle", 24);
+				animation.addByPrefix('singUP', 'B-Erratic Up', 24, false);
+				animation.addByPrefix('singDOWN', 'B-Erratic Down', 24, false);
+				animation.addByPrefix('singLEFT', 'B-Erratic Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'B-Erratic Right', 24, false);
+				animation.addByPrefix('scream', 'B-Erratic Scream', 17, false);
 
 				addOffset('idle');
+				addOffset('scream');
+				addOffset("singUP", 1, 7);
+				addOffset("singRIGHT", -8, 3);
+				addOffset("singLEFT", -7, 1);
+				addOffset("singDOWN", 10, 0);
+
+				playAnim('idle');
+
+			case 'brokenerraticscream':
+				tex = Paths.getSparrowAtlas('characters/B-Erratic');
+				frames = tex;
+				animation.addByPrefix('idle', "B-Erratic Scream", 24);
+				animation.addByPrefix('singUP', 'B-Erratic Up', 24, false);
+				animation.addByPrefix('singDOWN', 'B-Erratic Down', 24, false);
+				animation.addByPrefix('singLEFT', 'B-Erratic Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'B-Erratic Right', 24, false);
+				animation.addByPrefix('scream', 'B-Erratic Scream', 17, false);
+
+				addOffset('idle');
+				addOffset('scream');
 				addOffset("singUP", 1, 7);
 				addOffset("singRIGHT", -8, 3);
 				addOffset("singLEFT", -7, 1);
@@ -245,37 +266,28 @@ class Character extends FlxSprite
 
 				trace(tex.frames.length);
 
-				animation.addByPrefix('idle', 'BF idle dance', 24, false);
-				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
-				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
-				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
-				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
-				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
-				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
-				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
-				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
-				animation.addByPrefix('hey', 'BF HEY', 24, false);
+				animation.addByPrefix('idle', 'BOYFRIEND_Rain Idle', 24, false);
+				animation.addByPrefix('singUP', 'BOYFRIEND_Rain Up', 24, false);
+				animation.addByPrefix('singLEFT', 'BOYFRIEND_Rain Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'BOYFRIEND_Rain Right', 24, false);
+				animation.addByPrefix('singDOWN', 'BOYFRIEND_Rain Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'BOYFRIEND_Rain MissUp', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BOYFRIEND_Rain MissLeft', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BOYFRIEND_Rain MissRight', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BOYFRIEND_Rain MissDown', 24, false);
 
-				animation.addByPrefix('firstDeath', "BF dies", 24, false);
-				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
-				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
-
-				animation.addByPrefix('scared', 'BF idle shaking', 24);
+				animation.addByPrefix('scared', 'BOYFRIEND_Rain Scared', 24);
 
 				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				addOffset("singUPmiss", -29, 27);
-				addOffset("singRIGHTmiss", -30, 21);
-				addOffset("singLEFTmiss", 12, 24);
-				addOffset("singDOWNmiss", -11, -19);
-				addOffset("hey", 7, 4);
-				addOffset('firstDeath', 37, 11);
-				addOffset('deathLoop', 37, 5);
-				addOffset('deathConfirm', 37, 69);
-				addOffset('scared', -4);
+				addOffset("singUP", -19, -3);
+				addOffset("singRIGHT", -8, 3);
+				addOffset("singLEFT", 0, 1);
+				addOffset("singDOWN");
+				addOffset("singUPmiss", -19, -3);
+				addOffset("singRIGHTmiss", -10);
+				addOffset("singLEFTmiss", -6);
+				addOffset("singDOWNmiss", -2, -1);
+				addOffset('scared', -7);
 
 				playAnim('idle');
 
