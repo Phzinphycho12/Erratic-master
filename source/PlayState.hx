@@ -139,7 +139,6 @@ class PlayState extends MusicBeatState
 
 	public static var strumLineNotes:FlxTypedGroup<FlxSprite> = null;
 	public static var playerStrums:FlxTypedGroup<FlxSprite> = null;
-	public static var playerStrums2:FlxTypedGroup<FlxSprite> = null;
 	public static var cpuStrums:FlxTypedGroup<FlxSprite> = null;
 
 	private var camZooming:Bool = false;
@@ -203,6 +202,9 @@ class PlayState extends MusicBeatState
 	var notlights:FlxSprite;
 	var ringmasterAudience:FlxSprite;
 	var stompAudience:FlxSprite;
+	var lightning:FlxSprite;
+	var rain:FlxSprite;
+	var damagedStage:FlxSprite;
 	var fc:Bool = true;
 
 	var bgGirls:BackgroundGirls;
@@ -495,21 +497,40 @@ class PlayState extends MusicBeatState
 						defaultCamZoom = 0.65;
 						curStage = 'emptycircus';
 
-						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
+						rain = new FlxSprite(0, 0);
+						rain.frames = Paths.getSparrowAtlas('ruined circus/rain', 'erratic');
+						rain.animation.addByPrefix('idle', 'rain downpour', 17, true);
+						rain.animation.play('idle');
+						rain.screenCenter();
+						rain.alpha = 0.5;
+						add(rain);
+						rain.cameras = [camHUD];
+
+						var circusbg:FlxSprite = new FlxSprite(-17.5, 100).loadGraphic(Paths.image('ruined circus/broken stage sky', 'erratic'));
 						circusbg.setGraphicSize(Std.int(circusbg.width * 1.5));
 						add(circusbg);
 
-						var circusseats:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusseats', 'erratic'));
+						lightning = new FlxSprite(0, 0);
+						lightning.frames = Paths.getSparrowAtlas('ruined circus/lightning', 'erratic');
+						lightning.animation.addByPrefix('idle', 'lightning Idle', false);
+						lightning.animation.addByPrefix('strike', 'lightning Crash', false);
+						lightning.animation.play('idle');
+						lightning.screenCenter();
+						lightning.y -= 100;
+						lightning.x -= 50;
+						add(lightning);
+
+						var circusseats:FlxSprite = new FlxSprite(circusbg.x,
+							circusbg.y).loadGraphic(Paths.image('ruined circus/broken stage tent', 'erratic'));
 						circusseats.setGraphicSize(Std.int(circusseats.width * 1.5));
 						add(circusseats);
 
-						var lights:FlxSprite = new FlxSprite(circusbg.x, circusbg.x).loadGraphic(Paths.image('circus/lightsoff', 'erratic'));
-						lights.setGraphicSize(Std.int(lights.width * 1.5));
-						add(lights);
-
-						var floor:FlxSprite = new FlxSprite(circusbg.x, circusbg.y).loadGraphic(Paths.image('circus/circusfloor', 'erratic'));
-						floor.setGraphicSize(Std.int(floor.width * 1.5));
-						add(floor);
+						damagedStage = new FlxSprite(circusbg.x, circusbg.y);
+						damagedStage.frames = Paths.getSparrowAtlas('ruined circus/brokenstage', 'erratic');
+						damagedStage.animation.addByPrefix('idle', 'brokenstage flickering', 15, true);
+						damagedStage.animation.play('idle');
+						damagedStage.setGraphicSize(Std.int(damagedStage.width * 1.5));
+						add(damagedStage);
 					}
 				case 'stage':
 					{
@@ -704,10 +725,6 @@ class PlayState extends MusicBeatState
 		{
 			boyfriend = new Boyfriend(770, 450, SONG.player1);
 		}
-		if (curStage == 'finalhell' && SONG.song.toLowerCase() == 'maledicta')
-		{
-			boyfriendAssist = new Character(boyfriend.x - 30, boyfriend.y + 60, 'vencitBF');
-		}
 		if (dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
 		{
 			dad.setGraphicSize(Std.int(dad.width * 1.1));
@@ -785,7 +802,6 @@ class PlayState extends MusicBeatState
 		add(strumLineNotes);
 
 		playerStrums = new FlxTypedGroup<FlxSprite>();
-		playerStrums2 = new FlxTypedGroup<FlxSprite>();
 		cpuStrums = new FlxTypedGroup<FlxSprite>();
 
 		// startCountdown();
@@ -973,6 +989,9 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+		if (curStage == ' emptycircus')
+			rain.cameras = [camHUD];
+
 		if (SONG.song.toLowerCase() == 'vencit')
 		{
 			erraticRageBG.cameras = [camHUD];
@@ -3952,14 +3971,18 @@ class PlayState extends MusicBeatState
 
 	function lightningStrikeShit():Void
 	{
-		FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
-		halloweenBG.animation.play('lightning');
+		new FlxTimer().start(1, function(tmr:FlxTimer)
+		{
+			FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
+		});
+
+		lightning.animation.play('strike');
+		FlxG.camera.flash(FlxColor.WHITE, 0.5);
 
 		lightningStrikeBeat = curBeat;
 		lightningOffset = FlxG.random.int(8, 24);
 
 		boyfriend.playAnim('scared', true);
-		gf.playAnim('scared', true);
 	}
 
 	var danced:Bool = false;
@@ -4180,6 +4203,13 @@ class PlayState extends MusicBeatState
 		{
 			boyfriend.playAnim('hey', true);
 			dad.playAnim('cheer', true);
+		}
+		if (curStage == 'emptycircus' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+		{
+			if (FlxG.save.data.distractions)
+			{
+				lightningStrikeShit();
+			}
 		}
 
 		var curLight:Int = 0;

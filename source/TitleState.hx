@@ -169,6 +169,13 @@ class TitleState extends MusicBeatState
 		// bg.setGraphicSize(Std.int(bg.width * 0.6));
 		// bg.updateHitbox();
 		add(bg);
+		var circusbg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('special'));
+		circusbg.setGraphicSize(Std.int(FlxG.width));
+		circusbg.screenCenter();
+		circusbg.y += 180;
+		circusbg.x += 315;
+		circusbg.updateHitbox();
+		add(circusbg);
 
 		logoBl = new FlxSprite(-150, -100);
 		logoBl.frames = Paths.getSparrowAtlas('Logo');
