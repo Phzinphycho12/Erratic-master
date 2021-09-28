@@ -911,7 +911,26 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
+		if (dad.curCharacter == 'erratic' || dad.curCharacter == 'erraticmad')
+		{
+			healthBar.createFilledBar(0xFFd05774, 0xFF31b0d1);
+		}
+		else if (dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
+		{
+			healthBar.createFilledBar(0xFFff4640, 0xFFff4b61);
+		}
+		else if (dad.curCharacter == 'dad' && SONG.player1 == 'erratic_md')
+		{
+			healthBar.createFilledBar(0xFFbf7cd4, 0xFFe1c099);
+		}
+		else if (dad.curCharacter == 'dad')
+		{
+			healthBar.createFilledBar(0xFFbf7cd4, 0xFF31b0d1);
+		}
+		else
+		{
+			healthBar.createFilledBar(0xFF61006a, 0xFF31b0d1);
+		}
 		// healthBar
 		add(healthBar);
 
@@ -2025,9 +2044,21 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.NINE)
 		{
 			if (iconP1.animation.curAnim.name == 'bf-old')
-				iconP1.animation.play(SONG.player1);
+				if (SONG.song.toLowerCase() == 'vencit' && SONG.player1 == 'vencitbf' && curStep >= 567)
+				{
+					iconP1.animation.play('vencitbfdrained');
+				}
+				else
+				{
+					iconP1.animation.play(SONG.player1);
+				}
 			else
 				iconP1.animation.play('bf-old');
+		}
+
+		if (SONG.song.toLowerCase() == 'vencit' && SONG.player1 == 'vencitbf' && curStep == 567)
+		{
+			iconP1.animation.play('vencitbfdrained');
 		}
 
 		if (dad.curCharacter == 'brokenerratic')
@@ -2696,16 +2727,33 @@ class PlayState extends MusicBeatState
 						}
 						if (daNote.noteType == 2)
 						{
-							noteMiss(daNote.noteData, daNote);
-							rageHitMiss();
-							vocals.volume = 0;
+							if (storyDifficulty == 3)
+							{
+								health -= 9999;
+							}
+							else
+							{
+								noteMiss(daNote.noteData, daNote);
+								rageHitMiss();
+								vocals.volume = 0;
+							}
 						}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 						{
-							health -= 0.075;
-							vocals.volume = 0;
-							if (theFunne)
-								noteMiss(daNote.noteData, daNote);
+							if (storyDifficulty == 3)
+							{
+								health -= 0.15;
+								vocals.volume = 0;
+								if (theFunne)
+									noteMiss(daNote.noteData, daNote);
+							}
+							else
+							{
+								health -= 0.075;
+								vocals.volume = 0;
+								if (theFunne)
+									noteMiss(daNote.noteData, daNote);
+							}
 						}
 					}
 
@@ -2961,19 +3009,45 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 2)
 				{
-					health -= 0.2;
-					rageHit();
+					if (storyDifficulty == 3)
+					{
+						score = -1000;
+						combo = 0;
+						health -= 0.5;
+						rageHit();
+					}
+					else
+					{
+						score = -1000;
+						combo = 0;
+						health -= 0.2;
+						rageHit();
+					}
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					score = -300;
-					combo = 0;
-					misses++;
-					health -= 0.2;
-					ss = false;
-					shits++;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 0.25;
+					if (storyDifficulty == 3)
+					{
+						score = -1000;
+						combo = 0;
+						misses++;
+						health -= 0.4;
+						ss = false;
+						shits++;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.25;
+					}
+					else
+					{
+						score = -300;
+						combo = 0;
+						misses++;
+						health -= 0.2;
+						ss = false;
+						shits++;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.25;
+					}
 				}
 			case 'bad':
 				if (daNote.noteType == 3)
@@ -2986,18 +3060,39 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 2)
 				{
-					health -= 0.06;
-					rageHit();
+					if (storyDifficulty == 3)
+					{
+						health -= 0.12;
+						rageHit();
+					}
+					else
+					{
+						health -= 0.06;
+						rageHit();
+					}
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					daRating = 'bad';
-					score = 0;
-					health -= 0.06;
-					ss = false;
-					bads++;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 0.50;
+					if (storyDifficulty == 3)
+					{
+						daRating = 'bad';
+						score = -250;
+						health -= 0.2;
+						ss = false;
+						bads++;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.50;
+					}
+					else
+					{
+						daRating = 'bad';
+						score = 0;
+						health -= 0.06;
+						ss = false;
+						bads++;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.50;
+					}
 				}
 			case 'good':
 				if (daNote.noteType == 3)
@@ -3010,26 +3105,55 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 2)
 				{
-					daRating = 'good';
-					score = 200;
-					ss = false;
-					goods++;
-					if (health < 2)
-						health += 0.04;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 0.75;
-					rageHit();
+					if (storyDifficulty == 3)
+					{
+						daRating = 'good';
+						score = 1000;
+						ss = false;
+						goods++;
+						if (health < 2)
+							health += 0.015;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.75;
+						rageHit();
+					}
+					else
+					{
+						daRating = 'good';
+						score = 500;
+						ss = false;
+						goods++;
+						if (health < 2)
+							health += 0.04;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.75;
+						rageHit();
+					}
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					daRating = 'good';
-					score = 200;
-					ss = false;
-					goods++;
-					if (health < 2)
-						health += 0.04;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 0.75;
+					if (storyDifficulty == 3)
+					{
+						daRating = 'good';
+						score = 400;
+						ss = false;
+						goods++;
+						if (health < 2)
+							health += 0.015;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.75;
+					}
+					else
+					{
+						daRating = 'good';
+						score = 200;
+						ss = false;
+						goods++;
+						if (health < 2)
+							health += 0.04;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 0.75;
+					}
 				}
 			case 'sick':
 				if (daNote.noteType == 3)
@@ -3042,20 +3166,43 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 2)
 				{
-					if (health < 2)
-						health += 0.1;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 1;
-					sicks++;
-					rageHit();
+					if (storyDifficulty == 3)
+					{
+						if (health < 2)
+							health += 0.05;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 1;
+						sicks++;
+						rageHit();
+					}
+					else
+					{
+						if (health < 2)
+							health += 0.1;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 1;
+						sicks++;
+						rageHit();
+					}
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					if (health < 2)
-						health += 0.1;
-					if (FlxG.save.data.accuracyMod == 0)
-						totalNotesHit += 1;
-					sicks++;
+					if (storyDifficulty == 3)
+					{
+						if (health < 2)
+							health += 0.05;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 1;
+						sicks++;
+					}
+					else
+					{
+						if (health < 2)
+							health += 0.1;
+						if (FlxG.save.data.accuracyMod == 0)
+							totalNotesHit += 1;
+						sicks++;
+					}
 				}
 		}
 
@@ -4031,18 +4178,21 @@ class PlayState extends MusicBeatState
 			switch (curStep)
 			{
 				case 253:
-					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 4);
+					FlxTween.tween(camHUD, {alpha: 0}, 3.5);
+					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 3.5);
 				case 295:
 					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0);
 					FlxG.camera.flash(FlxColor.BLACK, 15);
 					enough.play(true);
 					notlights.visible = false;
 					notlight.visible = false;
+				case 320:
+					FlxTween.tween(camHUD, {alpha: 1}, 8);
 				case 327:
 					stompAudience.x = ringmasterAudience.x;
 					stompAudience.y = ringmasterAudience.y;
 					FlxTween.tween(ringmasterAudience, {alpha: 0}, 0.1);
-				case 1903:
+				case 1712:
 					FlxTween.tween(stompAudience, {alpha: 0}, 0.1);
 					FlxTween.tween(ringmasterAudience, {alpha: 1}, 0.1);
 			}
@@ -4062,7 +4212,7 @@ class PlayState extends MusicBeatState
 					remove(dad);
 					dad = new Character(-100, 350, 'erraticspeaks');
 					add(dad);
-				case 2851:
+				case 2880:
 					FlxG.camera.flash(FlxColor.RED, 0.5);
 					remove(dad);
 					dad = new Character(-100, 350, 'erraticpissed');
@@ -4077,15 +4227,23 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() == 'vengeance')
 			switch (curStep)
 			{
+				case 608:
+					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 1.5);
 				case 624:
 					remove(dad);
 					dad = new Character(100, 400, 'brokenerraticscream');
 					add(dad);
+					FlxTween.tween(camHUD, {alpha: 0}, 2);
+				case 632:
+					lightningStrikeShit();
+					FlxG.camera.flash(FlxColor.WHITE, 0.5);
 				case 639:
 					remove(gf);
 					remove(dad);
 					dad = new Character(100, 400, 'brokenerratic');
 					add(dad);
+				case 640:
+					FlxTween.tween(camHUD, {alpha: 1}, 1.5);
 			}
 	}
 
