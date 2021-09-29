@@ -715,7 +715,7 @@ class PlayState extends MusicBeatState
 		}
 		else if (curStage == 'erratichell')
 		{
-			boyfriend = new Boyfriend(600, 50, SONG.player1);
+			boyfriend = new Boyfriend(770, 450, SONG.player1);
 		}
 		else if (curStage == 'finalhell')
 		{

@@ -313,32 +313,25 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHTmiss', 'Vencit BF MISSRIGHT', 16, false);
 				animation.addByPrefix('singDOWNmiss', 'Vencit BF MISSDOWN', 16, false);
 
-				animation.addByPrefix('firstDeath', "Vencit BF Death", 16, false);
-				animation.addByPrefix('deathLoop', "Vencit BF Death LOOP", 16, true);
-				animation.addByPrefix('deathConfirm', "Vencit BF Death CONFIRM", 16, false);
-
-				animation.addByPrefix('scaredidle', 'Vencit BF SCAREDIDLE', 16);
+				animation.addByPrefix('scaredidle', 'Vencit BF SCAREDIDLE', 11, false);
 
 				addOffset('idle', -5);
-				addOffset("singUP", 6, 1);
+				addOffset("singUP", 5, 6);
 				addOffset("singRIGHT", -4, 1);
-				addOffset("singLEFT", 14, -1);
-				addOffset("singDOWN", 0, 6);
-				addOffset("singUPscared", 6, 1);
-				addOffset("singRIGHTscared", -4, 1);
-				addOffset("singLEFTscared", 14, -1);
-				addOffset("singDOWNscared", 0, 6);
-				addOffset("singUPmiss", 11, 5);
+				addOffset("singLEFT", 3, 1);
+				addOffset("singDOWN", 0, 1);
+				addOffset("singUPscared", -64, -19);
+				addOffset("singRIGHTscared", -67, -21);
+				addOffset("singLEFTscared", -66, -21);
+				addOffset("singDOWNscared", -68, -17);
+				addOffset("singUPmiss", -2, 6);
 				addOffset("singRIGHTmiss", 10, 1);
-				addOffset("singLEFTmiss", 12, 1);
-				addOffset("singDOWNmiss", -11, 11);
-				addOffset('firstDeath', 37, 11);
-				addOffset('deathLoop', 37, 5);
-				addOffset('deathConfirm', 37, 69);
-				addOffset('scaredidle', 7, -1);
+				addOffset("singLEFTmiss", 8, 2);
+				addOffset("singDOWNmiss", -11, 4);
+				addOffset('scaredidle', -67, -17);
 
 				playAnim('idle');
-				setGraphicSize(Std.int(width * 0.45));
+				setGraphicSize(Std.int(width * 1.4));
 				flipX = true;
 
 			case 'erratic_md':

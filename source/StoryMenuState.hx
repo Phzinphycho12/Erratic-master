@@ -90,7 +90,7 @@ class StoryMenuState extends MusicBeatState
 		var week1FG:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Erratic_week1_assets'));
 		week1FG.setGraphicSize(Std.int(week1FG.width * 0.156));
 		week1FG.screenCenter();
-		week1FG.y -= 250;
+		week1FG.y -= 200;
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);

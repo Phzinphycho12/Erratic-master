@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Vencit BF.png">
+<SubTexture name="Vencit BF Death LOOP0000" x="0" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death LOOP0001" x="1028" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death LOOP0002" x="2056" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death LOOP0003" x="3084" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death CONFIRM0000" x="4112" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death CONFIRM0001" x="5140" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death CONFIRM0002" x="6168" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death CONFIRM0003" x="7196" y="0" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death CONFIRM0004" x="0" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death CONFIRM0005" x="1028" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death CONFIRM0006" x="2056" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Down0000" x="3084" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Down0001" x="4112" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Down0002" x="5140" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSDOWN0000" x="6168" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSDOWN0001" x="7196" y="1206" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSDOWN0002" x="0" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSDOWN0003" x="1028" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDDOWN0000" x="2056" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDDOWN0001" x="3084" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDDOWN0002" x="4112" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Right0000" x="5140" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Right0001" x="6168" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Right0002" x="7196" y="2412" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSRIGHT0000" x="0" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSRIGHT0001" x="1028" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSRIGHT0002" x="2056" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSRIGHT0003" x="3084" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDRIGHT0000" x="4112" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDRIGHT0001" x="5140" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDRIGHT0002" x="6168" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Left0000" x="7196" y="3618" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Left0001" x="0" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Left0002" x="1028" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSLEFT0000" x="2056" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSLEFT0001" x="3084" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSLEFT0002" x="4112" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSLEFT0003" x="5140" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDLEFT0000" x="6168" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDLEFT0001" x="7196" y="4824" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDLEFT0002" x="0" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Up0000" x="1028" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Up0001" x="2056" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Up0002" x="3084" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSUP0000" x="4112" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSUP0001" x="5140" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSUP0002" x="6168" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF MISSUP0003" x="7196" y="6030" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDUP0000" x="0" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDUP0001" x="1028" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDUP0002" x="2056" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0000" x="3084" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0001" x="4112" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0002" x="5140" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0003" x="6168" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0004" x="7196" y="7236" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0005" x="0" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0006" x="1028" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0007" x="2056" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0008" x="3084" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0009" x="4112" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0010" x="5140" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Death0011" x="6168" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Idle0000" x="7196" y="8442" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Idle0001" x="0" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Idle0002" x="1028" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Idle0003" x="2056" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Idle0004" x="3084" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Idle0005" x="4112" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF Idle0006" x="5140" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDIDLE0000" x="6168" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDIDLE0001" x="7196" y="9648" width="1028" height="1206" frameX="0" frameY="0" frameWidth="1028" frameHeight="1206" />
+<SubTexture name="Vencit BF SCAREDIDLE0002" x="0" y="10854" width="1028" height="1205" frameX="0" frameY="0" frameWidth="1028" frameHeight="1205" />
+<SubTexture name="Vencit BF SCAREDIDLE0003" x="1028" y="10854" width="1028" height="1205" frameX="0" frameY="0" frameWidth="1028" frameHeight="1205" />
+<SubTexture name="Vencit BF SCAREDIDLE0004" x="2056" y="10854" width="1028" height="1205" frameX="0" frameY="0" frameWidth="1028" frameHeight="1205" />
+</TextureAtlas>
