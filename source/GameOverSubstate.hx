@@ -24,6 +24,7 @@ class GameOverSubstate extends MusicBeatSubstate
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
 			case 'erratic_md':
+				daStage = 'finalhell';
 				daBf = 'erratic_md-dead';
 			default:
 				daBf = 'bf';
@@ -39,7 +40,15 @@ class GameOverSubstate extends MusicBeatSubstate
 		camFollow = new FlxObject(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y, 1, 1);
 		add(camFollow);
 
-		FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix));
+		if (daBf == 'erratic_md-dead')
+		{
+			FlxG.sound.play(Paths.sound('erratic_loss_sfx'));
+		}
+		else
+		{
+			FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix));
+		}
+
 		Conductor.changeBPM(100);
 
 		// FlxG.camera.followLerp = 1;

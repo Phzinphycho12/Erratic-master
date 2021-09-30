@@ -638,6 +638,8 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-pixel';
 			case 'vencitgf':
 				curGf = 'vencitgf';
+			case 'maledictabf':
+				curGf = 'maledictabf';
 			default:
 				curGf = 'gf';
 		}
@@ -656,6 +658,11 @@ class PlayState extends MusicBeatState
 		else if (curStage == 'emptycircus')
 		{
 			gf = new Character(brazil, brazil, 'brokenerratic');
+			gf.scrollFactor.set(0.95, 0.95);
+		}
+		else if (curStage == 'finalhell')
+		{
+			gf = new Character(1500, -120, curGf);
 			gf.scrollFactor.set(0.95, 0.95);
 		}
 		else
@@ -1102,7 +1109,7 @@ class PlayState extends MusicBeatState
 
 	function rageHitMiss()
 	{
-		if (SONG.player1 == 'erratic_md')
+		if (SONG.song.toLowerCase() == 'maledicta')
 		{
 			rage += 1;
 		}
@@ -1124,11 +1131,18 @@ class PlayState extends MusicBeatState
 
 	function rageHit()
 	{
-		SONG.speed += 0.15;
-		new FlxTimer().start(2.5, function(tmr:FlxTimer)
+		if (SONG.song.toLowerCase() == 'maledicta')
 		{
-			SONG.speed -= 0.15;
-		});
+			rage -= 0.21;
+		}
+		else
+		{
+			SONG.speed += 0.15;
+			new FlxTimer().start(2.5, function(tmr:FlxTimer)
+			{
+				SONG.speed -= 0.15;
+			});
+		}
 	}
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
@@ -2709,7 +2723,7 @@ class PlayState extends MusicBeatState
 				// trace(daNote.y);
 				// WIP interpolation shit? Need to fix the pause issue
 				// daNote.y = (strumLine.y - (songTime - daNote.strumTime) * (0.45 * PlayState.SONG.speed));
-
+				var maledicta = SONG.song.toLowerCase() == 'maledicta';
 				if ((daNote.mustPress && daNote.tooLate && !PlayStateChangeables.useDownscroll || daNote.mustPress && daNote.tooLate
 					&& PlayStateChangeables.useDownscroll)
 					&& daNote.mustPress)
@@ -2727,7 +2741,7 @@ class PlayState extends MusicBeatState
 						}
 						if (daNote.noteType == 2)
 						{
-							if (storyDifficulty == 3)
+							if (storyDifficulty == 3 && !maledicta)
 							{
 								health -= 9999;
 							}
@@ -2740,7 +2754,7 @@ class PlayState extends MusicBeatState
 						}
 						if (daNote.noteType == 1 || daNote.noteType == 0)
 						{
-							if (storyDifficulty == 3)
+							if (storyDifficulty == 3 && !maledicta)
 							{
 								health -= 0.15;
 								vocals.volume = 0;
@@ -2993,7 +3007,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.accuracyMod == 1)
 			totalNotesHit += wife;
-
+		var maledicta = SONG.song.toLowerCase() == 'maledicta';
 		var daRating = daNote.rating;
 
 		switch (daRating)
@@ -3026,7 +3040,7 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					if (storyDifficulty == 3)
+					if (storyDifficulty == 3 && !maledicta)
 					{
 						score = -1000;
 						combo = 0;
@@ -3073,7 +3087,7 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					if (storyDifficulty == 3)
+					if (storyDifficulty == 3 && !maledicta)
 					{
 						daRating = 'bad';
 						score = -250;
@@ -3132,7 +3146,7 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					if (storyDifficulty == 3)
+					if (storyDifficulty == 3 && !maledicta)
 					{
 						daRating = 'good';
 						score = 400;
@@ -3187,7 +3201,7 @@ class PlayState extends MusicBeatState
 				}
 				if (daNote.noteType == 1 || daNote.noteType == 0)
 				{
-					if (storyDifficulty == 3)
+					if (storyDifficulty == 3 && !maledicta)
 					{
 						if (health < 2)
 							health += 0.05;
@@ -3796,6 +3810,148 @@ class PlayState extends MusicBeatState
 			// var noteDiff:Float = Math.abs(daNote.strumTime - Conductor.songPosition);
 			// var wife:Float = EtternaFunctions.wife3(noteDiff, FlxG.save.data.etternaMode ? 1 : 1.7);
 
+			function ErraticMiss()
+			{
+				switch (direction)
+				{
+					case 0:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singLEFTmiss', true);
+						}
+
+					case 1:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singDOWNmiss', true);
+						}
+
+					case 2:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singUPmiss', true);
+						}
+
+					case 3:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singRIGHTmiss', true);
+						}
+				}
+			}
+
+			function BoyfriendMiss()
+			{
+				switch (direction)
+				{
+					case 0:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							gf.playAnim('singLEFTmiss', true);
+						}
+
+					case 1:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							gf.playAnim('singDOWNmiss', true);
+						}
+
+					case 2:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							gf.playAnim('singUPmiss', true);
+						}
+
+					case 3:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							gf.playAnim('singRIGHTmiss', true);
+						}
+				}
+			}
+
+			function DuetMiss()
+			{
+				switch (direction)
+				{
+					case 0:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singLEFTmiss', true);
+							gf.playAnim('singLEFTmiss', true);
+						}
+
+					case 1:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singDOWNmiss', true);
+							gf.playAnim('singDOWNmiss', true);
+						}
+
+					case 2:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singUPmiss', true);
+							gf.playAnim('singUPmiss', true);
+						}
+
+					case 3:
+						if (daNote.noteType == 3)
+						{
+							trace("uglyyybiatch");
+						}
+						else
+						{
+							boyfriend.playAnim('singRIGHTmiss', true);
+							gf.playAnim('singRIGHTmiss', true);
+						}
+				}
+			}
+
 			if (FlxG.save.data.accuracyMod == 1)
 				totalNotesHit -= 1;
 
@@ -3812,47 +3968,209 @@ class PlayState extends MusicBeatState
 
 			// FlxG.sound.play(Paths.sound('missnote1'), 1, false);
 			// FlxG.log.add('played imss note');
-
-			switch (direction)
+			switch (SONG.song.toLowerCase())
 			{
-				case 0:
-					if (daNote.noteType == 3)
+				case 'maledicta':
+					if (curStep <= 447 || curStep >= 666 && curStep <= 768 || curStep >= 832 && curStep <= 912 || curStep >= 936 && curStep <= 944
+						|| curStep >= 960 && curStep <= 1152 || curStep >= 1216 && curStep <= 1312 || curStep >= 1471 && curStep <= 1568 || curStep >= 1631
+						&& curStep <= 1696 || curStep >= 2496 && curStep <= 2560 || curStep >= 3183 && curStep <= 3216 || curStep >= 3248 && curStep <= 3280)
 					{
-						trace("uglyyybiatch");
+						ErraticMiss();
 					}
-					else
+					else if (curStep >= 447 && curStep <= 481 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
+						&& curStep <= 1216 || curStep >= 1312 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
+						|| curStep >= 3280 && curStep <= 3312)
 					{
-						boyfriend.playAnim('singLEFTmiss', true);
+						BoyfriendMiss();
 					}
+					else if (curStep >= 481 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
+						&& curStep <= 3183 || curStep >= 3312 && curStep <= 4000)
+					{
+						DuetMiss();
+					}
+					else if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1408 && curStep <= 1440)
+					{
+						switch (direction)
+						{
+							case 0:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singLEFTmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
 
-				case 1:
-					if (daNote.noteType == 3)
-					{
-						trace("uglyyybiatch");
-					}
-					else
-					{
-						boyfriend.playAnim('singDOWNmiss', true);
-					}
+							case 1:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singDOWNmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
 
-				case 2:
-					if (daNote.noteType == 3)
-					{
-						trace("uglyyybiatch");
-					}
-					else
-					{
-						boyfriend.playAnim('singUPmiss', true);
-					}
+							case 2:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singUPmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
 
-				case 3:
-					if (daNote.noteType == 3)
+							case 3:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singRIGHTmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
+						}
+					}
+					else if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1440 && curStep <= 1471)
 					{
-						trace("uglyyybiatch");
+						switch (direction)
+						{
+							case 0:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singLEFTmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+
+							case 1:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singDOWNmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+
+							case 2:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singUPmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+
+							case 3:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singRIGHTmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+						}
 					}
 					else
+						switch (direction)
+						{
+							case 0:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singLEFTmiss', true);
+								}
+
+							case 1:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singDOWNmiss', true);
+								}
+
+							case 2:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singUPmiss', true);
+								}
+
+							case 3:
+								if (daNote.noteType == 3)
+								{
+									trace("uglyyybiatch");
+								}
+								else
+								{
+									boyfriend.playAnim('singRIGHTmiss', true);
+								}
+						}
+				default:
+					switch (direction)
 					{
-						boyfriend.playAnim('singRIGHTmiss', true);
+						case 0:
+							if (daNote.noteType == 3)
+							{
+								trace("uglyyybiatch");
+							}
+							else
+							{
+								boyfriend.playAnim('singLEFTmiss', true);
+							}
+
+						case 1:
+							if (daNote.noteType == 3)
+							{
+								trace("uglyyybiatch");
+							}
+							else
+							{
+								boyfriend.playAnim('singDOWNmiss', true);
+							}
+
+						case 2:
+							if (daNote.noteType == 3)
+							{
+								trace("uglyyybiatch");
+							}
+							else
+							{
+								boyfriend.playAnim('singUPmiss', true);
+							}
+
+						case 3:
+							if (daNote.noteType == 3)
+							{
+								trace("uglyyybiatch");
+							}
+							else
+							{
+								boyfriend.playAnim('singRIGHTmiss', true);
+							}
 					}
 			}
 
@@ -3988,6 +4306,146 @@ class PlayState extends MusicBeatState
 		if (mashViolations < 0)
 			mashViolations = 0;
 
+		function ErraticSings()
+		{
+			switch (note.noteData)
+			{
+				case 2:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singUPmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singUP', true);
+					}
+
+				case 3:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singRIGHTmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singRIGHT', true);
+					}
+				case 1:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singDOWNmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singDOWN', true);
+					}
+				case 0:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singLEFTmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singLEFT', true);
+					}
+			}
+		}
+
+		function BoyfriendSings()
+		{
+			switch (note.noteData)
+			{
+				case 2:
+					if (note.noteType == 3)
+					{
+						gf.playAnim('singUPmiss', true);
+					}
+					else
+					{
+						gf.playAnim('singUP', true);
+					}
+
+				case 3:
+					if (note.noteType == 3)
+					{
+						gf.playAnim('singRIGHTmiss', true);
+					}
+					else
+					{
+						gf.playAnim('singRIGHT', true);
+					}
+				case 1:
+					if (note.noteType == 3)
+					{
+						gf.playAnim('singDOWNmiss', true);
+					}
+					else
+					{
+						gf.playAnim('singDOWN', true);
+					}
+				case 0:
+					if (note.noteType == 3)
+					{
+						gf.playAnim('singLEFTmiss', true);
+					}
+					else
+					{
+						gf.playAnim('singLEFT', true);
+					}
+			}
+		}
+
+		function Duet()
+		{
+			switch (note.noteData)
+			{
+				case 2:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singUPmiss', true);
+						gf.playAnim('singUPmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singUP', true);
+						gf.playAnim('singUP', true);
+					}
+
+				case 3:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singRIGHTmiss', true);
+						gf.playAnim('singRIGHTmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singRIGHT', true);
+						gf.playAnim('singRIGHT', true);
+					}
+				case 1:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singDOWNmiss', true);
+						gf.playAnim('singDOWNmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singDOWN', true);
+						gf.playAnim('singDOWN', true);
+					}
+				case 0:
+					if (note.noteType == 3)
+					{
+						boyfriend.playAnim('singLEFTmiss', true);
+						gf.playAnim('singLEFTmiss', true);
+					}
+					else
+					{
+						boyfriend.playAnim('singLEFT', true);
+						gf.playAnim('singLEFT', true);
+					}
+			}
+		}
+
 		if (!note.wasGoodHit)
 		{
 			if (!note.isSustainNote)
@@ -3998,60 +4456,167 @@ class PlayState extends MusicBeatState
 			else
 				totalNotesHit += 1;
 
-			switch (note.noteData)
+			switch (SONG.song.toLowerCase())
 			{
-				case 2:
-					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
+				case 'vencit':
+					switch (note.noteData)
 					{
-						boyfriend.playAnim('singUPscared', true);
+						case 2:
+							if (curStep >= 567 && SONG.player1 == 'vencitbf')
+							{
+								boyfriend.playAnim('singUPscared', true);
+							}
+							else if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singUPmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singUP', true);
+							}
+
+						case 3:
+							if (curStep >= 567 && SONG.player1 == 'vencitbf')
+							{
+								boyfriend.playAnim('singRIGHTscared', true);
+							}
+							else if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singRIGHTmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singRIGHT', true);
+							}
+						case 1:
+							if (curStep >= 567 && SONG.player1 == 'vencitbf')
+							{
+								boyfriend.playAnim('singDOWNscared', true);
+							}
+							else if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singDOWNmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singDOWN', true);
+							}
+						case 0:
+							if (curStep >= 567 && SONG.player1 == 'vencitbf')
+							{
+								boyfriend.playAnim('singLEFTscared', true);
+							}
+							else if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singLEFTmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singLEFT', true);
+							}
 					}
-					else if (note.noteType == 3)
+				case 'maledicta':
+					if (curStep <= 447 || curStep >= 666 && curStep <= 768 || curStep >= 832 && curStep <= 912 || curStep >= 936 && curStep <= 944
+						|| curStep >= 960 && curStep <= 1152 || curStep >= 1216 && curStep <= 1312 || curStep >= 1471 && curStep <= 1568 || curStep >= 1631
+						&& curStep <= 1696 || curStep >= 2496 && curStep <= 2560 || curStep >= 3183 && curStep <= 3216 || curStep >= 3248 && curStep <= 3280)
 					{
-						boyfriend.playAnim('singUPmiss', true);
+						ErraticSings();
+					}
+					else if (curStep >= 447 && curStep <= 481 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
+						&& curStep <= 1216 || curStep >= 1312 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
+						|| curStep >= 3280 && curStep <= 3312)
+					{
+						BoyfriendSings();
+					}
+					else if (curStep >= 481 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
+						&& curStep <= 3183 || curStep >= 3312 && curStep <= 4000)
+					{
+						Duet();
 					}
 					else
 					{
-						boyfriend.playAnim('singUP', true);
+						switch (note.noteData)
+						{
+							case 2:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singUPmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singUP', true);
+								}
+
+							case 3:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singRIGHTmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singRIGHT', true);
+								}
+							case 1:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singDOWNmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singDOWN', true);
+								}
+							case 0:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singLEFTmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singLEFT', true);
+								}
+						}
 					}
 
-				case 3:
-					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
+				default:
+					switch (note.noteData)
 					{
-						boyfriend.playAnim('singRIGHTscared', true);
-					}
-					else if (note.noteType == 3)
-					{
-						boyfriend.playAnim('singRIGHTmiss', true);
-					}
-					else
-					{
-						boyfriend.playAnim('singRIGHT', true);
-					}
-				case 1:
-					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
-					{
-						boyfriend.playAnim('singDOWNscared', true);
-					}
-					else if (note.noteType == 3)
-					{
-						boyfriend.playAnim('singDOWNmiss', true);
-					}
-					else
-					{
-						boyfriend.playAnim('singDOWN', true);
-					}
-				case 0:
-					if (PlayState.SONG.song.toLowerCase() == 'vencit' && curStep >= 567 && SONG.player1 == 'vencitbf')
-					{
-						boyfriend.playAnim('singLEFTscared', true);
-					}
-					else if (note.noteType == 3)
-					{
-						boyfriend.playAnim('singLEFTmiss', true);
-					}
-					else
-					{
-						boyfriend.playAnim('singLEFT', true);
+						case 2:
+							if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singUPmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singUP', true);
+							}
+
+						case 3:
+							if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singRIGHTmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singRIGHT', true);
+							}
+						case 1:
+							if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singDOWNmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singDOWN', true);
+							}
+						case 0:
+							if (note.noteType == 3)
+							{
+								boyfriend.playAnim('singLEFTmiss', true);
+							}
+							else
+							{
+								boyfriend.playAnim('singLEFT', true);
+							}
 					}
 			}
 

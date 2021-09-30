@@ -73,11 +73,11 @@ class Character extends FlxSprite
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/Demon Dearest', 'shared');
 				frames = tex;
-				animation.addByPrefix('idle', 'Demon Dearest Idle', 24, true);
-				animation.addByPrefix('singUP', 'Demon Dearest Up', 24, false);
-				animation.addByPrefix('singRIGHT', 'Demon Dearest Right', 24, false);
-				animation.addByPrefix('singDOWN', 'Demon Dearest Down', 24, false);
-				animation.addByPrefix('singLEFT', 'Demon Dearest Left', 24, false);
+				animation.addByPrefix('idle', 'Demon Dearest Idle', 15, true);
+				animation.addByPrefix('singUP', 'Demon Dearest Up', 15, false);
+				animation.addByPrefix('singRIGHT', 'Demon Dearest Right', 15, false);
+				animation.addByPrefix('singDOWN', 'Demon Dearest Down', 15, false);
+				animation.addByPrefix('singLEFT', 'Demon Dearest Left', 15, false);
 
 				addOffset('idle');
 				addOffset("singUP", -6, 50);
@@ -293,6 +293,34 @@ class Character extends FlxSprite
 
 				flipX = true;
 
+			case 'maledictabf':
+				var tex = Paths.getSparrowAtlas('characters/Maledicta BF', 'shared');
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('idle', 'Maledicta BF Idle', 24, false);
+				animation.addByPrefix('singUP', 'Maledicta BF Up', 24, false);
+				animation.addByPrefix('singLEFT', 'Maledicta BF Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Maledicta BF Right', 24, false);
+				animation.addByPrefix('singDOWN', 'Maledicta BF Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'Maledicta BF MISSUP', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'Maledicta BF MISSLEFT', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'Maledicta BF MISSRIGHT', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'Maledicta BF MISSDOWN', 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -19, -3);
+				addOffset("singRIGHT", -8, 3);
+				addOffset("singLEFT", 0, 1);
+				addOffset("singDOWN");
+				addOffset("singUPmiss", -19, -3);
+				addOffset("singRIGHTmiss", -10);
+				addOffset("singLEFTmiss", -6);
+				addOffset("singDOWNmiss", -2, -1);
+
+				playAnim('idle');
+
 			case 'vencitbf':
 				var tex = Paths.getSparrowAtlas('characters/Vencit BF', 'shared');
 				frames = tex;
@@ -313,7 +341,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHTmiss', 'Vencit BF MISSRIGHT', 16, false);
 				animation.addByPrefix('singDOWNmiss', 'Vencit BF MISSDOWN', 16, false);
 
-				animation.addByPrefix('scaredidle', 'Vencit BF SCAREDIDLE', 11, false);
+				animation.addByPrefix('scaredidle', 'Vencit BF SCAREDIDLE', 13, false);
 
 				addOffset('idle', -5);
 				addOffset("singUP", 5, 6);
@@ -367,22 +395,21 @@ class Character extends FlxSprite
 			case 'erratic_md-dead':
 				var tex = Paths.getSparrowAtlas('characters/Maledicta Erratic (Death)', 'shared');
 				frames = tex;
-				animation.addByPrefix('idle', 'Maledicta Erratic (Death) Death', 24, false);
-				animation.addByPrefix('singUP', 'Maledicta Erratic (Death) Death', 24, false);
-				animation.addByPrefix('singLEFT', 'Maledicta Erratic (Death) Death', 24, false);
-				animation.addByPrefix('singRIGHT', 'Maledicta Erratic (Death) Death', 24, false);
-				animation.addByPrefix('singDOWN', 'Maledicta Erratic (Death) Death', 24, false);
+				animation.addByIndices('idle', 'Maledicta Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singUP', 'Maledicta Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singLEFT', 'Maledicta Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singRIGHT', 'Maledicta Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singDOWN', 'Maledicta Erratic (Death) Death', [0], "", 24, false);
 				animation.addByPrefix('firstDeath', "Maledicta Erratic (Death) Death", 24, false);
 				animation.addByPrefix('deathLoop', "Maledicta Erratic (Death) Death LOOP", 24, true);
 				animation.addByPrefix('deathConfirm', "Maledicta Erratic (Death) CONFIRM Death", 24, false);
 
 				addOffset('idle');
 				addOffset('firstDeath');
-				addOffset('deathLoop', -37);
-				addOffset('deathConfirm', -37);
+				addOffset('deathLoop', -45);
+				addOffset('deathConfirm', -45);
 
 				playAnim('firstDeath');
-				setGraphicSize(Std.int(width * 1.5)); // this is a gift from BrightFyre
 				flipX = true;
 		}
 

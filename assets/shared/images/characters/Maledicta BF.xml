@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Maledicta BF.png">
+<SubTexture name="Maledicta BF Idle0000" x="0" y="0" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Idle0001" x="748" y="0" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Idle0002" x="1496" y="0" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Idle0003" x="2244" y="0" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Idle0004" x="2992" y="0" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Idle0005" x="3740" y="0" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Idle0006" x="0" y="422" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Idle0007" x="748" y="422" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Left0000" x="1496" y="422" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Left0001" x="2244" y="422" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Left0002" x="2992" y="422" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Left0003" x="3740" y="422" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Up0000" x="0" y="844" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Up0001" x="748" y="844" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Up0002" x="1496" y="844" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Up0003" x="2244" y="844" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Right0000" x="2992" y="844" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Right0001" x="3740" y="844" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Right0002" x="0" y="1266" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Right0003" x="748" y="1266" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Down0000" x="1496" y="1266" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Down0001" x="2244" y="1266" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Down0002" x="2992" y="1266" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF Down0003" x="3740" y="1266" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSLEFT0000" x="0" y="1688" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSLEFT0001" x="748" y="1688" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSLEFT0002" x="1496" y="1688" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSUP0000" x="2244" y="1688" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSUP0001" x="2992" y="1688" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSUP0002" x="3740" y="1688" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSRIGHT0000" x="0" y="2110" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSRIGHT0001" x="748" y="2110" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSRIGHT0002" x="1496" y="2110" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSDOWN0000" x="2244" y="2110" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSDOWN0001" x="2992" y="2110" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+<SubTexture name="Maledicta BF MISSDOWN0002" x="3740" y="2110" width="748" height="422" frameX="0" frameY="0" frameWidth="748" frameHeight="422" />
+</TextureAtlas>
