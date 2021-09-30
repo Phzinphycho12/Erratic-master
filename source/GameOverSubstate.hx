@@ -35,6 +35,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		Conductor.songPosition = 0;
 
 		bf = new Boyfriend(x, y, daBf);
+		if (daBf == 'erratic_md-dead')
+			bf.screenCenter();
 		add(bf);
 
 		camFollow = new FlxObject(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y, 1, 1);
@@ -43,6 +45,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (daBf == 'erratic_md-dead')
 		{
 			FlxG.sound.play(Paths.sound('erratic_loss_sfx'));
+			FlxG.camera.zoom = 2;
 		}
 		else
 		{

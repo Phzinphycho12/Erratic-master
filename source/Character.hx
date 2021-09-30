@@ -401,13 +401,13 @@ class Character extends FlxSprite
 				animation.addByIndices('singRIGHT', 'Maledicta Erratic (Death) Death', [0], "", 24, false);
 				animation.addByIndices('singDOWN', 'Maledicta Erratic (Death) Death', [0], "", 24, false);
 				animation.addByPrefix('firstDeath', "Maledicta Erratic (Death) Death", 24, false);
-				animation.addByPrefix('deathLoop', "Maledicta Erratic (Death) Death LOOP", 24, true);
-				animation.addByPrefix('deathConfirm', "Maledicta Erratic (Death) CONFIRM Death", 24, false);
+				animation.addByPrefix('deathLoop', "Maledicta Erratic (Death) LOOPDEATH", 24, true);
+				animation.addByPrefix('deathConfirm', "Maledicta Erratic (Death) CONFIRMDEATH", 24, false);
 
 				addOffset('idle');
 				addOffset('firstDeath');
-				addOffset('deathLoop', -45);
-				addOffset('deathConfirm', -45);
+				addOffset('deathLoop');
+				addOffset('deathConfirm');
 
 				playAnim('firstDeath');
 				flipX = true;
