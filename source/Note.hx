@@ -111,7 +111,7 @@ class Note extends FlxSprite
 				{
 					case 2:
 						{
-							frames = Paths.getSparrowAtlas('crackedarrows/NOTE_assets', 'erratic');
+							frames = Paths.getSparrowAtlas('specialNotes/RAGE_Arrows', 'shared');
 							animation.addByPrefix('greenScroll', 'green instance 1');
 							animation.addByPrefix('redScroll', 'red instance 1');
 							animation.addByPrefix('blueScroll', 'blue instance 1');
@@ -134,7 +134,7 @@ class Note extends FlxSprite
 						}
 					case 3:
 						{
-							frames = Paths.getSparrowAtlas('crackedarrows/NOTE_assets', 'erratic');
+							frames = Paths.getSparrowAtlas('specialNotes/Demon Arrows', 'shared');
 							animation.addByPrefix('greenScroll', 'green instance 1');
 							animation.addByPrefix('redScroll', 'red instance 1');
 							animation.addByPrefix('blueScroll', 'blue instance 1');

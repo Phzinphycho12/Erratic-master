@@ -102,7 +102,7 @@ class PlayState extends MusicBeatState
 	public static var noteBools:Array<Bool> = [false, false, false, false];
 
 	var halloweenLevel:Bool = false;
-
+	var floatpattern:Int = 0;
 	var songLength:Float = 0;
 	var kadeEngineWatermark:FlxText;
 
@@ -179,6 +179,7 @@ class PlayState extends MusicBeatState
 	private var camGame:FlxCamera;
 
 	public static var offsetTesting:Bool = false;
+	public static var isCutscene:Bool = false;
 
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
@@ -394,8 +395,6 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('encounter/dialog'));
 			case 'kermis':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('kermis/dialog'));
-			case 'ringmaster':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('ringmaster/dialog'));
 		}
 
 		// defaults if no stage was found in chart
@@ -1083,8 +1082,6 @@ class PlayState extends MusicBeatState
 				case 'encounter':
 					schoolIntro(doof);
 				case 'kermis':
-					schoolIntro(doof);
-				case 'ringmaster':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -2954,7 +2951,18 @@ class PlayState extends MusicBeatState
 
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
-					if (SONG.song.toLowerCase() == 'vencit')
+					if (SONG.song.toLowerCase() == 'ringmaster')
+					{
+						var video:MP4Handler = new MP4Handler();
+						video.playMP4(Paths.video('AngryErratic'));
+						video.finishCallback = function()
+						{
+							LoadingState.loadAndSwitchState(new PlayState());
+						}
+
+						isCutscene = true;
+					}
+					else if (SONG.song.toLowerCase() == 'vencit')
 					{
 						FlxG.switchState(new VideoState('assets/videos/ErraticSnaps.webm', new PlayState()));
 					}

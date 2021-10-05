@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Erratic_week_assets.png">
+<SubTexture name="Erratic_week_assets Week10000" x="0" y="0" width="8196" height="4100" frameX="0" frameY="0" frameWidth="8196" frameHeight="4100" />
+<SubTexture name="Erratic_week_assets Week20000" x="0" y="4100" width="8196" height="4100" frameX="0" frameY="0" frameWidth="8196" frameHeight="4100" />
+</TextureAtlas>

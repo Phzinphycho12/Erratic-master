@@ -82,16 +82,6 @@ class DialogueBox extends FlxSpriteGroup
 				box.alpha = 0.5;
 				box.x = -100;
 				box.y = 425;
-			case 'ringmaster':
-				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('speech_bubble_talking', 'shared');
-				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
-				box.animation.addByPrefix('normal', 'speech bubble normal', 24, true);
-				box.width = 200;
-				box.height = 200;
-				box.alpha = 0.5;
-				box.x = -100;
-				box.y = 425;
 		}
 
 		this.dialogueList = dialogueList;
@@ -129,23 +119,6 @@ class DialogueBox extends FlxSpriteGroup
 		if (PlayState.SONG.song.toLowerCase() == 'kermis')
 		{
 			portraitRight = new FlxSprite(0, 0).loadGraphic(Paths.image('background/bg4'));
-			portraitRight.setGraphicSize(Std.int(portraitRight.width * 1.3));
-			portraitRight.updateHitbox();
-			portraitRight.scrollFactor.set();
-			add(portraitRight);
-			portraitRight.visible = false;
-		}
-		if (PlayState.SONG.song.toLowerCase() == 'ringmaster')
-		{
-			portraitLeft = new FlxSprite(0, 0).loadGraphic(Paths.image('background/bg6'));
-			portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 1.3));
-			portraitLeft.updateHitbox();
-			portraitLeft.scrollFactor.set();
-			add(portraitLeft);
-		}
-		if (PlayState.SONG.song.toLowerCase() == 'ringmaster')
-		{
-			portraitRight = new FlxSprite(0, 0).loadGraphic(Paths.image('background/bg6'));
 			portraitRight.setGraphicSize(Std.int(portraitRight.width * 1.3));
 			portraitRight.updateHitbox();
 			portraitRight.scrollFactor.set();

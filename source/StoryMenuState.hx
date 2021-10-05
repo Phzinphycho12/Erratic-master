@@ -33,9 +33,9 @@ class StoryMenuState extends MusicBeatState
 
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, false];
 
-	var weekCharacters:Array<Dynamic> = [['erratic', 'bf', 'gf'], ['erratic', 'bf', 'gf']];
+	var weekCharacters:Array<Dynamic> = [['week1'], ['week2']];
 
 	var weekNames:Array<String> = ["Erratic's Enclave", "Closing Act"];
 
@@ -46,7 +46,7 @@ class StoryMenuState extends MusicBeatState
 	var txtTracklist:FlxText;
 
 	var grpWeekText:FlxTypedGroup<MenuItem>;
-
+	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 	var grpLocks:FlxTypedGroup<FlxSprite>;
 
 	var difficultySelectors:FlxGroup;
@@ -87,10 +87,8 @@ class StoryMenuState extends MusicBeatState
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFF580818);
-		var week1FG:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Erratic_week1_assets'));
-		week1FG.setGraphicSize(Std.int(week1FG.width * 0.156));
-		week1FG.screenCenter();
-		week1FG.y -= 200;
+
+		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);
@@ -133,6 +131,7 @@ class StoryMenuState extends MusicBeatState
 		add(difficultySelectors);
 
 		trace("Line 124");
+		grpWeekCharacters.add(new MenuCharacter(0, 100, 0.5, false));
 
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
@@ -162,7 +161,7 @@ class StoryMenuState extends MusicBeatState
 		trace("Line 150");
 
 		add(yellowBG);
-		add(week1FG);
+		add(grpWeekCharacters);
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
 		txtTracklist.alignment = CENTER;
@@ -396,6 +395,8 @@ class StoryMenuState extends MusicBeatState
 
 	function updateText()
 	{
+		grpWeekCharacters.members[0].setCharacter(weekCharacters[curWeek][0]);
+		grpWeekCharacters.members[0].y = -180;
 		txtTracklist.text = "Tracks\n";
 		var stringThing:Array<String> = trackData[curWeek];
 
