@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Erratic Main Menu.png">
+<SubTexture name="Erratic Main Menu Boppin0000" x="0" y="0" width="819" height="691" frameX="0" frameY="0" frameWidth="819" frameHeight="691" />
+<SubTexture name="Erratic Main Menu Boppin0001" x="819" y="0" width="819" height="691" frameX="0" frameY="0" frameWidth="819" frameHeight="691" />
+<SubTexture name="Erratic Main Menu Boppin0002" x="0" y="691" width="819" height="691" frameX="0" frameY="0" frameWidth="819" frameHeight="691" />
+<SubTexture name="Erratic Main Menu Boppin0003" x="819" y="691" width="819" height="691" frameX="0" frameY="0" frameWidth="819" frameHeight="691" />
+<SubTexture name="Erratic Main Menu Boppin0004" x="0" y="1382" width="819" height="691" frameX="0" frameY="0" frameWidth="819" frameHeight="691" />
+<SubTexture name="Erratic Main Menu Boppin0005" x="819" y="1382" width="819" height="691" frameX="0" frameY="0" frameWidth="819" frameHeight="691" />
+</TextureAtlas>

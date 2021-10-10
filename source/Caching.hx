@@ -34,10 +34,11 @@ class Caching extends MusicBeatState
 
 		FlxG.worldBounds.set(0, 0);
 
-		text = new FlxText(FlxG.width / 2, FlxG.height / 2 + 300, 0, "Loading...");
+		text = new FlxText(FlxG.width / 2, FlxG.height / 2 + 300, 0, "Welcome to the Circus!");
 		text.size = 34;
 		text.alignment = FlxTextAlign.CENTER;
 		text.alpha = 0;
+		text.color = FlxColor.RED;
 
 		kadeLogo = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic(Paths.image('KadeEngineLogo'));
 		kadeLogo.x -= kadeLogo.width / 2;
@@ -70,7 +71,8 @@ class Caching extends MusicBeatState
 			var alpha = HelperFunctions.truncateFloat(done / toBeDone * 100, 2) / 100;
 			kadeLogo.alpha = alpha;
 			text.alpha = alpha;
-			text.text = "Loading... (" + done + "/" + toBeDone + ")";
+			text.x = -10;
+			text.text = "Welcome to the Circus! (" + done + "/" + toBeDone + ")";
 		}
 
 		super.update(elapsed);

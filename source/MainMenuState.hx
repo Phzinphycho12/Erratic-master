@@ -41,8 +41,8 @@ class MainMenuState extends MusicBeatState
 
 	public static var nightly:String = "";
 
-	public static var kadeEngineVer:String = "4.2.0" + nightly;
-	public static var gameVer:String = "0.6.9.0";
+	public static var kadeEngineVer:String = "";
+	public static var gameVer:String = "";
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -63,7 +63,7 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('menuBG'));
+		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.10;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -72,10 +72,7 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = true;
 		add(bg);
 
-		camFollow = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
-
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
+		magenta = new FlxSprite(-80).loadGraphic(Paths.image('circus/circuswall', 'erratic'));
 		magenta.scrollFactor.x = 0;
 		magenta.scrollFactor.y = 0.10;
 		magenta.setGraphicSize(Std.int(magenta.width * 1.1));
@@ -86,6 +83,20 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 		// magenta.scrollFactor.set();
+
+		var erraticmenu:FlxSprite = new FlxSprite(-100);
+		erraticmenu.frames = Paths.getSparrowAtlas('Erratic Main Menu');
+		erraticmenu.animation.addByPrefix('idle', 'Erratic Main Menu Boppin', 14, true);
+		erraticmenu.animation.play('idle');
+		erraticmenu.scrollFactor.x = 0;
+		erraticmenu.scrollFactor.y = 0.10;
+		erraticmenu.setGraphicSize(Std.int(erraticmenu.width * 0.8));
+		erraticmenu.updateHitbox();
+		erraticmenu.screenCenter();
+		erraticmenu.x = -50;
+		erraticmenu.y = 200;
+		erraticmenu.antialiasing = true;
+		add(erraticmenu);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -105,7 +116,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.scrollFactor.set();
 			menuItem.antialiasing = true;
 			if (firstStart)
-				FlxTween.tween(menuItem, {y: 60 + (i * 160)}, 1 + (i * 0.25), {
+				FlxTween.tween(menuItem, {y: 150 + (i * 160)}, 1 + (i * 0.25), {
 					ease: FlxEase.expoInOut,
 					onComplete: function(flxTween:FlxTween)
 					{
@@ -114,12 +125,21 @@ class MainMenuState extends MusicBeatState
 					}
 				});
 			else
-				menuItem.y = 60 + (i * 160);
+				menuItem.y = 150 + (i * 160);
 		}
 
 		firstStart = false;
 
 		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
+
+		var corners:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('Menu_Corners'));
+		corners.scrollFactor.x = 0;
+		corners.scrollFactor.y = 0.10;
+		corners.setGraphicSize(Std.int(corners.width * 1.1));
+		corners.updateHitbox();
+		corners.screenCenter();
+		corners.antialiasing = true;
+		add(corners);
 
 		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, gameVer + (Main.watermarks ? " FNF - " + kadeEngineVer + " Kade Engine" : ""), 12);
 		versionShit.scrollFactor.set();
@@ -235,6 +255,7 @@ class MainMenuState extends MusicBeatState
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.screenCenter(X);
+			spr.x = 600;
 		});
 	}
 
@@ -277,7 +298,6 @@ class MainMenuState extends MusicBeatState
 			if (spr.ID == curSelected && finishedFunnyMove)
 			{
 				spr.animation.play('selected');
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 			}
 
 			spr.updateHitbox();
