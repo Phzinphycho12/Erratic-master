@@ -90,11 +90,11 @@ class MainMenuState extends MusicBeatState
 		erraticmenu.animation.play('idle');
 		erraticmenu.scrollFactor.x = 0;
 		erraticmenu.scrollFactor.y = 0.10;
-		erraticmenu.setGraphicSize(Std.int(erraticmenu.width * 0.8));
+		erraticmenu.setGraphicSize(Std.int(erraticmenu.width * 1.2));
 		erraticmenu.updateHitbox();
 		erraticmenu.screenCenter();
 		erraticmenu.x = -50;
-		erraticmenu.y = 200;
+		erraticmenu.y = 175;
 		erraticmenu.antialiasing = true;
 		add(erraticmenu);
 

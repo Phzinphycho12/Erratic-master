@@ -2479,6 +2479,9 @@ class PlayState extends MusicBeatState
 
 			// FlxG.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 		}
+		if (rage < 0)
+			rage = 0;
+		
 		if (FlxG.save.data.resetButton)
 		{
 			if (FlxG.keys.justPressed.R)
@@ -3985,13 +3988,13 @@ class PlayState extends MusicBeatState
 					{
 						ErraticMiss();
 					}
-					else if (curStep >= 447 && curStep <= 481 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
+					else if (curStep >= 447 && curStep <= 480 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
 						&& curStep <= 1216 || curStep >= 1312 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
 						|| curStep >= 3280 && curStep <= 3312)
 					{
 						BoyfriendMiss();
 					}
-					else if (curStep >= 481 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
+					else if (curStep >= 480 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
 						&& curStep <= 3183 || curStep >= 3312 && curStep <= 4000)
 					{
 						DuetMiss();
@@ -4530,13 +4533,13 @@ class PlayState extends MusicBeatState
 					{
 						ErraticSings();
 					}
-					else if (curStep >= 447 && curStep <= 481 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
+					else if (curStep >= 447 && curStep <= 480 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
 						&& curStep <= 1216 || curStep >= 1312 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
 						|| curStep >= 3280 && curStep <= 3312)
 					{
 						BoyfriendSings();
 					}
-					else if (curStep >= 481 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
+					else if (curStep >= 480 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
 						&& curStep <= 3183 || curStep >= 3312 && curStep <= 4000)
 					{
 						Duet();

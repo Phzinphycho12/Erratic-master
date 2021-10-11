@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Loading.png">
+<SubTexture name="Loading CQSUXDICK0000" x="0" y="0" width="474" height="368" frameX="0" frameY="0" frameWidth="474" frameHeight="368" />
+<SubTexture name="Loading CQSUXDICK0001" x="474" y="0" width="474" height="368" frameX="0" frameY="0" frameWidth="474" frameHeight="368" />
+<SubTexture name="Loading CQSUXDICK0002" x="0" y="368" width="474" height="368" frameX="0" frameY="0" frameWidth="474" frameHeight="368" />
+<SubTexture name="Loading CQSUXDICK0003" x="474" y="368" width="474" height="368" frameX="0" frameY="0" frameWidth="474" frameHeight="368" />
+<SubTexture name="Loading CQSUXDICK0004" x="0" y="736" width="474" height="368" frameX="0" frameY="0" frameWidth="474" frameHeight="368" />
+<SubTexture name="Loading CQSUXDICK0005" x="474" y="736" width="474" height="368" frameX="0" frameY="0" frameWidth="474" frameHeight="368" />
+</TextureAtlas>

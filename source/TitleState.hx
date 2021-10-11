@@ -387,60 +387,45 @@ class TitleState extends MusicBeatState
 
 		switch (curBeat)
 		{
-			case 6:
-				createCoolText(["Welcome to the Circus!"]);
+			case 5:
+				createCoolText(["Ladies and gentlemen!"]);
 			case 7:
-				addMoreText('Allow me to introduce');
-				addMoreText('A special Group!');
+				addMoreText('Welcome to the Circus!');
+				addMoreText('We hope you have a GREAT time!');
 			case 10:
 				deleteCoolText();
 			case 11:
-				createCoolText(['With Their Leaders']);
-			case 12:
-				addMoreText('Technically_Insane');
-				addMoreText('Sockie(ex-member)');
+				createCoolText(['We have a special guest!']);
+			case 13:
+				addMoreText('Straight from the Stage');
+			case 14:
+				addMoreText('Meet...');
 			case 15:
 				deleteCoolText();
 			case 16:
-				createCoolText(['and their artists']);
-			case 17:
-				addMoreText('Rzoar');
-				addMoreText('Redpanzee');
-				addMoreText('Pyromaniac');
+				createCoolText(['the Boyfriend!']);
+			case 18:
+				addMoreText('The Girlfriend!');
 			case 20:
 				deleteCoolText();
 			case 23:
-				createCoolText(['the musicians too']);
-			case 24:
-				addMoreText('Lost Spirits');
-				addMoreText('Redpanzee... again');
+				createCoolText(['Folks!']);
+			case 25:
+				addMoreText('Get Ready!');
 			case 27:
 				deleteCoolText();
 			case 28:
-				createCoolText(["And the programmers"]);
-			case 29:
-				addMoreText('SpeedyFound');
+				createCoolText(["For...!"]);
 			case 30:
-				addMoreText('And lastly');
-				addMoreText(' Technically_Insane');
-			case 32:
 				deleteCoolText();
 			case 33:
-				createCoolText(["What? I forgot someone?!"]);
-			case 34:
-				addMoreText('Oh right... forgot about');
-				addMoreText('CQ The Kid');
-			case 36:
-				addMoreText('the other programmer');
+				createCoolText(["IT"]);
+			case 35:
+				addMoreText('IS');
 			case 37:
+				addMoreText('SHOWTIME!');
+			case 39:
 				deleteCoolText();
-			case 38:
-				createCoolText(["Welcome Team Maniacs!"]);
-				ngSpr.visible = true;
-			case 40:
-				deleteCoolText();
-				ngSpr.visible = false;
-
 			case 41:
 				addMoreText('Friday Night Funkin');
 
@@ -450,17 +435,7 @@ class TitleState extends MusicBeatState
 			case 46:
 				addMoreText('Erratic');
 			case 48:
-				addMoreText('Enjoy the Show!');
-			case 50:
 				deleteCoolText();
-			case 51:
-				createCoolText(['And a special message']);
-			case 52:
-				deleteCoolText();
-			case 53:
-				addMoreText(curWacky[0]);
-				addMoreText(curWacky[1]);
-			case 55:
 				skipIntro();
 		}
 	}

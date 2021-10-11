@@ -26,7 +26,8 @@ class Caching extends MusicBeatState
 	var done = 0;
 
 	var text:FlxText;
-	var kadeLogo:FlxSprite;
+	var loadingScreen:FlxSprite;
+	var loading:FlxSprite;
 
 	override function create()
 	{
@@ -40,16 +41,23 @@ class Caching extends MusicBeatState
 		text.alpha = 0;
 		text.color = FlxColor.RED;
 
-		kadeLogo = new FlxSprite(FlxG.width / 2, FlxG.height / 2).loadGraphic(Paths.image('KadeEngineLogo'));
-		kadeLogo.x -= kadeLogo.width / 2;
-		kadeLogo.y -= kadeLogo.height / 2 + 100;
-		text.y -= kadeLogo.height / 2 - 125;
+		loadingScreen = new FlxSprite(FlxG.width, FlxG.height).loadGraphic(Paths.image('loadingscreen/Loading Screen'));
+		loadingScreen.screenCenter();
 		text.x -= 170;
-		kadeLogo.setGraphicSize(Std.int(kadeLogo.width * 0.6));
+		loadingScreen.setGraphicSize(Std.int(loadingScreen.width * 0.7));
 
-		kadeLogo.alpha = 0;
+		loading = new FlxSprite(FlxG.width, FlxG.height);
+		loading.frames = Paths.getSparrowAtlas('loadingscreen/Loading');
+		loading.screenCenter();
+		loading.animation.addByPrefix('idle', 'Loading CQSUXDICK', 24, true);
+		loading.animation.play('idle');
+		loading.x = -10;
+		loading.y = -50;
+		loading.alpha = 0;
+		loadingScreen.alpha = 0;
 
-		add(kadeLogo);
+		add(loadingScreen);
+		add(loading);
 		add(text);
 
 		trace('starting caching..');
@@ -69,8 +77,9 @@ class Caching extends MusicBeatState
 		if (toBeDone != 0 && done != toBeDone)
 		{
 			var alpha = HelperFunctions.truncateFloat(done / toBeDone * 100, 2) / 100;
-			kadeLogo.alpha = alpha;
-			text.alpha = alpha;
+			loadingScreen.alpha = alpha;
+			loading.alpha = alpha;
+			text.alpha = 0;
 			text.x = -10;
 			text.text = "Welcome to the Circus! (" + done + "/" + toBeDone + ")";
 		}
