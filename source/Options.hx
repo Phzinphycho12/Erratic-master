@@ -367,6 +367,27 @@ class Judgement extends Option
 	}
 }
 
+class DataEraseOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.erase();
+		FlxG.save.flush();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Delete All Data";
+	}
+}
+
 class FPSOption extends Option
 {
 	public function new(desc:String)
@@ -616,27 +637,6 @@ class AccuracyDOption extends Option
 	private override function updateDisplay():String
 	{
 		return "Accuracy Mode: " + (FlxG.save.data.accuracyMod == 0 ? "Accurate" : "Complex");
-	}
-}
-
-class CustomizeGameplay extends Option
-{
-	public function new(desc:String)
-	{
-		super();
-		description = desc;
-	}
-
-	public override function press():Bool
-	{
-		trace("switch");
-		FlxG.switchState(new GameplayCustomizeState());
-		return false;
-	}
-
-	private override function updateDisplay():String
-	{
-		return "Customize Gameplay";
 	}
 }
 

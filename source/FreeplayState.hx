@@ -315,6 +315,20 @@ class FreeplayState extends MusicBeatState
 
 			diffText.text = ("GRAND FINALE");
 		}
+		else if (songs[curSelected].songName.toLowerCase() == "endless")
+		{
+			curDifficulty = 3; // Thanks again Hazard! This helps a lot!
+
+			// adjusting the highscore song name to be compatible (changeDiff)
+			var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
+
+			#if !switch
+			intendedScore = Highscore.getScore(songHighscore, curDifficulty);
+			combo = Highscore.getCombo(songHighscore, curDifficulty);
+			#end
+
+			diffText.text = ("SPEEDSTER");
+		}
 		else
 		{
 			curDifficulty += change;

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Erratic Title Screen 2.png"><SubTexture name="Erratic Title Screen 2 Boppin0000" x="0" y="0" width="586" height="623" frameX="0" frameY="0" frameWidth="586" frameHeight="623" />
+<SubTexture name="Erratic Title Screen 2 Boppin0001" x="586" y="0" width="586" height="623" frameX="0" frameY="0" frameWidth="586" frameHeight="623" />
+<SubTexture name="Erratic Title Screen 2 Boppin0002" x="0" y="623" width="586" height="623" frameX="0" frameY="0" frameWidth="586" frameHeight="623" />
+<SubTexture name="Erratic Title Screen 2 Boppin0003" x="586" y="623" width="586" height="623" frameX="0" frameY="0" frameWidth="586" frameHeight="623" />
+<SubTexture name="Erratic Title Screen 2 Boppin0004" x="0" y="1246" width="586" height="623" frameX="0" frameY="0" frameWidth="586" frameHeight="623" />
+<SubTexture name="Erratic Title Screen 2 Boppin0005" x="586" y="1246" width="586" height="623" frameX="0" frameY="0" frameWidth="586" frameHeight="623" />
+</TextureAtlas>

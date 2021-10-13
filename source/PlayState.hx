@@ -683,6 +683,11 @@ class PlayState extends MusicBeatState
 			dad = new Character(100, 200, SONG.player2);
 		}
 
+		if (dad.curCharacter == 'speedy')
+		{
+			dad.y = 0;
+		}
+
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
 		switch (SONG.player2)
@@ -917,7 +922,11 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		if (dad.curCharacter == 'erratic' || dad.curCharacter == 'erraticmad')
+		if (dad.curCharacter == 'erratic'
+			|| dad.curCharacter == 'erraticmad'
+			|| dad.curCharacter == 'brokenerratic'
+			|| dad.curCharacter == 'brokenerraticscream'
+			|| dad.curCharacter == 'gooderratic')
 		{
 			healthBar.createFilledBar(0xFFd05774, 0xFF31b0d1);
 		}
@@ -1172,9 +1181,6 @@ class PlayState extends MusicBeatState
 
 		generateStaticArrows(0, doesitTween);
 		generateStaticArrows(1, doesitTween);
-
-		if (SONG.song.toLowerCase() == "maledicta")
-			generateStaticArrows(2, doesitTween);
 
 		#if windows
 		// pre lowercasing the song name (startCountdown)
@@ -2481,7 +2487,7 @@ class PlayState extends MusicBeatState
 		}
 		if (rage < 0)
 			rage = 0;
-		
+
 		if (FlxG.save.data.resetButton)
 		{
 			if (FlxG.keys.justPressed.R)
@@ -2760,6 +2766,10 @@ class PlayState extends MusicBeatState
 								vocals.volume = 0;
 								if (theFunne)
 									noteMiss(daNote.noteData, daNote);
+							}
+							else if (SONG.song.toLowerCase() == 'endless')
+							{
+								health -= 9999;
 							}
 							else
 							{
@@ -4805,11 +4815,11 @@ class PlayState extends MusicBeatState
 			{
 				case 608:
 					FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom + .5}, 1.5);
+					FlxTween.tween(camHUD, {alpha: 0}, 1.5);
 				case 624:
 					remove(dad);
 					dad = new Character(100, 400, 'brokenerraticscream');
 					add(dad);
-					FlxTween.tween(camHUD, {alpha: 0}, 2);
 				case 632:
 					lightningStrikeShit();
 					FlxG.camera.flash(FlxColor.WHITE, 0.5);

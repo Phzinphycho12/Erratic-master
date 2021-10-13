@@ -185,7 +185,9 @@ class Character extends FlxSprite
 			case 'brokenerraticscream':
 				tex = Paths.getSparrowAtlas('characters/B-Erratic');
 				frames = tex;
-				animation.addByPrefix('idle', "B-Erratic Scream", 24);
+				animation.addByIndices('idle', "B-Erratic Scream", [
+					0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 11, 12, 13, 14, 15, 16, 11, 12, 13, 14, 15, 16, 11, 12, 13, 14, 15, 16,
+				], "", 24);
 				animation.addByPrefix('singUP', 'B-Erratic Up', 24, false);
 				animation.addByPrefix('singDOWN', 'B-Erratic Down', 24, false);
 				animation.addByPrefix('singLEFT', 'B-Erratic Left', 24, false);
@@ -411,6 +413,23 @@ class Character extends FlxSprite
 
 				playAnim('firstDeath');
 				flipX = true;
+
+			case 'speedy':
+				tex = Paths.getSparrowAtlas('characters/Speedy');
+				frames = tex;
+				animation.addByPrefix('idle', "Speedy Idle", 17);
+				animation.addByPrefix('singUP', 'Speedy Up', 17, false);
+				animation.addByPrefix('singDOWN', 'Speedy Down', 17, false);
+				animation.addByPrefix('singLEFT', 'Speedy Left', 17, false);
+				animation.addByPrefix('singRIGHT', 'Speedy Right', 17, false);
+
+				addOffset('idle');
+				addOffset("singUP", 1, 2);
+				addOffset("singRIGHT", -8, -4);
+				addOffset("singLEFT", -5, 1);
+				addOffset("singDOWN", 10, 0);
+
+				playAnim('idle');
 		}
 
 		dance();

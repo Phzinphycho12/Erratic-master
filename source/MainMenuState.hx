@@ -84,19 +84,52 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		// magenta.scrollFactor.set();
 
-		var erraticmenu:FlxSprite = new FlxSprite(-100);
-		erraticmenu.frames = Paths.getSparrowAtlas('Erratic Main Menu');
-		erraticmenu.animation.addByPrefix('idle', 'Erratic Main Menu Boppin', 14, true);
-		erraticmenu.animation.play('idle');
-		erraticmenu.scrollFactor.x = 0;
-		erraticmenu.scrollFactor.y = 0.10;
-		erraticmenu.setGraphicSize(Std.int(erraticmenu.width * 1.2));
-		erraticmenu.updateHitbox();
-		erraticmenu.screenCenter();
-		erraticmenu.x = -50;
-		erraticmenu.y = 175;
-		erraticmenu.antialiasing = true;
-		add(erraticmenu);
+		if (!FlxG.save.data.weekcompleted)
+		{
+			var erraticmenu:FlxSprite = new FlxSprite(-100);
+			erraticmenu.frames = Paths.getSparrowAtlas('Erratic Main Menu');
+			erraticmenu.animation.addByPrefix('idle', 'Erratic Main Menu Boppin', 14, true);
+			erraticmenu.animation.play('idle');
+			erraticmenu.scrollFactor.x = 0;
+			erraticmenu.scrollFactor.y = 0.10;
+			erraticmenu.setGraphicSize(Std.int(erraticmenu.width * 1.2));
+			erraticmenu.updateHitbox();
+			erraticmenu.screenCenter();
+			erraticmenu.x = -50;
+			erraticmenu.y = 175;
+			erraticmenu.antialiasing = true;
+			add(erraticmenu);
+		}
+		else
+		{
+			var erraticmenu2:FlxSprite = new FlxSprite(-100);
+			erraticmenu2.frames = Paths.getSparrowAtlas('Erratic Title Screen 2');
+			erraticmenu2.animation.addByPrefix('idle', 'Erratic Title Screen 2 Boppin', 14, true);
+			erraticmenu2.animation.play('idle');
+			erraticmenu2.scrollFactor.x = 0;
+			erraticmenu2.scrollFactor.y = 0.10;
+			erraticmenu2.setGraphicSize(Std.int(erraticmenu2.width * 1.2));
+			erraticmenu2.updateHitbox();
+			erraticmenu2.screenCenter();
+			erraticmenu2.x = -100;
+			erraticmenu2.y = 200;
+			erraticmenu2.antialiasing = true;
+			add(erraticmenu2);
+
+			var boyfriendmenu:FlxSprite = new FlxSprite(-100);
+			boyfriendmenu.frames = Paths.getSparrowAtlas('Boyfriend Title Screen');
+			boyfriendmenu.animation.addByPrefix('idle', 'Boyfriend Title Screen Boppin', 14, true);
+			boyfriendmenu.animation.play('idle');
+			boyfriendmenu.scrollFactor.x = 0;
+			boyfriendmenu.scrollFactor.y = 0.10;
+			boyfriendmenu.setGraphicSize(Std.int(boyfriendmenu.width * 1.2));
+			boyfriendmenu.updateHitbox();
+			boyfriendmenu.screenCenter();
+			boyfriendmenu.x = 350;
+			boyfriendmenu.y = 400;
+			boyfriendmenu.antialiasing = true;
+			add(boyfriendmenu);
+		}
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
