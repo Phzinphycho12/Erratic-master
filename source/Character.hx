@@ -88,39 +88,39 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 			case 'erraticpissed':
-				tex = Paths.getSparrowAtlas('characters/ErraticVencit');
+				tex = Paths.getSparrowAtlas('characters/VENsit');
 				frames = tex;
-				animation.addByPrefix('idle', "ErraticVencit Idle", 24, false);
-				animation.addByPrefix('singUP', "ErraticVencit Up", 24, false);
-				animation.addByPrefix('singDOWN', "ErraticVencit Down", 24, false);
-				animation.addByPrefix('singLEFT', 'ErraticVencit Left', 24, false);
-				animation.addByPrefix('singRIGHT', 'ErraticVencit Right', 24, false);
-				animation.addByPrefix('singUP-alt', 'ErraticVencit Laugh', 24, false);
-				animation.addByPrefix('singDOWN-alt', 'ErraticVencit NotDone', 24, true);
+				animation.addByPrefix('idle', "VENsit idle", 18, false);
+				animation.addByPrefix('singUP', "VENsit up", 18, false);
+				animation.addByPrefix('singDOWN', "VENsit down", 18, false);
+				animation.addByPrefix('singLEFT', 'VENsit left', 18, false);
+				animation.addByPrefix('singRIGHT', 'VENsit right', 18, false);
+				animation.addByPrefix('singUP-alt', 'VENsit Laugh', 15, false);
+				animation.addByPrefix('singDOWN-alt', 'VENsit venanim', 15, true);
 
 				addOffset('idle');
-				addOffset("singUP", 12, 5);
-				addOffset("singRIGHT", 6, 12);
-				addOffset("singLEFT", 28, 4);
-				addOffset("singDOWN", -2, 22);
-				addOffset("singUP-alt", 13, 0);
+				addOffset("singUP", 3, -2);
+				addOffset("singRIGHT", -6, -4);
+				addOffset("singLEFT", 6, -1);
+				addOffset("singDOWN", 3, -2);
+				addOffset("singUP-alt", 4, 1);
 				addOffset("singDOWN-alt", 1, 0);
 
 				playAnim('idle');
 
 			case 'erraticspeaks':
-				tex = Paths.getSparrowAtlas('characters/ErraticVencit');
+				tex = Paths.getSparrowAtlas('characters/VENsit');
 				frames = tex;
 
-				animation.addByPrefix('idle', "ErraticVencit NotDone", 24, false);
-				animation.addByPrefix('singUP', "ErraticVencit Up", 24, false);
-				animation.addByPrefix('singDOWN', "ErraticVencit Down", 24, false);
-				animation.addByPrefix('singLEFT', 'ErraticVencit Left', 24, false);
-				animation.addByPrefix('singRIGHT', 'ErraticVencit Right', 24, false);
-				animation.addByPrefix('singUP-alt', 'ErraticVencit Laugh', 24, true);
-				animation.addByPrefix('singDOWN-alt', 'ErraticVencit NotDone', 24, true);
+				animation.addByPrefix('idle', "VENsit venanim", 15, false);
+				animation.addByPrefix('singUP', "VENsit up", 15, false);
+				animation.addByPrefix('singDOWN', "VENsit down", 15, false);
+				animation.addByPrefix('singLEFT', 'VENsit left', 15, false);
+				animation.addByPrefix('singRIGHT', 'VENsit right', 15, false);
+				animation.addByPrefix('singUP-alt', 'VENsit Laugh', 15, true);
+				animation.addByPrefix('singDOWN-alt', 'VENsit venanim', 15, true);
 
-				addOffset('idle', 1, 0);
+				addOffset('idle', 4, 1);
 				addOffset("singUP", 12, 5);
 				addOffset("singRIGHT", 6, 12);
 				addOffset("singLEFT", 28, 4);

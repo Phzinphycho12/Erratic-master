@@ -716,7 +716,7 @@ class PlayState extends MusicBeatState
 				dad.y += 200;
 			case 'erraticpissed':
 				dad.width += 50;
-				dad.y += 200;
+				dad.y += 160;
 				dad.x -= 100;
 		}
 
@@ -735,10 +735,6 @@ class PlayState extends MusicBeatState
 		else
 		{
 			boyfriend = new Boyfriend(770, 450, SONG.player1);
-		}
-		if (dad.curCharacter == 'erraticpissed' || dad.curCharacter == 'erraticspeaks')
-		{
-			dad.setGraphicSize(Std.int(dad.width * 1.1));
 		}
 
 		// REPOSITIONING PER STAGE
@@ -910,6 +906,14 @@ class PlayState extends MusicBeatState
 			maldictaRageBar.scrollFactor.set();
 			maldictaRageBar.createFilledBar(0xFF808080, 0xFFFFD700);
 			add(maldictaRageBar);
+
+			var maledictaragePercent = new FlxText(maldictaRageBarBG.x + (maldictaRageBarBG.width / 2) - (SONG.song.length * 5), maldictaRageBarBG.y + 30, 0,
+				"C O R R U P T I O N", 50);
+			maledictaragePercent.angle = 90;
+			maledictaragePercent.setFormat(Paths.font("vcr.ttf"), 16, 0xFFD4AF37, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			maledictaragePercent.scrollFactor.set();
+			add(maledictaragePercent);
+			maledictaragePercent.cameras = [camHUD];
 		}
 
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar'));
@@ -1121,7 +1125,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			health -= 0.6;
+			health -= 0.5;
 			SONG.speed += 0.2;
 			new FlxTimer().start(4, function(tmr:FlxTimer)
 			{
@@ -1132,7 +1136,7 @@ class PlayState extends MusicBeatState
 
 	function demonHit()
 	{
-		health -= 0.6;
+		health -= 0.4;
 	}
 
 	function rageHit()
@@ -3992,24 +3996,24 @@ class PlayState extends MusicBeatState
 			switch (SONG.song.toLowerCase())
 			{
 				case 'maledicta':
-					if (curStep <= 447 || curStep >= 666 && curStep <= 768 || curStep >= 832 && curStep <= 912 || curStep >= 936 && curStep <= 944
-						|| curStep >= 960 && curStep <= 1152 || curStep >= 1216 && curStep <= 1312 || curStep >= 1471 && curStep <= 1568 || curStep >= 1631
+					if (curStep <= 447 || curStep >= 666 && curStep <= 767 || curStep >= 832 && curStep <= 911 || curStep >= 935 && curStep <= 943
+						|| curStep >= 960 && curStep <= 1151 || curStep >= 1216 && curStep <= 1311 || curStep >= 1471 && curStep <= 1568 || curStep >= 1631
 						&& curStep <= 1696 || curStep >= 2496 && curStep <= 2560 || curStep >= 3183 && curStep <= 3216 || curStep >= 3248 && curStep <= 3280)
 					{
 						ErraticMiss();
 					}
-					else if (curStep >= 447 && curStep <= 480 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
-						&& curStep <= 1216 || curStep >= 1312 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
+					else if (curStep >= 447 && curStep <= 480 || curStep >= 767 && curStep <= 832 || curStep >= 911 && curStep <= 935 || curStep >= 1151
+						&& curStep <= 1216 || curStep >= 1311 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
 						|| curStep >= 3280 && curStep <= 3312)
 					{
 						BoyfriendMiss();
 					}
-					else if (curStep >= 480 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
+					else if (curStep >= 480 && curStep <= 666 || curStep >= 943 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
 						&& curStep <= 3183 || curStep >= 3312 && curStep <= 4000)
 					{
 						DuetMiss();
 					}
-					else if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1408 && curStep <= 1440)
+					else if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1407 && curStep <= 1440)
 					{
 						switch (direction)
 						{
@@ -4537,19 +4541,19 @@ class PlayState extends MusicBeatState
 							}
 					}
 				case 'maledicta':
-					if (curStep <= 447 || curStep >= 666 && curStep <= 768 || curStep >= 832 && curStep <= 912 || curStep >= 936 && curStep <= 944
-						|| curStep >= 960 && curStep <= 1152 || curStep >= 1216 && curStep <= 1312 || curStep >= 1471 && curStep <= 1568 || curStep >= 1631
+					if (curStep <= 447 || curStep >= 666 && curStep <= 767 || curStep >= 832 && curStep <= 911 || curStep >= 935 && curStep <= 943
+						|| curStep >= 960 && curStep <= 1151 || curStep >= 1216 && curStep <= 1311 || curStep >= 1471 && curStep <= 1568 || curStep >= 1631
 						&& curStep <= 1696 || curStep >= 2496 && curStep <= 2560 || curStep >= 3183 && curStep <= 3216 || curStep >= 3248 && curStep <= 3280)
 					{
 						ErraticSings();
 					}
-					else if (curStep >= 447 && curStep <= 480 || curStep >= 768 && curStep <= 832 || curStep >= 912 && curStep <= 936 || curStep >= 1152
-						&& curStep <= 1216 || curStep >= 1312 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
+					else if (curStep >= 447 && curStep <= 480 || curStep >= 767 && curStep <= 832 || curStep >= 911 && curStep <= 935 || curStep >= 1151
+						&& curStep <= 1216 || curStep >= 1311 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
 						|| curStep >= 3280 && curStep <= 3312)
 					{
 						BoyfriendSings();
 					}
-					else if (curStep >= 480 && curStep <= 666 || curStep >= 944 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
+					else if (curStep >= 480 && curStep <= 666 || curStep >= 943 && curStep <= 960 || curStep >= 1696 && curStep <= 2496 || curStep >= 2560
 						&& curStep <= 3183 || curStep >= 3312 && curStep <= 4000)
 					{
 						Duet();
@@ -4796,12 +4800,12 @@ class PlayState extends MusicBeatState
 					FlxG.camera.flash(FlxColor.RED, 0.5);
 				case 2825:
 					remove(dad);
-					dad = new Character(-100, 350, 'erraticspeaks');
+					dad = new Character(-100, 260, 'erraticspeaks');
 					add(dad);
 				case 2880:
 					FlxG.camera.flash(FlxColor.RED, 0.5);
 					remove(dad);
-					dad = new Character(-100, 350, 'erraticpissed');
+					dad = new Character(-100, 260, 'erraticpissed');
 					add(dad);
 					SONG.noteStyle = 'shattered';
 					removeStatics();
@@ -4880,6 +4884,12 @@ class PlayState extends MusicBeatState
 		{
 			health -= 0.05;
 		}
+
+		if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1407 && curStep <= 1439)
+			gf.playAnim('singUP', true);
+
+		if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1440 && curStep <= 1470)
+			gf.playAnim('singDOWN', true);
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)
 		{
