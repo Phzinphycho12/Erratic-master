@@ -413,23 +413,6 @@ class Character extends FlxSprite
 
 				playAnim('firstDeath');
 				flipX = true;
-
-			case 'speedy':
-				tex = Paths.getSparrowAtlas('characters/Speedy');
-				frames = tex;
-				animation.addByPrefix('idle', "Speedy Idle", 17);
-				animation.addByPrefix('singUP', 'Speedy Up', 17, false);
-				animation.addByPrefix('singDOWN', 'Speedy Down', 17, false);
-				animation.addByPrefix('singLEFT', 'Speedy Left', 17, false);
-				animation.addByPrefix('singRIGHT', 'Speedy Right', 17, false);
-
-				addOffset('idle');
-				addOffset("singUP", 1, 2);
-				addOffset("singRIGHT", -8, -4);
-				addOffset("singLEFT", -5, 1);
-				addOffset("singDOWN", 10, 0);
-
-				playAnim('idle');
 		}
 
 		dance();

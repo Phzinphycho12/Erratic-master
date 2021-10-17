@@ -391,7 +391,8 @@ class TitleState extends MusicBeatState
 				createCoolText(["Ladies and gentlemen!"]);
 			case 7:
 				addMoreText('Welcome to the Circus!');
-				addMoreText('We hope you have a GREAT time!');
+				addMoreText('We hope you have');
+				addMoreText('a GREAT time!');
 			case 10:
 				deleteCoolText();
 			case 11:
