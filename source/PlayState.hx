@@ -1136,6 +1136,7 @@ class PlayState extends MusicBeatState
 
 	function demonHit()
 	{
+		FlxG.sound.play(Paths.sound('burnSound'), 0.6);
 		health -= 0.4;
 	}
 
@@ -1455,9 +1456,6 @@ class PlayState extends MusicBeatState
 			default:
 				allowedToHeadbang = false;
 		}
-
-		if (useVideo)
-			GlobalVideo.get().resume();
 
 		#if windows
 		// Updating Discord Rich Presence (with Time Left)
@@ -1977,17 +1975,6 @@ class PlayState extends MusicBeatState
 		if (PlayStateChangeables.botPlay && FlxG.keys.justPressed.ONE)
 			camHUD.visible = !camHUD.visible;
 
-		if (useVideo && GlobalVideo.get() != null && !stopUpdate)
-		{
-			if (GlobalVideo.get().ended && !removedVideo)
-			{
-				remove(videoSprite);
-				FlxG.stage.window.onFocusOut.remove(focusOut);
-				FlxG.stage.window.onFocusIn.remove(focusIn);
-				removedVideo = true;
-			}
-		}
-
 		#if windows
 		if (executeModchart && luaModchart != null && songStarted)
 		{
@@ -2113,14 +2100,6 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.keys.justPressed.SEVEN)
 		{
-			if (useVideo)
-			{
-				GlobalVideo.get().stop();
-				remove(videoSprite);
-				FlxG.stage.window.onFocusOut.remove(focusOut);
-				FlxG.stage.window.onFocusIn.remove(focusIn);
-				removedVideo = true;
-			}
 			#if windows
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
@@ -2167,15 +2146,6 @@ class PlayState extends MusicBeatState
 		#if debug
 		if (FlxG.keys.justPressed.SIX)
 		{
-			if (useVideo)
-			{
-				GlobalVideo.get().stop();
-				remove(videoSprite);
-				FlxG.stage.window.onFocusOut.remove(focusOut);
-				FlxG.stage.window.onFocusIn.remove(focusIn);
-				removedVideo = true;
-			}
-
 			FlxG.switchState(new AnimationDebug(SONG.player2));
 			FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, handleInput);
 			#if windows
@@ -2815,13 +2785,6 @@ class PlayState extends MusicBeatState
 	function endSong():Void
 	{
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, handleInput);
-		if (useVideo)
-		{
-			GlobalVideo.get().stop();
-			FlxG.stage.window.onFocusOut.remove(focusOut);
-			FlxG.stage.window.onFocusIn.remove(focusIn);
-			PlayState.instance.remove(PlayState.instance.videoSprite);
-		}
 
 		if (isStoryMode)
 			campaignMisses = misses;
@@ -2869,7 +2832,7 @@ class PlayState extends MusicBeatState
 			Highscore.saveCombo(songHighscore, Ratings.GenerateLetterRank(accuracy), storyDifficulty);
 			#end
 		}
-
+		var video:MP4Handler = new MP4Handler();
 		if (offsetTesting)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
@@ -2893,7 +2856,13 @@ class PlayState extends MusicBeatState
 
 					FlxG.sound.music.stop();
 
-					FlxG.switchState(new VideoState('assets/videos/ErraticSnaps.webm', new MainMenuState()));
+					video.playMP4(Paths.video('TooBadCutscene'));
+					video.finishCallback = function()
+					{
+						LoadingState.loadAndSwitchState(new MainMenuState());
+					}
+
+					isCutscene = true;
 				}
 				else if (storyPlaylist.length <= 0)
 				{
@@ -2905,8 +2874,14 @@ class PlayState extends MusicBeatState
 					FlxG.sound.music.stop();
 					if (storyWeek == 0)
 					{
+						video.playMP4(Paths.video('Erratic Spares BF'));
+						video.finishCallback = function()
+						{
+							LoadingState.loadAndSwitchState(new MainMenuState());
+						}
+
+						isCutscene = true;
 						FlxG.save.data.weekcompleted = true;
-						FlxG.switchState(new VideoState('assets/videos/ErraticR.webm', new MainMenuState()));
 					}
 					else
 					{
@@ -2951,26 +2926,15 @@ class PlayState extends MusicBeatState
 					trace('LOADING NEXT SONG');
 					trace(poop);
 
-					if (StringTools.replace(PlayState.storyPlaylist[0], " ", "-").toLowerCase() == 'eggnog')
-					{
-						var blackShit:FlxSprite = new FlxSprite(-FlxG.width * FlxG.camera.zoom,
-							-FlxG.height * FlxG.camera.zoom).makeGraphic(FlxG.width * 3, FlxG.height * 3, FlxColor.BLACK);
-						blackShit.scrollFactor.set();
-						add(blackShit);
-						camHUD.visible = false;
-
-						FlxG.sound.play(Paths.sound('Lights_Shut_off'));
-					}
-
 					FlxTransitionableState.skipNextTransIn = true;
 					FlxTransitionableState.skipNextTransOut = true;
 					prevCamFollow = camFollow;
 
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
+
 					FlxG.sound.music.stop();
 					if (SONG.song.toLowerCase() == 'ringmaster')
 					{
-						var video:MP4Handler = new MP4Handler();
 						video.playMP4(Paths.video('AngryErratic'));
 						video.finishCallback = function()
 						{
@@ -2981,7 +2945,23 @@ class PlayState extends MusicBeatState
 					}
 					else if (SONG.song.toLowerCase() == 'vencit')
 					{
-						FlxG.switchState(new VideoState('assets/videos/ErraticSnaps.webm', new PlayState()));
+						video.playMP4(Paths.video('VencitCutscene'));
+						video.finishCallback = function()
+						{
+							LoadingState.loadAndSwitchState(new PlayState());
+						}
+
+						isCutscene = true;
+					}
+					else if (SONG.song.toLowerCase() == 'vengeance')
+					{
+						video.playMP4(Paths.video('DDincoming'));
+						video.finishCallback = function()
+						{
+							LoadingState.loadAndSwitchState(new PlayState());
+						}
+
+						isCutscene = true;
 					}
 					else
 					{
@@ -3711,8 +3691,6 @@ class PlayState extends MusicBeatState
 	public var fuckingVolume:Float = 1;
 	public var useVideo = false;
 
-	public static var webmHandler:WebmHandler;
-
 	public var playingDathing = false;
 	public var videoSprite:FlxSprite;
 
@@ -3736,64 +3714,6 @@ class PlayState extends MusicBeatState
 	public function focusIn()
 	{
 		// nada
-	}
-
-	public function backgroundVideo(source:String) // for background videos
-	{
-		#if cpp
-		useVideo = true;
-
-		FlxG.stage.window.onFocusOut.add(focusOut);
-		FlxG.stage.window.onFocusIn.add(focusIn);
-
-		var ourSource:String = "assets/videos/daWeirdVid/dontDelete.webm";
-		WebmPlayer.SKIP_STEP_LIMIT = 90;
-		var str1:String = "WEBM SHIT";
-		webmHandler = new WebmHandler();
-		webmHandler.source(ourSource);
-		webmHandler.makePlayer();
-		webmHandler.webm.name = str1;
-
-		GlobalVideo.setWebm(webmHandler);
-
-		GlobalVideo.get().source(source);
-		GlobalVideo.get().clearPause();
-		if (GlobalVideo.isWebm)
-		{
-			GlobalVideo.get().updatePlayer();
-		}
-		GlobalVideo.get().show();
-
-		if (GlobalVideo.isWebm)
-		{
-			GlobalVideo.get().restart();
-		}
-		else
-		{
-			GlobalVideo.get().play();
-		}
-
-		var data = webmHandler.webm.bitmapData;
-
-		videoSprite = new FlxSprite(-470, -30).loadGraphic(data);
-
-		videoSprite.setGraphicSize(Std.int(videoSprite.width * 1.2));
-
-		remove(gf);
-		remove(boyfriend);
-		remove(dad);
-		add(videoSprite);
-		add(gf);
-		add(boyfriend);
-		add(dad);
-
-		trace('poggers');
-
-		if (!songStarted)
-			webmHandler.pause();
-		else
-			webmHandler.resume();
-		#end
 	}
 
 	function noteMiss(direction:Int = 1, daNote:Note):Void
