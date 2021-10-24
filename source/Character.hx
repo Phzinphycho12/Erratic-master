@@ -413,6 +413,34 @@ class Character extends FlxSprite
 
 				playAnim('firstDeath');
 				flipX = true;
+			case 'rockstarerratic':
+				var tex = Paths.getSparrowAtlas('characters/Rockstar Erratic', 'shared');
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('idle', 'Rockstar Erratic Idle', 24, true);
+				animation.addByPrefix('singUP', 'Rockstar Erratic Up', 24, false);
+				animation.addByPrefix('singLEFT', 'Rockstar Erratic Right', 24, false); // I fucked up, ok? I'm the dumbass who mistook right for left.
+				animation.addByPrefix('singRIGHT', 'Rockstar Erratic Left', 24, false); // fuck you if you mock me, you'd never know!!!!
+				animation.addByPrefix('singDOWN', 'Rockstar Erratic Down', 24, false);
+				animation.addByPrefix('singUPmiss', 'Rockstar Erratic MISSUP', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'Rockstar Erratic MISSLEFT', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'Rockstar Erratic MISSRIGHT', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'Rockstar Erratic MISSDOWN', 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -29, 27);
+				addOffset("singRIGHT", -38, -7);
+				addOffset("singLEFT", 12, -6);
+				addOffset("singDOWN", -10, -50);
+				addOffset("singUPmiss", 68, 89);
+				addOffset("singRIGHTmiss", -150, -9);
+				addOffset("singLEFTmiss", 122, -46);
+				addOffset("singDOWNmiss", 42, -123);
+
+				playAnim('idle');
+				flipX = true;
 		}
 
 		dance();

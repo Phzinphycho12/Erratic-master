@@ -62,9 +62,6 @@ import openfl.utils.AssetType;
 
 using StringTools;
 
-#if cpp
-import webm.WebmPlayer;
-#end
 #if windows
 // me when ur mom
 import Discord.DiscordClient;
@@ -1003,8 +1000,8 @@ class PlayState extends MusicBeatState
 		}
 		// Literally copy-paste of the above, fu
 		botPlayState = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (PlayStateChangeables.useDownscroll ? 100 : -100), 0,
-			"BOTPLAY", 20);
-		botPlayState.setFormat(Paths.font("vcr.ttf"), 42, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			"C H E A T E R", 20);
+		botPlayState.setFormat(Paths.font("vcr.ttf"), 42, FlxColor.RED, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botPlayState.scrollFactor.set();
 		botPlayState.borderSize = 4;
 		botPlayState.borderQuality = 2;
@@ -2883,6 +2880,12 @@ class PlayState extends MusicBeatState
 						isCutscene = true;
 						FlxG.save.data.weekcompleted = true;
 					}
+					else if (storyWeek == 1)
+					{
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.switchState(new MainMenuState());
+						FlxG.save.data.week2completed = true;
+					}
 					else
 					{
 						FlxG.sound.playMusic(Paths.music('freakyMenu'));
@@ -3995,6 +3998,7 @@ class PlayState extends MusicBeatState
 								{
 									boyfriend.playAnim('singLEFTmiss', true);
 									gf.playAnim('singDOWNmiss', true);
+									FlxG.camera.shake(0.025);
 								}
 
 							case 1:
@@ -4006,6 +4010,7 @@ class PlayState extends MusicBeatState
 								{
 									boyfriend.playAnim('singDOWNmiss', true);
 									gf.playAnim('singDOWNmiss', true);
+									FlxG.camera.shake(0.025);
 								}
 
 							case 2:
@@ -4017,6 +4022,7 @@ class PlayState extends MusicBeatState
 								{
 									boyfriend.playAnim('singUPmiss', true);
 									gf.playAnim('singDOWNmiss', true);
+									FlxG.camera.shake(0.025);
 								}
 
 							case 3:
@@ -4028,6 +4034,7 @@ class PlayState extends MusicBeatState
 								{
 									boyfriend.playAnim('singRIGHTmiss', true);
 									gf.playAnim('singDOWNmiss', true);
+									FlxG.camera.shake(0.025);
 								}
 						}
 					}
@@ -4263,6 +4270,7 @@ class PlayState extends MusicBeatState
 					else
 					{
 						boyfriend.playAnim('singUP', true);
+						FlxG.camera.shake(0.025);
 					}
 
 				case 3:
@@ -4273,6 +4281,7 @@ class PlayState extends MusicBeatState
 					else
 					{
 						boyfriend.playAnim('singRIGHT', true);
+						FlxG.camera.shake(0.025);
 					}
 				case 1:
 					if (note.noteType == 3)
@@ -4282,6 +4291,7 @@ class PlayState extends MusicBeatState
 					else
 					{
 						boyfriend.playAnim('singDOWN', true);
+						FlxG.camera.shake(0.025);
 					}
 				case 0:
 					if (note.noteType == 3)
@@ -4291,6 +4301,7 @@ class PlayState extends MusicBeatState
 					else
 					{
 						boyfriend.playAnim('singLEFT', true);
+						FlxG.camera.shake(0.025);
 					}
 			}
 		}
@@ -4353,6 +4364,7 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.playAnim('singUP', true);
 						gf.playAnim('singUP', true);
+						FlxG.camera.shake(0.025);
 					}
 
 				case 3:
@@ -4365,6 +4377,7 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.playAnim('singRIGHT', true);
 						gf.playAnim('singRIGHT', true);
+						FlxG.camera.shake(0.025);
 					}
 				case 1:
 					if (note.noteType == 3)
@@ -4376,6 +4389,7 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.playAnim('singDOWN', true);
 						gf.playAnim('singDOWN', true);
+						FlxG.camera.shake(0.025);
 					}
 				case 0:
 					if (note.noteType == 3)
@@ -4387,6 +4401,7 @@ class PlayState extends MusicBeatState
 					{
 						boyfriend.playAnim('singLEFT', true);
 						gf.playAnim('singLEFT', true);
+						FlxG.camera.shake(0.025);
 					}
 			}
 		}
@@ -4468,7 +4483,7 @@ class PlayState extends MusicBeatState
 						ErraticSings();
 					}
 					else if (curStep >= 447 && curStep <= 480 || curStep >= 767 && curStep <= 832 || curStep >= 911 && curStep <= 935 || curStep >= 1151
-						&& curStep <= 1216 || curStep >= 1311 && curStep <= 1408 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
+						&& curStep <= 1216 || curStep >= 1311 && curStep <= 1406 || curStep >= 1568 && curStep <= 1631 || curStep >= 3216 && curStep <= 3248
 						|| curStep >= 3280 && curStep <= 3312)
 					{
 						BoyfriendSings();
@@ -4477,6 +4492,116 @@ class PlayState extends MusicBeatState
 						&& curStep <= 3183 || curStep >= 3312 && curStep <= 4000)
 					{
 						Duet();
+					}
+					else if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1407 && curStep <= 1440)
+					{
+						switch (note.noteData)
+						{
+							case 2:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singUPmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singUP', true);
+									gf.playAnim('singUP', true);
+									FlxG.camera.shake(0.025);
+								}
+
+							case 3:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singRIGHTmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singRIGHT', true);
+									gf.playAnim('singUP', true);
+									FlxG.camera.shake(0.025);
+								}
+							case 1:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singDOWNmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singDOWN', true);
+									gf.playAnim('singUP', true);
+									FlxG.camera.shake(0.025);
+								}
+							case 0:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singLEFTmiss', true);
+									gf.playAnim('singUPmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singLEFT', true);
+									gf.playAnim('singUP', true);
+									FlxG.camera.shake(0.025);
+								}
+						}
+					}
+					else if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1440 && curStep <= 1471)
+					{
+						switch (note.noteData)
+						{
+							case 2:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singUPmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singUP', true);
+									gf.playAnim('singDOWN', true);
+									FlxG.camera.shake(0.025);
+								}
+
+							case 3:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singRIGHTmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singRIGHT', true);
+									gf.playAnim('singDOWN', true);
+									FlxG.camera.shake(0.025);
+								}
+							case 1:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singDOWNmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singDOWN', true);
+									gf.playAnim('singDOWN', true);
+									FlxG.camera.shake(0.025);
+								}
+							case 0:
+								if (note.noteType == 3)
+								{
+									boyfriend.playAnim('singLEFTmiss', true);
+									gf.playAnim('singDOWNmiss', true);
+								}
+								else
+								{
+									boyfriend.playAnim('singLEFT', true);
+									gf.playAnim('singDOWN', true);
+									FlxG.camera.shake(0.025);
+								}
+						}
 					}
 					else
 					{
@@ -4743,6 +4868,7 @@ class PlayState extends MusicBeatState
 				case 624:
 					remove(dad);
 					dad = new Character(100, 400, 'brokenerraticscream');
+					FlxG.camera.shake(0.025, 1);
 					add(dad);
 				case 632:
 					lightningStrikeShit();

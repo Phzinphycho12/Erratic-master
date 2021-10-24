@@ -102,7 +102,6 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="newgrounds"/>
 	<haxelib name="faxe" if='switch'/>
-	<haxelib name="extension-webm"/>
 	<haxelib name="actuate" />
 	<haxelib name="polymod"/>
 	<haxelib name="discord_rpc" if="windows"/>

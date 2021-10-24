@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Rockstar Erratic.png">
+<SubTexture name="Rockstar Erratic Idle0000" x="0" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Idle0001" x="1498" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Idle0002" x="2996" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Idle0003" x="4494" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Idle0004" x="5992" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Idle0005" x="7490" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Idle0006" x="0" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Up0000" x="1498" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Up0001" x="2996" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Up0002" x="4494" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Up0003" x="5992" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Down0000" x="7490" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Down0001" x="0" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Down0002" x="1498" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Down0003" x="2996" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Left0000" x="4494" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Left0001" x="5992" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Left0002" x="7490" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Left0003" x="0" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Right0000" x="1498" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Right0001" x="2996" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Right0002" x="4494" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic Right0003" x="5992" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSUP0000" x="7490" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSUP0001" x="0" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSUP0002" x="1498" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSUP0003" x="2996" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSDOWN0000" x="4494" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSDOWN0001" x="5992" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSDOWN0002" x="7490" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSDOWN0003" x="0" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSLEFT0000" x="1498" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSLEFT0001" x="2996" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSLEFT0002" x="4494" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSLEFT0003" x="5992" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSRIGHT0000" x="7490" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSRIGHT0001" x="0" y="8724" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSRIGHT0002" x="1498" y="8724" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic MISSRIGHT0003" x="2996" y="8724" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+</TextureAtlas>

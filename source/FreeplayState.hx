@@ -121,7 +121,10 @@ class FreeplayState extends MusicBeatState
 
 		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
 		// scoreText.autoSize = false;
-		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
+		if (songs[curSelected].songName.toLowerCase() == "sentimental")
+			scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.RED, RIGHT);
+		else
+			scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 		// scoreText.alignment = RIGHT;
 
 		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.35), 66, 0xFF000000);
@@ -315,7 +318,7 @@ class FreeplayState extends MusicBeatState
 
 			diffText.text = ("GRAND FINALE");
 		}
-		else if (songs[curSelected].songName.toLowerCase() == "endless")
+		else if (songs[curSelected].songName.toLowerCase() == "sentimental")
 		{
 			curDifficulty = 3; // Thanks again Hazard! This helps a lot!
 
@@ -327,7 +330,7 @@ class FreeplayState extends MusicBeatState
 			combo = Highscore.getCombo(songHighscore, curDifficulty);
 			#end
 
-			diffText.text = ("SPEEDSTER");
+			diffText.text = CoolUtil.difficultyFromInt(curDifficulty).toUpperCase();
 		}
 		else
 		{
