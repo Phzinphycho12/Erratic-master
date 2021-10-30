@@ -438,8 +438,28 @@ class Character extends FlxSprite
 				addOffset("singRIGHTmiss", -150, -9);
 				addOffset("singLEFTmiss", 122, -46);
 				addOffset("singDOWNmiss", 42, -123);
-
+				setGraphicSize(Std.int(width * 0.75)); // this is a gift from BrightFyre
 				playAnim('idle');
+				flipX = true;
+
+			case 'rockstarerratic-dead':
+				var tex = Paths.getSparrowAtlas('characters/Rockstar Erratic (Death)', 'shared');
+				frames = tex;
+				animation.addByIndices('idle', 'Rockstar Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singUP', 'Rockstar Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singLEFT', 'Rockstar Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singRIGHT', 'Rockstar Erratic (Death) Death', [0], "", 24, false);
+				animation.addByIndices('singDOWN', 'Rockstar Erratic (Death) Death', [0], "", 24, false);
+				animation.addByPrefix('firstDeath', "Rockstar Erratic (Death) Death", 24, false);
+				animation.addByPrefix('deathLoop', "Rockstar Erratic (Death) LOOPDEATH", 24, true);
+				animation.addByPrefix('deathConfirm', "Rockstar Erratic (Death) CONFIRMDEATH", 24, false);
+
+				addOffset('idle');
+				addOffset('firstDeath');
+				addOffset('deathLoop');
+				addOffset('deathConfirm');
+				setGraphicSize(Std.int(width * 0.75)); // this is a gift from BrightFyre
+				playAnim('firstDeath');
 				flipX = true;
 		}
 

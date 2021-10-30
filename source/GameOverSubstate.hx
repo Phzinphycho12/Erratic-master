@@ -26,6 +26,8 @@ class GameOverSubstate extends MusicBeatSubstate
 			case 'erratic_md':
 				daStage = 'finalhell';
 				daBf = 'erratic_md-dead';
+			case 'rockstarerratic':
+				daBf = 'rockstarerratic-dead';
 			default:
 				daBf = 'bf';
 		}
@@ -46,6 +48,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		{
 			FlxG.sound.play(Paths.sound('erratic_loss_sfx'));
 			FlxG.camera.zoom = 2;
+		}
+		else if (daBf == 'rockstarerratic-dead')
+		{
+			FlxG.sound.play(Paths.sound('rerratic_loss_sfx'));
 		}
 		else
 		{
@@ -87,11 +93,18 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		}
 
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
+		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished && PlayState.storyWeek == 0)
 		{
-			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
+			FlxG.sound.playMusic(Paths.music('gameOver'));
 		}
-
+		else if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished && PlayState.storyWeek == 1)
+		{
+			FlxG.sound.playMusic(Paths.music('gameOverWeek2'));
+		}
+		else if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished && PlayState.storyWeek >= 2)
+		{
+			FlxG.sound.playMusic(Paths.music('gameOver'));
+		}
 		if (FlxG.sound.music.playing)
 		{
 			Conductor.songPosition = FlxG.sound.music.time;
@@ -114,7 +127,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			isEnding = true;
 			bf.playAnim('deathConfirm', true);
 			FlxG.sound.music.stop();
-			FlxG.sound.play(Paths.music('gameOverEnd' + stageSuffix));
+			if (PlayState.storyWeek == 0 || PlayState.storyWeek >= 2)
+				FlxG.sound.play(Paths.music('gameOverEnd'));
+			else if (PlayState.storyWeek == 1)
+				FlxG.sound.play(Paths.music('gameOverEndWeek2'));
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()

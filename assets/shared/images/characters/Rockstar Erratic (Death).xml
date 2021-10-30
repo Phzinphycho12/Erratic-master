@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Rockstar Erratic (Death).png"><SubTexture name="Rockstar Erratic (Death) LOOPDEATH0000" x="0" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) LOOPDEATH0001" x="1498" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) LOOPDEATH0002" x="2996" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) LOOPDEATH0003" x="4494" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) LOOPDEATH0004" x="5992" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) LOOPDEATH0005" x="7490" y="0" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) LOOPDEATH0006" x="0" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0000" x="1498" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0001" x="2996" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0002" x="4494" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0003" x="5992" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0004" x="7490" y="1454" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0005" x="0" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0006" x="1498" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0007" x="2996" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0008" x="4494" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0009" x="5992" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0010" x="7490" y="2908" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0011" x="0" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0012" x="1498" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0013" x="2996" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) Death0014" x="4494" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0000" x="5992" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0001" x="7490" y="4362" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0002" x="0" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0003" x="1498" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0004" x="2996" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0005" x="4494" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0006" x="5992" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0007" x="7490" y="5816" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0008" x="0" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0009" x="1498" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0010" x="2996" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0011" x="4494" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0012" x="5992" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0013" x="7490" y="7270" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0014" x="0" y="8724" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+<SubTexture name="Rockstar Erratic (Death) CONFIRMDEATH0015" x="1498" y="8724" width="1498" height="1454" frameX="0" frameY="0" frameWidth="1498" frameHeight="1454" />
+</TextureAtlas>

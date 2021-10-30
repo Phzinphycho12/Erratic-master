@@ -390,8 +390,6 @@ class PlayState extends MusicBeatState
 		{
 			case 'encounter':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('encounter/dialog'));
-			case 'kermis':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('kermis/dialog'));
 		}
 
 		// defaults if no stage was found in chart
@@ -904,8 +902,8 @@ class PlayState extends MusicBeatState
 			maldictaRageBar.createFilledBar(0xFF808080, 0xFFFFD700);
 			add(maldictaRageBar);
 
-			var maledictaragePercent = new FlxText(maldictaRageBarBG.x + (maldictaRageBarBG.width / 2) - (SONG.song.length * 5), maldictaRageBarBG.y + 30, 0,
-				"C O R R U P T I O N", 50);
+			var maledictaragePercent = new FlxText(maldictaRageBarBG.x + (maldictaRageBarBG.width / 2) - (SONG.song.length * 5), maldictaRageBarBG.y + 50, 0,
+				"C O R R U P T E D   R A G E", 50);
 			maledictaragePercent.angle = 90;
 			maledictaragePercent.setFormat(Paths.font("vcr.ttf"), 16, 0xFFD4AF37, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			maledictaragePercent.scrollFactor.set();
@@ -1061,37 +1059,7 @@ class PlayState extends MusicBeatState
 		{
 			switch (StringTools.replace(curSong, " ", "-").toLowerCase())
 			{
-				case "winter-horrorland":
-					var blackScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-					add(blackScreen);
-					blackScreen.scrollFactor.set();
-					camHUD.visible = false;
-
-					new FlxTimer().start(0.1, function(tmr:FlxTimer)
-					{
-						remove(blackScreen);
-						FlxG.sound.play(Paths.sound('Lights_Turn_On'));
-						camFollow.y = -2050;
-						camFollow.x += 200;
-						FlxG.camera.focusOn(camFollow.getPosition());
-						FlxG.camera.zoom = 1.5;
-
-						new FlxTimer().start(0.8, function(tmr:FlxTimer)
-						{
-							camHUD.visible = true;
-							remove(blackScreen);
-							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2.5, {
-								ease: FlxEase.quadInOut,
-								onComplete: function(twn:FlxTween)
-								{
-									startCountdown();
-								}
-							});
-						});
-					});
 				case 'encounter':
-					schoolIntro(doof);
-				case 'kermis':
 					schoolIntro(doof);
 				default:
 					startCountdown();
@@ -2134,6 +2102,8 @@ class PlayState extends MusicBeatState
 
 		if (healthBar.percent > 80)
 			iconP2.animation.curAnim.curFrame = 1;
+		else if (healthBar.percent < 20 && dad.curCharacter == 'gooderratic' || healthBar.percent > 20 && dad.curCharacter == 'brokenerratic')
+			iconP2.animation.curAnim.curFrame = 2;
 		else
 			iconP2.animation.curAnim.curFrame = 0;
 
@@ -2700,7 +2670,7 @@ class PlayState extends MusicBeatState
 				// trace(daNote.y);
 				// WIP interpolation shit? Need to fix the pause issue
 				// daNote.y = (strumLine.y - (songTime - daNote.strumTime) * (0.45 * PlayState.SONG.speed));
-				var maledicta = SONG.song.toLowerCase() == 'maledicta';
+				var maledicta = SONG.song.toLowerCase() == 'maledicta' || SONG.song.toLowerCase() == 'sentimental';
 				if ((daNote.mustPress && daNote.tooLate && !PlayStateChangeables.useDownscroll || daNote.mustPress && daNote.tooLate
 					&& PlayStateChangeables.useDownscroll)
 					&& daNote.mustPress)
@@ -2737,10 +2707,6 @@ class PlayState extends MusicBeatState
 								vocals.volume = 0;
 								if (theFunne)
 									noteMiss(daNote.noteData, daNote);
-							}
-							else if (SONG.song.toLowerCase() == 'endless')
-							{
-								health -= 9999;
 							}
 							else
 							{
@@ -2959,6 +2925,16 @@ class PlayState extends MusicBeatState
 					else if (SONG.song.toLowerCase() == 'vengeance')
 					{
 						video.playMP4(Paths.video('DDincoming'));
+						video.finishCallback = function()
+						{
+							LoadingState.loadAndSwitchState(new PlayState());
+						}
+
+						isCutscene = true;
+					}
+					else if (SONG.song.toLowerCase() == 'kermis')
+					{
+						video.playMP4(Paths.video('KermisCutscene'));
 						video.finishCallback = function()
 						{
 							LoadingState.loadAndSwitchState(new PlayState());
