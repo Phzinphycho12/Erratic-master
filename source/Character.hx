@@ -130,6 +130,37 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 
+			case 'gemlighterratic':
+				tex = Paths.getSparrowAtlas('characters/Gemlight Erratic');
+				frames = tex;
+				animation.addByPrefix('idle', "Gemlight Erratic Happyidle", 24);
+				animation.addByPrefix('singUP', 'Gemlight Erratic HappyUp', 24, false);
+				animation.addByPrefix('singDOWN', 'Gemlight Erratic HappyDown', 24, false);
+				animation.addByPrefix('singLEFT', 'Gemlight Erratic Happyleft', 24, false);
+				animation.addByPrefix('singRIGHT', 'Gemlight Erratic HappyRight', 24, false);
+				animation.addByPrefix('gunsout', 'Gemlight Erratic Pullsoutthegun', 24, false);
+				animation.addByPrefix('gunidle', "Gemlight Erratic GunIdle", 24);
+				animation.addByPrefix('gunsingUP', 'Gemlight Erratic GunUp', 24, false);
+				animation.addByPrefix('gunsingDOWN', 'Gemlight Erratic GunDown', 24, false);
+				animation.addByPrefix('gunsingLEFT', 'Gemlight Erratic GunLeft', 24, false);
+				animation.addByPrefix('gunsingRIGHT', 'Gemlight Erratic GunRight', 24, false);
+				animation.addByPrefix('shoots', 'Gemlight Erratic Shoots', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", -3, 15);
+				addOffset("singRIGHT", 0, 1);
+				addOffset("singLEFT", 0, 1);
+				addOffset("singDOWN", 0, -1);
+				addOffset('gunsout', 1, 0);
+				addOffset('gunidle');
+				addOffset("gunsingUP", -3, 15);
+				addOffset("gunsingRIGHT", 0, 1);
+				addOffset("gunsingLEFT", 0, 1);
+				addOffset("gunsingDOWN", 0, -1);
+				addOffset('shoots');
+
+				playAnim('idle');
+
 			case 'erratic':
 				tex = Paths.getSparrowAtlas('characters/Erratic');
 				frames = tex;
@@ -236,6 +267,8 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
+				animation.addByPrefix('dodge', 'boyfriend dodge', 24, false);
+				animation.addByPrefix('gethit', 'BF hit', 24, false);
 
 				animation.addByPrefix('firstDeath', "BF dies", 24, false);
 				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
@@ -257,6 +290,8 @@ class Character extends FlxSprite
 				addOffset('deathLoop', 37, 5);
 				addOffset('deathConfirm', 37, 69);
 				addOffset('scared', -4);
+				addOffset('dodge', 5, -10);
+				addOffset('gethit', 14, 20);
 
 				playAnim('idle');
 
@@ -552,16 +587,6 @@ class Character extends FlxSprite
 							playAnim('danceLeft');
 					}
 
-				case 'gf-car':
-					if (!animation.curAnim.name.startsWith('hair'))
-					{
-						danced = !danced;
-
-						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
-					}
 				case 'gf-pixel':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{

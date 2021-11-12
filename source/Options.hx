@@ -367,6 +367,351 @@ class Judgement extends Option
 	}
 }
 
+class EncounterCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('GrandOpening'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Welcome to the Circus";
+	}
+}
+
+class KermisCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('KermisCutscene'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Erratic's Worry";
+	}
+}
+
+class RingmasterCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('AngryErratic'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Erratic's Wrath";
+	}
+}
+
+class VencitIntroCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('VencitCutscene'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Entrance to the Hellscape";
+	}
+}
+
+class VencitOutroCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('Erratic Spares BF'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Escaping the Hellscape";
+	}
+}
+
+class YouTubeTeamManiacExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://www.youtube.com/channel/UC4YzrNhUu2RUEl9AkRsP8Tg");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Team Maniac";
+	}
+}
+
+class YouTubeCQTheKidExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://www.youtube.com/channel/UCZlhI-rvPNKu5rRo4rW8syQ");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "CQ The Kid";
+	}
+}
+
+class YouTubeRedExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://youtube.com/channel/UCDRMS9sjDQMrzoItPdUr3ZQ");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Redpanzee";
+	}
+}
+
+class YouTubeBirbExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://youtube.com/channel/UClyd5uvF1N9pCKdND6Gqwyg");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "ImaLilBirbBoi";
+	}
+}
+
+class YouTubePyroExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://youtube.com/channel/UCTZ32jMa8fQbW6ZXx4y1nXg");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "PyroMANIAC";
+	}
+}
+
+class YouTubeNyxExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://youtube.com/channel/UC8MiY0atAKx7lkPVYpdGxeQ");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Nyx";
+	}
+}
+
+class YouTubeSpeedyExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://youtube.com/channel/UCOMsCbeW7URhiyF2eRgH3Zw");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "SpeedyTheOne";
+	}
+}
+
+class YouTubeTechExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://www.youtube.com/channel/UCdPbvPZsnsbgC8aFtIcsFcA");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Technically Insane";
+	}
+}
+
+class YouTubeRzoarExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://www.youtube.com/channel/UCAAKPT5ybKH6PCTZFqJTzDg");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Rzoarian";
+	}
+}
+
+class YouTubeTGExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://www.youtube.com/channel/UCC1Lem77TP8u7UJsCxAN1hQ");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Broken Rat";
+	}
+}
+
+class YouTubeLSExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.openURL("https://youtube.com/channel/UCKRBrjBqQw52ZGgG_DoaccA");
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Lost Spirits";
+	}
+}
+
 class DataEraseOption extends Option
 {
 	public function new(desc:String)

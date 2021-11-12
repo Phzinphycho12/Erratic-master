@@ -57,6 +57,10 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			levelDifficulty.text += ("GRAND FINALE");
 		}
+		else if (PlayState.SONG.song.toLowerCase() == 'gemlighten')
+		{
+			levelDifficulty.text += ("GEMLIGHT");
+		}
 		else
 		{
 			levelDifficulty.text += CoolUtil.difficultyFromInt(PlayState.storyDifficulty).toUpperCase();

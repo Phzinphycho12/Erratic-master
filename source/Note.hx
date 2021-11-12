@@ -179,6 +179,89 @@ class Note extends FlxSprite
 						}
 				}
 
+			case 'gemlight':
+				frames = Paths.getSparrowAtlas('NOTE_assets');
+				var fuckingSussy = Paths.getSparrowAtlas('specialNotes/Bullets', 'shared');
+				for (amogus in fuckingSussy.frames)
+				{
+					this.frames.pushFrame(amogus);
+				}
+
+				switch (noteType)
+				{
+					case 2:
+						{
+							frames = Paths.getSparrowAtlas('specialNotes/Bullets', 'shared');
+							animation.addByPrefix('greenScroll', 'green instance 1');
+							animation.addByPrefix('redScroll', 'red instance 1');
+							animation.addByPrefix('blueScroll', 'blue instance 1');
+							animation.addByPrefix('purpleScroll', 'purple instance 1');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold instance 1');
+							animation.addByPrefix('greenholdend', 'green hold end instance 1');
+							animation.addByPrefix('redholdend', 'red hold end instance 1');
+							animation.addByPrefix('blueholdend', 'blue hold end instance 1');
+
+							animation.addByPrefix('purplehold', 'purple hold piece instance 1');
+							animation.addByPrefix('greenhold', 'green hold piece instance 1');
+							animation.addByPrefix('redhold', 'red hold piece instance 1');
+							animation.addByPrefix('bluehold', 'blue hold piece instance 1');
+
+							setGraphicSize(Std.int(width * 0.6));
+
+							updateHitbox();
+							antialiasing = true;
+							offset.x += 30;
+							offset.y += 30;
+						}
+					case 3:
+						{
+							frames = Paths.getSparrowAtlas('specialNotes/Demon Arrows', 'shared');
+							animation.addByPrefix('greenScroll', 'Demon Arrows Up');
+							animation.addByPrefix('redScroll', 'Demon Arrows Right');
+							animation.addByPrefix('blueScroll', 'Demon Arrows Down');
+							animation.addByPrefix('purpleScroll', 'Demon Arrows Left');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold instance 1');
+							animation.addByPrefix('greenholdend', 'green hold end instance 1');
+							animation.addByPrefix('redholdend', 'red hold end instance 1');
+							animation.addByPrefix('blueholdend', 'blue hold end instance 1');
+
+							animation.addByPrefix('purplehold', 'purple hold piece instance 1');
+							animation.addByPrefix('greenhold', 'green hold piece instance 1');
+							animation.addByPrefix('redhold', 'red hold piece instance 1');
+							animation.addByPrefix('bluehold', 'blue hold piece instance 1');
+
+							setGraphicSize(Std.int(width * 0.21));
+
+							updateHitbox();
+							antialiasing = true;
+							offset.x += 25;
+							offset.y += 0;
+						}
+					default:
+						{
+							frames = Paths.getSparrowAtlas('NOTE_assets');
+							animation.addByPrefix('greenScroll', 'green instance 1');
+							animation.addByPrefix('redScroll', 'red instance 1');
+							animation.addByPrefix('blueScroll', 'blue instance 1');
+							animation.addByPrefix('purpleScroll', 'purple instance 1');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold instance 1');
+							animation.addByPrefix('greenholdend', 'green hold end instance 1');
+							animation.addByPrefix('redholdend', 'red hold end instance 1');
+							animation.addByPrefix('blueholdend', 'blue hold end instance 1');
+
+							animation.addByPrefix('purplehold', 'purple hold piece instance 1');
+							animation.addByPrefix('greenhold', 'green hold piece instance 1');
+							animation.addByPrefix('redhold', 'red hold piece instance 1');
+							animation.addByPrefix('bluehold', 'blue hold piece instance 1');
+
+							setGraphicSize(Std.int(width * 0.7));
+							updateHitbox();
+							antialiasing = true;
+						}
+				}
 			default:
 				frames = Paths.getSparrowAtlas('NOTE_assets');
 				var fuckingSussy = Paths.getSparrowAtlas('specialNotes/RAGE_Arrows', 'shared');
@@ -263,7 +346,6 @@ class Note extends FlxSprite
 						}
 				}
 		}
-
 		switch (noteData)
 		{
 			case 0:
@@ -279,22 +361,17 @@ class Note extends FlxSprite
 				x += swagWidth * 3;
 				animation.play('redScroll');
 		}
-
 		// trace(prevNote);
-
 		// we make sure its downscroll and its a SUSTAIN NOTE (aka a trail, not a note)
 		// and flip it so it doesn't look weird.
 		// THIS DOESN'T FUCKING FLIP THE NOTE, CONTRIBUTERS DON'T JUST COMMENT THIS OUT JESUS
 		if (FlxG.save.data.downscroll && sustainNote)
 			flipY = true;
-
 		if (isSustainNote && prevNote != null)
 		{
 			noteScore * 0.2;
 			alpha = 0.6;
-
 			x += width / 2;
-
 			switch (noteData)
 			{
 				case 2:
@@ -306,14 +383,10 @@ class Note extends FlxSprite
 				case 0:
 					animation.play('purpleholdend');
 			}
-
 			updateHitbox();
-
 			x -= width / 2;
-
 			if (PlayState.curStage.startsWith('school'))
 				x += 30;
-
 			if (prevNote.isSustainNote)
 			{
 				switch (prevNote.noteData)
@@ -327,7 +400,6 @@ class Note extends FlxSprite
 					case 3:
 						prevNote.animation.play('redhold');
 				}
-
 				if (FlxG.save.data.scrollSpeed != 1)
 					prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * FlxG.save.data.scrollSpeed;
 				else

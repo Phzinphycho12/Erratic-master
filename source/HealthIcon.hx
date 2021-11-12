@@ -22,6 +22,8 @@ class HealthIcon extends FlxSprite
 		animation.add('vencitbf', [24, 25], 0, false, isPlayer);
 		animation.add('vencitbfdrained', [26, 25], 0, false, isPlayer);
 		animation.add('erratic', [4, 5], 0, false, isPlayer);
+		animation.add('gemlighterratic', [30, 31], 0, false, isPlayer);
+		animation.add('gemlighterraticangry', [31, 32], 0, false, isPlayer);
 		animation.add('erraticmad', [10, 11], 0, false, isPlayer);
 		animation.add('erraticpissed', [6, 7], 0, false, isPlayer);
 		animation.add('gooderratic', [2, 3, 5], 0, false, isPlayer);
