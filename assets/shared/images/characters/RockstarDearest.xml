@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="RockstarDearest.png"><SubTexture name="RockstarDearest Idle0000" x="0" y="0" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Idle0001" x="1004" y="0" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Idle0002" x="2008" y="0" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Idle0003" x="3012" y="0" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Idle0004" x="0" y="1104" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Idle0005" x="1004" y="1104" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Idle0006" x="2008" y="1104" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Left0000" x="3012" y="1104" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Left0001" x="0" y="2208" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Left0002" x="1004" y="2208" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Left0003" x="2008" y="2208" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Down0000" x="3012" y="2208" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Down0001" x="0" y="3312" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Down0002" x="1004" y="3312" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Down0003" x="2008" y="3312" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Up0000" x="3012" y="3312" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Up0001" x="0" y="4416" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Up0002" x="1004" y="4416" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Up0003" x="2008" y="4416" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Right0000" x="3012" y="4416" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Right0001" x="0" y="5520" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Right0002" x="1004" y="5520" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+<SubTexture name="RockstarDearest Right0003" x="2008" y="5520" width="1004" height="1104" frameX="0" frameY="0" frameWidth="1004" frameHeight="1104" />
+</TextureAtlas>

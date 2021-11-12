@@ -574,7 +574,7 @@ class PlayState extends MusicBeatState
 						bg.antialiasing = true;
 						add(bg);
 					}
-				case 'rockstarstage':
+				case 'stage':
 					{
 						defaultCamZoom = 0.65;
 						curStage = 'rockstarstage';

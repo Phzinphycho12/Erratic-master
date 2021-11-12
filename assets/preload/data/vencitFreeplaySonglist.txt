@@ -5,6 +5,3 @@ Ringmaster:erraticmad:1
 Vencit:erraticpissed:1
 Freakshow:gooderratic:2
 Vengeance:brokenerratic2:2
-Maledicta:dad:2
-Sentimental:rockstarerratic:3
-Gemlighten:gemlighterratic:4

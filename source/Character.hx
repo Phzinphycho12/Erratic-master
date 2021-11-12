@@ -477,6 +477,24 @@ class Character extends FlxSprite
 				playAnim('idle');
 				flipX = true;
 
+			case 'rockstardad':
+				var tex = Paths.getSparrowAtlas('characters/RockstarDearest', 'shared');
+				frames = tex;
+
+				animation.addByPrefix('idle', 'RockstarDearest Idle', 24, true);
+				animation.addByPrefix('singUP', 'RockstarDearest Up', 24, false);
+				animation.addByPrefix('singLEFT', 'RockstarDearest Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'RockstarDearest Right', 24, false);
+				animation.addByPrefix('singDOWN', 'RockstarDearest Down', 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -29, 27);
+				addOffset("singRIGHT", -38, -7);
+				addOffset("singLEFT", 12, -6);
+				addOffset("singDOWN", -10, -50);
+				setGraphicSize(Std.int(width * 0.75)); // this is a gift from BrightFyre
+				playAnim('idle');
+
 			case 'rockstarerratic-dead':
 				var tex = Paths.getSparrowAtlas('characters/Rockstar Erratic (Death)', 'shared');
 				frames = tex;
