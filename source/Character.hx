@@ -488,11 +488,10 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'RockstarDearest Down', 24, false);
 
 				addOffset('idle', -5);
-				addOffset("singUP", -29, 27);
-				addOffset("singRIGHT", -38, -7);
-				addOffset("singLEFT", 12, -6);
-				addOffset("singDOWN", -10, -50);
-				setGraphicSize(Std.int(width * 0.75)); // this is a gift from BrightFyre
+				addOffset("singUP", -29, -236);
+				addOffset("singRIGHT", -28, -7);
+				addOffset("singLEFT", 12, 14);
+				addOffset("singDOWN", -10, 10);
 				playAnim('idle');
 
 			case 'rockstarerratic-dead':

@@ -29,7 +29,14 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'options', 'donate'];
+	var optionShit:Array<String> = if (FlxG.save.data.week2completed)
+		{
+			['story mode', 'freeplay', 'options', 'donate'];
+		}
+		else
+		{
+			['story mode', 'freeplay', 'options'];
+		}
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -136,35 +143,68 @@ class MainMenuState extends MusicBeatState
 
 		var tex = Paths.getSparrowAtlas('FNF_main_menu_assets');
 
-		for (i in 0...optionShit.length)
+		if (!FlxG.save.data.week2completed)
 		{
-			var menuItem:FlxSprite = new FlxSprite(0, FlxG.height * 1.6);
-			menuItem.frames = tex;
-			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
-			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
-			menuItem.animation.play('idle');
-			menuItem.ID = i;
-			menuItem.screenCenter(X);
-			menuItems.add(menuItem);
-			menuItem.scrollFactor.set();
-			menuItem.antialiasing = true;
-			if (firstStart)
-				FlxTween.tween(menuItem, {y: 150 + (i * 160)}, 1 + (i * 0.25), {
-					ease: FlxEase.expoInOut,
-					onComplete: function(flxTween:FlxTween)
-					{
-						finishedFunnyMove = true;
-						changeItem();
-					}
-				});
-			else
-				menuItem.y = 150 + (i * 160);
+			for (i in 0...optionShit.length)
+			{
+				var menuItem:FlxSprite = new FlxSprite(0, FlxG.height * 1.6);
+				menuItem.frames = tex;
+				menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+				menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+				menuItem.animation.play('idle');
+				menuItem.ID = i;
+				menuItem.screenCenter(X);
+				menuItems.add(menuItem);
+				menuItem.scrollFactor.set();
+				menuItem.antialiasing = true;
+				if (firstStart)
+					FlxTween.tween(menuItem, {y: 150 + (i * 160)}, 1 + (i * 0.25), {
+						ease: FlxEase.expoInOut,
+						onComplete: function(flxTween:FlxTween)
+						{
+							finishedFunnyMove = true;
+							changeItem();
+						}
+					});
+				else
+					menuItem.y = 150 + (i * 160);
+			}
+
+			firstStart = false;
+
+			FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
 		}
+		else
+		{
+			for (i in 0...optionShit.length)
+			{
+				var menuItem:FlxSprite = new FlxSprite(0, FlxG.height * 1.6);
+				menuItem.frames = tex;
+				menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
+				menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
+				menuItem.animation.play('idle');
+				menuItem.ID = i;
+				menuItem.screenCenter(X);
+				menuItems.add(menuItem);
+				menuItem.scrollFactor.set();
+				menuItem.antialiasing = true;
+				if (firstStart)
+					FlxTween.tween(menuItem, {y: 75 + (i * 160)}, 1 + (i * 0.25), {
+						ease: FlxEase.expoInOut,
+						onComplete: function(flxTween:FlxTween)
+						{
+							finishedFunnyMove = true;
+							changeItem();
+						}
+					});
+				else
+					menuItem.y = 75 + (i * 160);
+			}
 
-		firstStart = false;
+			firstStart = false;
 
-		FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
-
+			FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
+		}
 		var corners:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('Menu_Corners'));
 		corners.scrollFactor.x = 0;
 		corners.scrollFactor.y = 0.10;
