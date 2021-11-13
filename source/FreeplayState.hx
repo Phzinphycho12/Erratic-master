@@ -40,7 +40,7 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
-		if (FlxG.save.data.weekcompleted)
+		if (FlxG.save.data.weekcompleted && !FlxG.save.data.week2completed)
 		{
 			var initSonglist = CoolUtil.coolTextFile(Paths.txt('vencitFreeplaySonglist'));
 

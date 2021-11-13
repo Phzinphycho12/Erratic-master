@@ -488,7 +488,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'RockstarDearest Down', 24, false);
 
 				addOffset('idle', -5);
-				addOffset("singUP", -29, -236);
+				addOffset("singUP", 8, 3);
 				addOffset("singRIGHT", -28, -7);
 				addOffset("singLEFT", 12, 14);
 				addOffset("singDOWN", -10, 10);
