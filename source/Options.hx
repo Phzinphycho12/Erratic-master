@@ -492,6 +492,106 @@ class VencitOutroCutsceneExtra extends Option
 	}
 }
 
+class FreakshowCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('Freakshow'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Old Foes, New Allies";
+	}
+}
+
+class VengenaceCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('DDincoming'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Daddy Dearest";
+	}
+}
+
+class MaledictaintroCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('Foes'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Foes";
+	}
+}
+
+class MaledictaoutroCutsceneExtra extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		var video:MP4Handler = new MP4Handler();
+		video.playMP4(Paths.video('GrandFinale'));
+		video.finishCallback = function()
+		{
+			LoadingState.loadAndSwitchState(new ExtrasMenu());
+		}
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Death of the Demon";
+	}
+}
+
 class YouTubeTeamManiacExtra extends Option
 {
 	public function new(desc:String)

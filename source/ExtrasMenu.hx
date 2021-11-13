@@ -31,6 +31,10 @@ class ExtrasMenu extends MusicBeatState
 			new RingmasterCutsceneExtra("Fear the wrath of the Demonic Ringmaster!"),
 			new VencitIntroCutsceneExtra("Enraged, Erratic reveals his mysterious powers!"),
 			new VencitOutroCutsceneExtra("On the verge of Victory, flashbacks fill Erratic's mind, causing him to spare BF"),
+			new FreakshowCutsceneExtra("Erratic awaits BF to help him with a special plan..."),
+			new VengenaceCutsceneExtra("Erratic's curse slowly breaks!"),
+			new MaledictaintroCutsceneExtra("Erratic finally breaks free from his curse!"),
+			new MaledictaoutroCutsceneExtra("At long last... Erratic has gotten his revenge."),
 		]),
 		new OptionCategory("YouTube", [
 			new YouTubeTeamManiacExtra("Head Over to the Official Team Maniac YouTube Channel!"),
