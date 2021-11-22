@@ -366,8 +366,8 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('idle', 'Vencit BF Idle', 16, false);
 				animation.addByPrefix('singUP', 'Vencit BF Up', 16, false);
-				animation.addByPrefix('singLEFT', 'Vencit BF Left', 16, false);
-				animation.addByPrefix('singRIGHT', 'Vencit BF Right', 16, false);
+				animation.addByPrefix('singLEFT', 'Vencit BF Right', 16, false);
+				animation.addByPrefix('singRIGHT', 'Vencit BF Left', 16, false);
 				animation.addByPrefix('singDOWN', 'Vencit BF Down', 16, false);
 				animation.addByPrefix('singUPscared', 'Vencit BF SCAREDUP', 16, false);
 				animation.addByPrefix('singLEFTscared', 'Vencit BF SCAREDLEFT', 16, false);

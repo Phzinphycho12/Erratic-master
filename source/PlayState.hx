@@ -2865,7 +2865,7 @@ class PlayState extends MusicBeatState
 				campaignScore += Math.round(songScore);
 
 				storyPlaylist.remove(storyPlaylist[0]);
-				if (storyPlaylist.length <= 1 && storyDifficulty <= 1 && storyWeek == 0)
+				if (storyPlaylist.length <= 1 && storyDifficulty <= 1 && storyWeek == 0 && !FlxG.save.data.cutscenes)
 				{
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
@@ -2890,7 +2890,7 @@ class PlayState extends MusicBeatState
 					paused = true;
 
 					FlxG.sound.music.stop();
-					if (storyWeek == 0)
+					if (storyWeek == 0 && !FlxG.save.data.cutscenes)
 					{
 						video.playMP4(Paths.video('Erratic Spares BF'));
 						video.finishCallback = function()
@@ -2901,7 +2901,7 @@ class PlayState extends MusicBeatState
 						isCutscene = true;
 						FlxG.save.data.weekcompleted = true;
 					}
-					else if (storyWeek == 1)
+					else if (storyWeek == 1 && !FlxG.save.data.cutscenes)
 					{
 						video.playMP4(Paths.video('GrandFinale'));
 						video.finishCallback = function()
@@ -2910,6 +2910,18 @@ class PlayState extends MusicBeatState
 						}
 
 						isCutscene = true;
+						FlxG.save.data.week2completed = true;
+					}
+					else if (storyWeek == 0 && FlxG.save.data.cutscenes)
+					{
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.switchState(new MainMenuState());
+						FlxG.save.data.weekcompleted = true;
+					}
+					else if (storyWeek == 1 && FlxG.save.data.cutscenes)
+					{
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.switchState(new MainMenuState());
 						FlxG.save.data.week2completed = true;
 					}
 					else
@@ -2962,7 +2974,7 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 
 					FlxG.sound.music.stop();
-					if (SONG.song.toLowerCase() == 'ringmaster')
+					if (SONG.song.toLowerCase() == 'ringmaster' && !FlxG.save.data.cutscenes)
 					{
 						video.playMP4(Paths.video('AngryErratic'));
 						video.finishCallback = function()
@@ -2972,7 +2984,7 @@ class PlayState extends MusicBeatState
 
 						isCutscene = true;
 					}
-					else if (SONG.song.toLowerCase() == 'vencit')
+					else if (SONG.song.toLowerCase() == 'vencit' && !FlxG.save.data.cutscenes)
 					{
 						video.playMP4(Paths.video('VencitCutscene'));
 						video.finishCallback = function()
@@ -2982,7 +2994,7 @@ class PlayState extends MusicBeatState
 
 						isCutscene = true;
 					}
-					else if (SONG.song.toLowerCase() == 'vengeance')
+					else if (SONG.song.toLowerCase() == 'vengeance' && !FlxG.save.data.cutscenes)
 					{
 						video.playMP4(Paths.video('DDincoming'));
 						video.finishCallback = function()
@@ -2992,7 +3004,7 @@ class PlayState extends MusicBeatState
 
 						isCutscene = true;
 					}
-					else if (SONG.song.toLowerCase() == 'kermis')
+					else if (SONG.song.toLowerCase() == 'kermis' && !FlxG.save.data.cutscenes)
 					{
 						video.playMP4(Paths.video('KermisCutscene'));
 						video.finishCallback = function()
@@ -3002,7 +3014,7 @@ class PlayState extends MusicBeatState
 
 						isCutscene = true;
 					}
-					else if (SONG.song.toLowerCase() == 'maledicta')
+					else if (SONG.song.toLowerCase() == 'maledicta' && !FlxG.save.data.cutscenes)
 					{
 						video.playMP4(Paths.video('Foes'));
 						video.finishCallback = function()
@@ -5108,26 +5120,53 @@ class PlayState extends MusicBeatState
 			if (curBeat % 2 == 0 && dad.animOffsets.exists('danceRight'))
 				dad.playAnim('danceRight');
 		}
-		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 141 && curBeat <= 208 && healthBar.percent > 2)
-		{
-			health -= 0.01;
-		}
-		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 208 && curBeat <= 272 && healthBar.percent > 2)
-		{
-			health -= 0.02;
-		}
-		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 272 && curBeat <= 304 && healthBar.percent > 2)
-		{
-			health -= 0.03;
-		}
-		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 304 && curBeat <= 528 && healthBar.percent > 2)
-		{
-			health -= 0.04;
-		}
-		if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 528 && curBeat <= 880 && healthBar.percent > 2)
-		{
-			health -= 0.05;
-		}
+
+		if (SONG.song.toLowerCase() == 'vencit')
+			switch (storyDifficulty)
+			{
+				case 2:
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 141 && curBeat <= 208 && healthBar.percent > 2)
+					{
+						health -= 0.005;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 208 && curBeat <= 272 && healthBar.percent > 2)
+					{
+						health -= 0.01;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 272 && curBeat <= 304 && healthBar.percent > 2)
+					{
+						health -= 0.015;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 304 && curBeat <= 528 && healthBar.percent > 2)
+					{
+						health -= 0.02;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 528 && curBeat <= 880 && healthBar.percent > 2)
+					{
+						health -= 0.025;
+					}
+				case 3:
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 141 && curBeat <= 208 && healthBar.percent > 2)
+					{
+						health -= 0.01;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 208 && curBeat <= 272 && healthBar.percent > 2)
+					{
+						health -= 0.02;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 272 && curBeat <= 304 && healthBar.percent > 2)
+					{
+						health -= 0.03;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 304 && curBeat <= 528 && healthBar.percent > 2)
+					{
+						health -= 0.04;
+					}
+					if (SONG.song.toLowerCase() == 'vencit' && curBeat >= 528 && curBeat <= 880 && healthBar.percent > 2)
+					{
+						health -= 0.05;
+					}
+			}
 
 		if (SONG.song.toLowerCase() == 'maledicta' && curStep >= 1407 && curStep <= 1439)
 			gf.playAnim('singUP', true);

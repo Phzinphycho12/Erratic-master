@@ -319,7 +319,7 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				if (curWeek == 0)
+				if (curWeek == 0 && !FlxG.save.data.cutscenes)
 				{
 					video.playMP4(Paths.video('GrandOpening'));
 					video.finishCallback = function()
@@ -327,7 +327,7 @@ class StoryMenuState extends MusicBeatState
 						LoadingState.loadAndSwitchState(new PlayState());
 					}
 				}
-				else if (curWeek == 1)
+				else if (curWeek == 1 && !FlxG.save.data.cutscenes)
 				{
 					video.playMP4(Paths.video('Freakshow'));
 					video.finishCallback = function()
