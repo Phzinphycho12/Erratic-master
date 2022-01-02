@@ -256,6 +256,32 @@ class PlayState extends MusicBeatState
 	private var executeModchart = false;
 
 	// API stuff
+	var video:MP4Handler;
+
+	function playCutscene(name:String)
+	{
+		inCutscene = true;
+
+		video = new MP4Handler();
+		video.finishCallback = function()
+		{
+			startCountdown();
+		}
+		video.playVideo(Paths.video(name));
+	}
+
+	function playEndCutscene(name:String)
+	{
+		inCutscene = true;
+
+		video = new MP4Handler();
+		video.finishCallback = function()
+		{
+			SONG = Song.loadFromJson(storyPlaylist[0].toLowerCase());
+			LoadingState.loadAndSwitchState(new PlayState());
+		}
+		video.playVideo(Paths.video(name));
+	}
 
 	public function addObject(object:FlxBasic)
 	{
@@ -1070,6 +1096,20 @@ class PlayState extends MusicBeatState
 		{
 			switch (StringTools.replace(curSong, " ", "-").toLowerCase())
 			{
+				case 'encounter':
+					playCutscene('GrandOpening');
+				case 'kermis':
+					playCutscene('KermisCutscene');
+				case 'ringmaster':
+					playCutscene('AngryErratic');
+				case 'vencit':
+					playCutscene('VencitCutscene');
+				case 'freakshow':
+					playCutscene('Freakshow');
+				case 'vengeance':
+					playCutscene('DDincoming');
+				case 'maledicta':
+					playCutscene('Foes');
 				default:
 					startCountdown();
 			}
@@ -2867,49 +2907,21 @@ class PlayState extends MusicBeatState
 				storyPlaylist.remove(storyPlaylist[0]);
 				if (storyPlaylist.length <= 1 && storyDifficulty <= 1 && storyWeek == 0 && !FlxG.save.data.cutscenes)
 				{
-					transIn = FlxTransitionableState.defaultTransIn;
-					transOut = FlxTransitionableState.defaultTransOut;
-
-					paused = true;
-
-					FlxG.sound.music.stop();
-
-					video.playMP4(Paths.video('TooBadCutscene'));
-					video.finishCallback = function()
-					{
-						LoadingState.loadAndSwitchState(new MainMenuState());
-					}
-
-					isCutscene = true;
+					playEndCutscene('TooBadCutscene');
 				}
 				else if (storyPlaylist.length <= 0)
 				{
-					transIn = FlxTransitionableState.defaultTransIn;
-					transOut = FlxTransitionableState.defaultTransOut;
-
 					paused = true;
 
 					FlxG.sound.music.stop();
 					if (storyWeek == 0 && !FlxG.save.data.cutscenes)
 					{
-						video.playMP4(Paths.video('Erratic Spares BF'));
-						video.finishCallback = function()
-						{
-							LoadingState.loadAndSwitchState(new MainMenuState());
-						}
-
-						isCutscene = true;
+						playEndCutscene('Erratic Spares BF');
 						FlxG.save.data.weekcompleted = true;
 					}
 					else if (storyWeek == 1 && !FlxG.save.data.cutscenes)
 					{
-						video.playMP4(Paths.video('GrandFinale'));
-						video.finishCallback = function()
-						{
-							LoadingState.loadAndSwitchState(new MainMenuState());
-						}
-
-						isCutscene = true;
+						playEndCutscene('GrandFinale');
 						FlxG.save.data.week2completed = true;
 					}
 					else if (storyWeek == 0 && FlxG.save.data.cutscenes)
@@ -2967,67 +2979,13 @@ class PlayState extends MusicBeatState
 					trace('LOADING NEXT SONG');
 					trace(poop);
 
-					FlxTransitionableState.skipNextTransIn = true;
-					FlxTransitionableState.skipNextTransOut = true;
 					prevCamFollow = camFollow;
 
 					PlayState.SONG = Song.loadFromJson(poop, PlayState.storyPlaylist[0]);
 
 					FlxG.sound.music.stop();
-					if (SONG.song.toLowerCase() == 'ringmaster' && !FlxG.save.data.cutscenes)
-					{
-						video.playMP4(Paths.video('AngryErratic'));
-						video.finishCallback = function()
-						{
-							LoadingState.loadAndSwitchState(new PlayState());
-						}
 
-						isCutscene = true;
-					}
-					else if (SONG.song.toLowerCase() == 'vencit' && !FlxG.save.data.cutscenes)
-					{
-						video.playMP4(Paths.video('VencitCutscene'));
-						video.finishCallback = function()
-						{
-							LoadingState.loadAndSwitchState(new PlayState());
-						}
-
-						isCutscene = true;
-					}
-					else if (SONG.song.toLowerCase() == 'vengeance' && !FlxG.save.data.cutscenes)
-					{
-						video.playMP4(Paths.video('DDincoming'));
-						video.finishCallback = function()
-						{
-							LoadingState.loadAndSwitchState(new PlayState());
-						}
-
-						isCutscene = true;
-					}
-					else if (SONG.song.toLowerCase() == 'kermis' && !FlxG.save.data.cutscenes)
-					{
-						video.playMP4(Paths.video('KermisCutscene'));
-						video.finishCallback = function()
-						{
-							LoadingState.loadAndSwitchState(new PlayState());
-						}
-
-						isCutscene = true;
-					}
-					else if (SONG.song.toLowerCase() == 'maledicta' && !FlxG.save.data.cutscenes)
-					{
-						video.playMP4(Paths.video('Foes'));
-						video.finishCallback = function()
-						{
-							LoadingState.loadAndSwitchState(new PlayState());
-						}
-
-						isCutscene = true;
-					}
-					else
-					{
-						LoadingState.loadAndSwitchState(new PlayState(), true);
-					}
+					LoadingState.loadAndSwitchState(new PlayState(), true);
 				}
 			}
 			else

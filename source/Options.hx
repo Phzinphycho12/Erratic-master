@@ -52,6 +52,14 @@ class Option
 	private var display:String;
 	private var acceptValues:Bool = false;
 
+	var video:MP4Handler;
+
+	function playCutscene(name:String)
+	{
+		video = new MP4Handler();
+		video.finishCallback = function() video.playVideo(Paths.video(name));
+	}
+
 	public final function getDisplay():String
 	{
 		return display;
@@ -398,12 +406,7 @@ class EncounterCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('GrandOpening'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('GrandOpening');
 		return true;
 	}
 
@@ -423,12 +426,7 @@ class KermisCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('KermisCutscene'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('KermisCutscene');
 		return true;
 	}
 
@@ -448,12 +446,7 @@ class RingmasterCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('AngryErratic'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('AngryErratic');
 		return true;
 	}
 
@@ -473,12 +466,7 @@ class VencitIntroCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('VencitCutscene'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('VencitCutscene');
 		return true;
 	}
 
@@ -498,12 +486,7 @@ class VencitOutroCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('Erratic Spares BF'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('Erratic Spares BF');
 		return true;
 	}
 
@@ -523,12 +506,7 @@ class FreakshowCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('Freakshow'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('Freakshow');
 		return true;
 	}
 
@@ -548,12 +526,7 @@ class VengenaceCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('DDincoming'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('DDincoming');
 		return true;
 	}
 
@@ -573,12 +546,7 @@ class MaledictaintroCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('Foes'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('Foes');
 		return true;
 	}
 
@@ -598,12 +566,7 @@ class MaledictaoutroCutsceneExtra extends Option
 
 	public override function press():Bool
 	{
-		var video:MP4Handler = new MP4Handler();
-		video.playMP4(Paths.video('GrandFinale'));
-		video.finishCallback = function()
-		{
-			LoadingState.loadAndSwitchState(new ExtrasMenu());
-		}
+		playCutscene('GrandFinale');
 		return true;
 	}
 

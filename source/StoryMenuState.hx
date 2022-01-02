@@ -307,7 +307,6 @@ class StoryMenuState extends MusicBeatState
 				case 'Philly-Nice':
 					songFormat = 'Philly';
 			}
-			var video:MP4Handler = new MP4Handler();
 			var poop:String = Highscore.formatSong(songFormat, curDifficulty);
 			PlayState.sicks = 0;
 			PlayState.bads = 0;
@@ -319,23 +318,6 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				if (curWeek == 0 && !FlxG.save.data.cutscenes)
-				{
-					video.playMP4(Paths.video('GrandOpening'));
-					video.finishCallback = function()
-					{
-						LoadingState.loadAndSwitchState(new PlayState());
-					}
-				}
-				else if (curWeek == 1 && !FlxG.save.data.cutscenes)
-				{
-					video.playMP4(Paths.video('Freakshow'));
-					video.finishCallback = function()
-					{
-						LoadingState.loadAndSwitchState(new PlayState());
-					}
-				}
-				else
 				{
 					LoadingState.loadAndSwitchState(new PlayState(), true);
 				}
