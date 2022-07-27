@@ -256,31 +256,26 @@ class PlayState extends MusicBeatState
 	private var executeModchart = false;
 
 	// API stuff
-	var video:MP4Handler;
 
 	function playCutscene(name:String)
 	{
 		inCutscene = true;
 
-		video = new MP4Handler();
-		video.finishCallback = function()
 		{
 			startCountdown();
 		}
-		video.playVideo(Paths.video(name));
+		
 	}
 
 	function playEndCutscene(name:String)
 	{
 		inCutscene = true;
 
-		video = new MP4Handler();
-		video.finishCallback = function()
 		{
 			SONG = Song.loadFromJson(storyPlaylist[0].toLowerCase());
 			LoadingState.loadAndSwitchState(new PlayState());
 		}
-		video.playVideo(Paths.video(name));
+		
 	}
 
 	public function addObject(object:FlxBasic)
@@ -1123,11 +1118,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (!loadRep)
-			rep = new Replay("na");
-
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, handleInput);
-
+          #if android
+      addVirtualPad(FULL, A_B);
+      #end
 		super.create();
 	}
 
@@ -1200,6 +1194,9 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		#if android	 
+androidc.visible = true;
+#end
 		SONG.noteStyle = ChartingState.defaultnoteStyle;
 
 		var doesitTween:Bool = if (SONG.song.toLowerCase() == "vencit") true else false;
@@ -2888,8 +2885,6 @@ class PlayState extends MusicBeatState
 			Highscore.saveCombo(songHighscore, Ratings.GenerateLetterRank(accuracy), storyDifficulty);
 			#end
 		}
-
-		var video:MP4Handler = new MP4Handler();
 
 		if (offsetTesting)
 		{
