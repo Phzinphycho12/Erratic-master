@@ -72,8 +72,18 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
+   #if desktop
+		DiscordClient.initialize();
+		
+   Application.current.onExit.add (function (exitCode) {
+			DiscordClient.shutdown();
+		 });
+		 
+	#end
+		 
 		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
-		addChild(game);,
+		addChild(game);
+
 
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsCounter);
@@ -109,3 +119,4 @@ class Main extends Sprite
 		return fpsCounter.currentFPS;
 	}
 }
+
