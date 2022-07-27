@@ -52,12 +52,11 @@ class Option
 	private var display:String;
 	private var acceptValues:Bool = false;
 
-	var video:MP4Handler;
 
 	function playCutscene(name:String)
 	{
-		video = new MP4Handler();
-		video.finishCallback = function() video.playVideo(Paths.video(name));
+
+
 	}
 
 	public final function getDisplay():String
@@ -122,6 +121,27 @@ class DFJKOption extends Option
 	{
 		return "Key Bindings";
 	}
+}
+
+class AndroidControls extends Option
+{
+	public function new()
+	{
+		super();
+	}
+
+	public override function press():Bool
+	{
+		trace("switch");
+		FlxG.switchState(new android.AndroidControlsMenu());
+		return false;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Android Controls";
+	}
+  
 }
 
 class CpuStrums extends Option
