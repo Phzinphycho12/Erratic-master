@@ -2949,9 +2949,10 @@ androidc.visible = true;
 					StoryMenuState.weekUnlocked[Std.int(Math.min(storyWeek + 1, StoryMenuState.weekUnlocked.length - 1))] = true;
 
 					if (SONG.validScore)
-					{
+					{ #if newgrounds
 						NGio.unlockMedal(60961);
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
+						#end
 					}
 
 					FlxG.save.data.weekUnlocked = StoryMenuState.weekUnlocked;
