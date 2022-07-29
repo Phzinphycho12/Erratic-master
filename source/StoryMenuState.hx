@@ -16,7 +16,7 @@ import lime.net.curl.CURLCode;
 
 using StringTools;
 
-#if windows
+#if desktop
 import Discord.DiscordClient;
 #end
 
