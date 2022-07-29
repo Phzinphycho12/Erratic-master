@@ -31,7 +31,7 @@ import openfl.Assets;
 
 using StringTools;
 
-#if windows
+#if desktop
 import Discord.DiscordClient;
 #end
 #if cpp
