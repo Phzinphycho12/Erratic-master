@@ -36,6 +36,8 @@ class Main extends Sprite
 
 	public function new()
 	{
+       SUtil.uncaughtErrorHandler();
+
 		super();
 
 		if (stage != null)
@@ -72,6 +74,8 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
+    SUtil.check();
+                
    #if desktop
 		DiscordClient.initialize();
 		
