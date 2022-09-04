@@ -59,6 +59,7 @@ import openfl.ui.Keyboard;
 import openfl.utils.AssetLibrary;
 import openfl.utils.AssetManifest;
 import openfl.utils.AssetType;
+import ui.Mobilecontrols;
 
 using StringTools;
 
@@ -254,13 +255,19 @@ class PlayState extends MusicBeatState
 	public static var highestCombo:Int = 0;
 
 	private var executeModchart = false;
-
+	
+        #if mobileC
+	var mcontrols:Mobilecontrols; 
+	#end
+		
 	// API stuff
+	
 
 	function playCutscene(name:String)
 	{
 		inCutscene = true;
 
+		
 		{
 			startCountdown();
 		}
@@ -271,6 +278,7 @@ class PlayState extends MusicBeatState
 	{
 		inCutscene = true;
 
+		
 		{
 			SONG = Song.loadFromJson(storyPlaylist[0].toLowerCase());
 			LoadingState.loadAndSwitchState(new PlayState());
@@ -1056,6 +1064,30 @@ class PlayState extends MusicBeatState
 		doof.cameras = [camHUD];
 		if (curStage == ' emptycircus')
 			rain.cameras = [camHUD];
+				
+		#if mobileC
+			mcontrols = new Mobilecontrols();
+			switch (mcontrols.mode)
+			{
+				case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
+					controls.setVirtualPad(mcontrols._virtualPad, FULL, NONE);
+				case HITBOX:
+					controls.setHitBox(mcontrols._hitbox);
+				default:
+			}
+			trackedinputs = controls.trackedinputs;
+			controls.trackedinputs = [];
+
+			var camcontrol = new FlxCamera();
+			FlxG.cameras.add(camcontrol);
+			camcontrol.bgColor.alpha = 0;
+			mcontrols.cameras = [camcontrol];
+
+			mcontrols.visible = false;
+
+			add(mcontrols);
+		#end
+			
 
 		if (SONG.song.toLowerCase() == 'vencit')
 		{
@@ -1118,10 +1150,11 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if (!loadRep)
+			rep = new Replay("na");
+
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, handleInput);
-          #if android
-      addVirtualPad(FULL, A_B);
-      #end
+
 		super.create();
 	}
 
@@ -1193,10 +1226,13 @@ class PlayState extends MusicBeatState
 	#end
 
 	function startCountdown():Void
-	{
-		#if android	 
-androidc.visible = true;
-#end
+	{ 
+		
+		#if mobileC
+		mcontrols.visible = true;
+		#end
+			
+		
 		SONG.noteStyle = ChartingState.defaultnoteStyle;
 
 		var doesitTween:Bool = if (SONG.song.toLowerCase() == "vencit") true else false;
@@ -2886,6 +2922,7 @@ androidc.visible = true;
 			#end
 		}
 
+		
 		if (offsetTesting)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
@@ -2949,10 +2986,9 @@ androidc.visible = true;
 					StoryMenuState.weekUnlocked[Std.int(Math.min(storyWeek + 1, StoryMenuState.weekUnlocked.length - 1))] = true;
 
 					if (SONG.validScore)
-					{ #if newgrounds
-						NGio.unlockMedal(60961);
+					{
+						
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
-						#end
 					}
 
 					FlxG.save.data.weekUnlocked = StoryMenuState.weekUnlocked;
